@@ -1,0 +1,242 @@
+<header class="navbar">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <div class="navbar-logo">
+      <a href="#">DTDI <strong>Solutions</strong></a>
+    </div>
+
+    <!-- Hamburger Menu (for small screens) -->
+    <button class="menu-toggle" (click)="isMenuOpen = !isMenuOpen">
+      <nz-icon nzType="menu" nzTheme="outline"></nz-icon>
+    </button>
+
+    <!-- Navigation Links (Sidebar on Small Screens) -->
+    <nav class="navbar-menu" [class.active]="isMenuOpen">
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Fields</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Language Switcher -->
+    <div class="navbar-language">
+      <a nz-dropdown [nzDropdownMenu]="menu" [nzClickHide]="false" class="lang-btn">
+        {{ selectedLang }}
+        <span><nz-icon nzType="down" class="dropdown-icon" /></span>
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+          <li nz-menu-item (click)="selectedLang = 'en'">en</li>
+          <li nz-menu-item (click)="selectedLang = 'vi'">vi</li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-wrapper">
+    <div class="hero-content">
+      <h1>
+        Empower Your Business with <br />
+        Next-Gen IT Solutions
+      </h1>
+      <p>Innovative, Scalable, and Future-Proof Technologies for Your Success</p>
+      <button nz-button nzType="primary">Get Started</button>
+    </div>
+    <div class="hero-image">
+      <img src="assets/hero-image.png" alt="IT Solutions" />
+    </div>
+  </div>
+</section>
+
+<section id="why-choose-us" class="section dark-section container">
+  <h2>Why Choose Us?</h2>
+  <div class="cards-container">
+    <div class="card">
+      <h3>Experience</h3>
+      <p>Years of expertise in delivering top-notch IT solutions.</p>
+    </div>
+    <div class="card">
+      <h3>Reliability</h3>
+      <p>Dependable and scalable solutions tailored to your needs.</p>
+    </div>
+    <div class="card">
+      <h3>Cutting-Edge Solutions</h3>
+      <p>We leverage the latest technologies to keep you ahead.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section about-us">
+  <h2>About Us</h2>
+  <nz-timeline nzMode="alternate">
+    <nz-timeline-item nzColor="blue">
+      <div class="timeline-content">
+        <img src="assets/vision.jpg" alt="Vision" />
+        <h3>Our Vision</h3>
+        <p>Driving innovation to transform businesses worldwide.</p>
+      </div>
+    </nz-timeline-item>
+    <nz-timeline-item nzColor="green">
+      <div class="timeline-content">
+        <img src="assets/mission.jpg" alt="Mission" />
+        <h3>Our Mission</h3>
+        <p>Delivering scalable and future-proof IT solutions.</p>
+      </div>
+    </nz-timeline-item>
+    <nz-timeline-item nzColor="red">
+      <div class="timeline-content">
+        <img src="assets/values.jpg" alt="Values" />
+        <h3>Our Values</h3>
+        <p>Commitment to excellence, innovation, and client satisfaction.</p>
+      </div>
+    </nz-timeline-item>
+  </nz-timeline>
+</section>
+
+<section id="fields" class="section dark-section">
+  <h2>IT Fields</h2>
+  <div class="fields-grid">
+    <div class="field-item">
+      <img src="assets/ai.jpg" alt="Artificial Intelligence" />
+      <h3>Artificial Intelligence</h3>
+      <p>Enhancing automation and decision-making through AI-powered solutions.</p>
+    </div>
+    <div class="field-item">
+      <img src="assets/cybersecurity.jpg" alt="Cybersecurity" />
+      <h3>Cybersecurity</h3>
+      <p>Protecting data and systems from cyber threats and vulnerabilities.</p>
+    </div>
+    <div class="field-item">
+      <img src="assets/cloud.jpg" alt="Cloud Computing" />
+      <h3>Cloud Computing</h3>
+      <p>Scalable and secure cloud infrastructure for businesses.</p>
+    </div>
+    <div class="field-item">
+      <img src="assets/blockchain.jpg" alt="Blockchain" />
+      <h3>Blockchain</h3>
+      <p>Decentralized solutions ensuring transparency and security.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section container">
+  <h2>Our Projects</h2>
+  <div class="projects-container">
+    @for (project of projects; track $index) {
+      <div class="project-card">
+        <img [src]="project.image" [alt]="project.title" />
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        <button nz-button nzType="link">View More</button>
+      </div>
+    }
+  </div>
+</section>
+
+<section id="cooperation" class="section dark-section container">
+  <h2>Cooperation Models</h2>
+  <div class="cooperation-container">
+    <div class="cooperation-card">
+      <img src="assets/fixed-price.png" alt="Fixed Price" />
+      <h3>Fixed Price</h3>
+      <p>Predictable costs for well-defined projects.</p>
+    </div>
+    <div class="cooperation-card">
+      <img src="assets/time-material.png" alt="Time & Material" />
+      <h3>Time & Material</h3>
+      <p>Flexible approach with payment based on time and effort.</p>
+    </div>
+    <div class="cooperation-card">
+      <img src="assets/dedicated-team.png" alt="Dedicated Team" />
+      <h3>Dedicated Team</h3>
+      <p>Full-time experts working exclusively on your project.</p>
+    </div>
+    <div class="cooperation-card">
+      <img src="assets/outsourcing.png" alt="Outsourcing" />
+      <h3>Outsourcing</h3>
+      <p>End-to-end development solutions managed by us.</p>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="section">
+  <h2>What Our Clients Say</h2>
+  <nz-carousel [nzDots]="true" [nzAutoPlay]="true" [nzAutoPlaySpeed]="5000">
+    @for (chunk of chunkedTestimonials; track $index) {
+      <div nz-carousel-content>
+        <div class="testimonial-container">
+          @for (testimonial of chunk; track $index) {
+            <div class="testimonial-card">
+              <img [src]="testimonial.image" alt="{{ testimonial.name }}" />
+              <h3>{{ testimonial.name }}</h3>
+              <p class="role">{{ testimonial.role }} at {{ testimonial.company }}</p>
+              <p class="review">"{{ testimonial.feedback }}"</p>
+              <div class="stars">
+                @for (star of generateStars(testimonial.rating); track $index) {
+                  <span>⭐</span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </nz-carousel>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Get in Touch Section -->
+    <div class="footer-contact">
+      <h3>📩 Get in Touch</h3>
+      <p>Have questions? Reach out, and let's talk about your needs.</p>
+      <ul>
+        <li>✉️ <a href="mailto:support@itsolutions.com">support&#64;itsolutions.com</a></li>
+        <li>📍 New York, USA</li>
+        <li>📞 <a href="tel:+1234567890">+1 234 567 890</a></li>
+      </ul>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>🔗 Quick Links</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Follow Us -->
+    <div class="footer-social">
+      <h3>🌍 Stay Connected</h3>
+      <p>Follow us for updates and insights.</p>
+      <div class="social-icons">
+        <a href="#"><img src="facebook-icon.png" alt="Facebook" /></a>
+        <a href="#"><img src="twitter-icon.png" alt="Twitter" /></a>
+        <a href="#"><img src="linkedin-icon.png" alt="LinkedIn" /></a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h3>📬 Subscribe</h3>
+      <p>Get the latest industry insights straight to your inbox.</p>
+      <form>
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>© 2025 DTDI Solutions | All rights reserved.</p>
+  </div>
+</footer>
