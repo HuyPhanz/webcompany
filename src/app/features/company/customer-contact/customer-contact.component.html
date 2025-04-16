@@ -1,0 +1,67 @@
+<nz-card nzTitle="Customer Contact" class="custom-card">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <!-- title -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Name</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+        <input nz-input formControlName="name" placeholder="Enter your name" />
+        <ng-template #userErrorTpl let-control>
+          @if (control.errors?.['required']) {
+            Please input your username!
+          }
+          @if (control.errors?.['duplicated']) {
+            The username is redundant!
+          }
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- email -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>E-mail</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="emailErrorTpl">
+        <input nz-input formControlName="email" placeholder="E-mail" type="email" />
+        <ng-template #emailErrorTpl let-control>
+          @if (control.errors?.['email']) {
+            The input is not valid E-mail!
+          }
+          @if (control.errors?.['required']) {
+            Please input your E-mail!
+          }
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- Phone -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Phone</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Phone isn't valid">
+        <input nz-input formControlName="phone" placeholder="Phone" type="number" />
+      </nz-form-control>
+    </nz-form-item>
+    <!-- address  -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Message</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please enter your message!">
+        <nz-textarea-count [nzMaxCharacterCount]="1000">
+          <textarea nz-input rows="4" formControlName="message" placeholder="Please enter your message"></textarea>
+        </nz-textarea-count>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Status -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="status" nzRequired>Status</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="'Please select your status!'">
+        <nz-select id="status" formControlName="status" placeholder="Select status">
+          <nz-option nzValue="active" nzLabel="🟢 Online"></nz-option>
+          <nz-option nzValue="inactive" nzLabel="🔴 Offline"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- submit -->
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzOffset]="6" [nzSpan]="12">
+        <button nz-button nzType="primary">Lưu</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-card>

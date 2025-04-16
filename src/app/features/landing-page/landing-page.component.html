@@ -13,11 +13,11 @@
     <!-- Navigation Links (Sidebar on Small Screens) -->
     <nav class="navbar-menu" [class.active]="isMenuOpen">
       <ul>
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Fields</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
+        @for (item of menuHeader; track item.href) {
+          <li>
+            <a [routerLink]="item.href" [ngClass]="item.class">{{ item.title }}</a>
+          </li>
+        }
       </ul>
     </nav>
 

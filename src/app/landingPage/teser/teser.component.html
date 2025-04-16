@@ -1,0 +1,38 @@
+<nz-table #editRowTable nzBordered [nzData]="listOfData" nzTableLayout="fixed">
+  <thead>
+  <tr>
+    <th nzWidth="25%">Name</th>
+    <th nzWidth="15%">Age</th>
+    <th nzWidth="40%">Address</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (data of editRowTable.data; track data) {
+      <tr>
+        @if (!editCache[data.slug].edit) {
+          <td>{{ data.title }}</td>
+          <td>{{ data.content }}</td>
+          <td>{{ data.slug }}</td>
+          <td>
+            <button nz-button nzType="primary" (click)="startEdit(data.slug)">
+              <nz-icon nzType="edit" />Edit
+            </button>
+            <button nz-button nzType="primary" nzDanger>
+              <nz-icon nzType="delete" />Delete
+            </button>
+          </td>
+        } @else {
+          <td><input type="text" nz-input [(ngModel)]="editCache[data.slug].data.title" /></td>
+          <td><input type="text" nz-input [(ngModel)]="editCache[data.slug].data.content" /></td>
+          <td><input type="text" nz-input [(ngModel)]="editCache[data.slug].data.slug" /></td>
+          <td>
+            <button nz-button nzType="primary" (click)="saveEdit(data.slug)" class="save">
+             Save
+            </button><button nz-popconfirm nz-button nzType="dashed" nzDanger nzPopconfirmTitle="Sure to cancel?" (nzOnConfirm)="cancelEdit(data.slug)">Cancel</button>
+          </td>
+        }
+      </tr>
+    }
+  </tbody>
+</nz-table>

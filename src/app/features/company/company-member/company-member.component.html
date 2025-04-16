@@ -1,0 +1,68 @@
+<nz-card nzTitle="Company Members" class="custom-card">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <!-- title -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Name</nz-form-label>
+      <nz-form-control [nzSpan]="10" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+        <input nz-input formControlName="name" placeholder="Enter your name" />
+        <ng-template #userErrorTpl let-control>
+          @if (control.errors?.['required']) {
+            Please input your username!
+          }
+          @if (control.errors?.['duplicated']) {
+            The username is redundant!
+          }
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- Position -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="position" nzRequired>Position</nz-form-label>
+      <nz-form-control [nzSpan]="10" nzErrorTip="Please select your position!">
+        <nz-select id="position" formControlName="position" nzPlaceHolder="Select a option and change input text above">
+          <nz-option nzValue="ceo" nzLabel="Giám đốc"></nz-option>
+          <nz-option nzValue="manager " nzLabel="Trưởng phòng"></nz-option>
+          <nz-option nzValue="accountant" nzLabel="Kế toán"></nz-option>
+          <nz-option nzValue="employee" nzLabel="Nhân viên"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- address  -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Bio</nz-form-label>
+      <nz-form-control [nzSpan]="10" nzHasFeedback nzErrorTip="Please enter your bio!">
+        <nz-textarea-count [nzMaxCharacterCount]="1000">
+          <textarea nz-input rows="2" formControlName="bio" placeholder="Please enter your bio"></textarea>
+        </nz-textarea-count>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- email -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>E-mail</nz-form-label>
+      <nz-form-control [nzSpan]="10" nzHasFeedback [nzErrorTip]="emailErrorTpl">
+        <input nz-input formControlName="email" placeholder="E-mail" type="email" />
+        <ng-template #emailErrorTpl let-control>
+          @if (control.errors?.['email']) {
+            The input is not valid E-mail!
+          }
+          @if (control.errors?.['required']) {
+            Please input your E-mail!
+          }
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- order -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="order" nzRequired>Order</nz-form-label>
+      <nz-form-control [nzSpan]="10" nzHasFeedback nzErrorTip="This field is required">
+        <input nz-input formControlName="order" type="number" placeholder="Nhập số thứ tự" />
+      </nz-form-control>
+    </nz-form-item>
+    <!-- submit -->
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzOffset]="6" [nzSpan]="12">
+        <button nz-button nzType="primary">Lưu</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-card>

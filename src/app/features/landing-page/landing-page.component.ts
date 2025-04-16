@@ -5,6 +5,9 @@ import { NzTimelineComponent, NzTimelineItemComponent } from 'ng-zorro-antd/time
 import { NzDropDownDirective, NzDropdownMenuComponent } from 'ng-zorro-antd/dropdown';
 import { NzMenuDirective, NzMenuItemComponent } from 'ng-zorro-antd/menu';
 import { NzIconDirective } from 'ng-zorro-antd/icon';
+import {MENU_HEADER} from '../../constant';
+import { NgClass } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -12,6 +15,7 @@ import { NzIconDirective } from 'ng-zorro-antd/icon';
   styleUrl: 'landing-page.component.scss',
   standalone: true,
   imports: [
+    NgClass, RouterLink,
     NzButtonComponent,
     NzCarouselComponent,
     NzCarouselContentDirective,
@@ -32,6 +36,7 @@ import { NzIconDirective } from 'ng-zorro-antd/icon';
   ]
 })
 export class LandingPageComponent {
+  menuHeader= MENU_HEADER;
   projects = [
     { image: 'assets/project1.jpg', title: 'Project One', description: 'Description of project one.' },
     { image: 'assets/project2.jpg', title: 'Project Two', description: 'Description of project two.' },

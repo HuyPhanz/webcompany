@@ -4,3 +4,7 @@ export interface User {
   email: string;
   role: 'admin' | 'user';
 }
+export interface LoginRes {
+  role: string
+  token: string
+}

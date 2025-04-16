@@ -1,0 +1,54 @@
+<nz-card nzTitle="Company History" class="custom-card">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <!-- title -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Title</nz-form-label>
+      <nz-form-control [nzSpan]="10" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+        <input nz-input formControlName="title" placeholder="Enter your title" />
+        <ng-template #userErrorTpl let-control>
+          @if (control.errors?.['required']) {
+            Please input your username!
+          }
+          @if (control.errors?.['duplicated']) {
+            The username is redundant!
+          }
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- year -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="year" nzRequired>Year</nz-form-label>
+      <nz-form-control [nzSpan]="10" nzHasFeedback nzErrorTip="This field is required">
+        <input nz-input formControlName="year" type="number" placeholder="Enter Year" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- address  -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Description</nz-form-label>
+      <nz-form-control [nzSpan]="10" nzHasFeedback nzErrorTip="Please enter your description!">
+        <nz-textarea-count [nzMaxCharacterCount]="1000">
+          <textarea
+            nz-input
+            rows="2"
+            formControlName="description"
+            placeholder="Please enter your description"
+          ></textarea>
+        </nz-textarea-count>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- order -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="order" nzRequired>Order</nz-form-label>
+      <nz-form-control [nzSpan]="10" nzHasFeedback nzErrorTip="This field is required">
+        <input nz-input formControlName="order" type="number" placeholder="Enter number" />
+      </nz-form-control>
+    </nz-form-item>
+    <!-- submit -->
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzOffset]="6" [nzSpan]="12">
+        <button nz-button nzType="primary">Lưu</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-card>

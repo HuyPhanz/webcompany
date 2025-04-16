@@ -5,6 +5,7 @@ import { NzColDirective, NzRowDirective } from 'ng-zorro-antd/grid';
 import { NzInputDirective, NzInputGroupComponent } from 'ng-zorro-antd/input';
 import { NzButtonComponent } from 'ng-zorro-antd/button';
 import { NzCheckboxComponent } from 'ng-zorro-antd/checkbox';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-page-component',
@@ -29,12 +30,14 @@ export class LoginPageComponent {
   loginForm = this.fb.group({
     username: this.fb.control('', [Validators.required]),
     password: this.fb.control('', [Validators.required]),
-    remember: this.fb.control(true)
   });
+
+  authService = inject(AuthService);
 
   submitForm(): void {
     if (this.loginForm.valid) {
       console.log('submit', this.loginForm.value);
+      this.authService.login(this.loginForm.value);
     } else {
       Object.values(this.loginForm.controls).forEach((control) => {
         if (control.invalid) {

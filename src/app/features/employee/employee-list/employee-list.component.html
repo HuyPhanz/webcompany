@@ -1,0 +1,39 @@
+<nz-table
+  #basicTable
+  [nzBordered]="true"
+  [nzData]="listOfData"
+  [nzFrontPagination]="true"
+  [nzShowPagination]="true"
+  [nzPageSize]="5"
+>
+  <thead>
+    <tr>
+      <th>Name:</th>
+      <th>E-mail:</th>
+      <th>Password:</th>
+      <th>Em-code</th>
+      <th>role</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listOfData">
+      <td>{{ data.username }}</td>
+      <td>{{ data.password }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.code }}</td>
+      <td>{{ data.role }}</td>
+      <!-- action -->
+      <td id="action">
+        <button nz-button nzType="primary">
+          <nz-icon nzType="edit" nzTheme="outline" />
+        </button>
+
+        <button nz-button nzType="primary" nzDanger>
+          <nz-icon nzType="delete" nzTheme="outline" />
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<button (click)="getAllEmployee()">Click here</button>

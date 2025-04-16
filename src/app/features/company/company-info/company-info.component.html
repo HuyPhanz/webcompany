@@ -1,0 +1,65 @@
+<nz-card nzTitle="Company Introduction" class="custom-card">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Site Name</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please input site name">
+        <input nz-input formControlName="siteName" placeholder="Website name" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Logo</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please upload an icon">
+        <input nz-input formControlName="icon" placeholder="Enter logo url" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Description</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please input site description">
+        <textarea nz-input formControlName="siteDescription" placeholder="Enter description"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Email</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid email">
+        <input nz-input formControlName="contactEmail" placeholder="Enter company email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Phone</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid phone number">
+        <input nz-input formControlName="contactPhone" placeholder="Enter phone" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Address</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please input contact address">
+        <input nz-input formControlName="contactAddress" placeholder="Enter company address" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Working Hours</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please input working hours">
+        <input nz-input formControlName="workingHours" placeholder="Working hours" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Map Embed URL</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please input map embed URL">
+        <input nz-input formControlName="mapEmbedUrl" placeholder="Enter Map Url" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" [disabled]="validateForm.invalid">Submit</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-card>
