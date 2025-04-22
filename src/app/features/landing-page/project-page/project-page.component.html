@@ -1,11 +1,12 @@
 <section class="project">
   <div class="container">
     <div class="content-title">
-      <h3>Case
-        <br>Study <span class="dot">.</span></h3>
-      <p>Với kinh nghiệm phong phú, sở hữu danh sách đặc biệt về công nghệ kỹ thuật cao,
-        <br>
-        DTDI Company Solutions chúng tôi sẽ mang tới cho quý khách hàng hệ thống tối ưu nhất.</p>
+      <h3>Case <br />Study <span class="dot">.</span></h3>
+      <p>
+        Với kinh nghiệm phong phú, sở hữu danh sách đặc biệt về công nghệ kỹ thuật cao,
+        <br />
+        DTDI Company Solutions chúng tôi sẽ mang tới cho quý khách hàng hệ thống tối ưu nhất.
+      </p>
     </div>
     <div class="carousel-wrapper">
       <button class="arrow left" (click)="prev()">&#10094;</button>
@@ -15,7 +16,7 @@
             <div class="card-container">
               @for (item of group; track item) {
                 <div class="card">
-                  <img [src]="item.image" alt="Project Image"  />
+                  <img [src]="item.image" alt="Project Image" />
                   <div class="content">
                     <h3>{{ item.title }}</h3>
                     <p class="description">{{ item.description }}</p>
@@ -35,4 +36,3 @@
     </div>
   </div>
 </section>
-

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-project-page',
-  imports: [NzCarouselModule,CommonModule],
+  imports: [NzCarouselModule, CommonModule],
   templateUrl: './project-page.component.html',
   styleUrl: './project-page.component.scss'
 })
@@ -15,19 +15,47 @@ export class ProjectPageComponent {
     {
       title: 'Hệ thống quản lý chấm công',
       description: 'Dự án phát triển module điều chỉnh thuế cuối năm cho hệ thống quản lý chấm công và tính lương.',
-      tags: ['Quy mô: 50 man-months', 'Thiết kế chi tiết/phát triển', 'PHP Laravel', 'LaravelSnapy', 'MySQL', 'RestAPI', 'VueJS'],
-      image: './assets/img/project-one.jpg',
+      tags: [
+        'Quy mô: 50 man-months',
+        'Thiết kế chi tiết/phát triển',
+        'PHP Laravel',
+        'LaravelSnapy',
+        'MySQL',
+        'RestAPI',
+        'VueJS'
+      ],
+      image: './assets/img/project-one.jpg'
     },
     {
       title: 'Thiết kế nghiệp vụ SaaS',
       description: 'Dự án phát triển và bảo trì nền tảng thiết kế nghiệp vụ văn phòng.',
-      tags: ['Quy mô: 7 man-months/tháng', 'Xây dựng yêu cầu kỹ thuật', 'Phát triển', 'ReactJS', 'NextJS', 'AppSync', 'Amplify', 'OpenSearch'],
+      tags: [
+        'Quy mô: 7 man-months/tháng',
+        'Xây dựng yêu cầu kỹ thuật',
+        'Phát triển',
+        'ReactJS',
+        'NextJS',
+        'AppSync',
+        'Amplify',
+        'OpenSearch'
+      ],
       image: './assets/img/prj-2.jpg'
     },
     {
       title: 'Hệ thống SNS du lịch',
       description: 'Dự án phát triển hệ thống web/ứng dụng mới dành cho quảng cáo du lịch/điểm đến du lịch.',
-      tags: ['Quy mô: 70 man-months', 'Xây dựng kiến trúc', 'Thiết kế cơ bản', 'Phát triển', 'Laravel 8', 'RestAPI', 'VueJS', 'VueMapbox', 'Flutter', 'AWS'],
+      tags: [
+        'Quy mô: 70 man-months',
+        'Xây dựng kiến trúc',
+        'Thiết kế cơ bản',
+        'Phát triển',
+        'Laravel 8',
+        'RestAPI',
+        'VueJS',
+        'VueMapbox',
+        'Flutter',
+        'AWS'
+      ],
       image: './assets/img/prj-3.jpg'
     },
     {

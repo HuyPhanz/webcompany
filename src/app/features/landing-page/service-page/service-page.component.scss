@@ -52,7 +52,7 @@
           margin-bottom: 20px;
 
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -62,7 +62,7 @@
             border-radius: 2px;
           }
         }
-        .content-text{
+        .content-text {
           p {
             font-size: 16px;
             color: #555;
@@ -91,13 +91,10 @@
             background-color: #e0e0e0;
           }
         }
-
       }
-      .item-finally{
+      .item-finally {
         border-bottom: none;
       }
     }
   }
 }
-
-

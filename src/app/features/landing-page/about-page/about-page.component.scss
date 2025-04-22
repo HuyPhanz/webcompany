@@ -1,58 +1,57 @@
-.about-us{
+.about-us {
   padding: 60px 100px;
-  .container{
+  .container {
     width: 1200px;
     margin: 0 auto;
-    .content-title{
+    .content-title {
       display: grid;
       grid-template-columns: 1fr 1fr;
       padding: 20px 0;
-      .title{
-        h3{
+      .title {
+        h3 {
           font-size: 60px;
           color: black;
           line-height: 1.1;
           font-weight: bold;
-          .question-mark{
+          .question-mark {
             color: #c93d0a;
           }
         }
       }
-      .text{
+      .text {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        h3{
+        h3 {
           font-size: 16px;
         }
-        p{
+        p {
           font-size: 14px;
           line-height: 1.7;
           font-weight: 400;
         }
       }
     }
-    .us-image{
-      padding: 20px 0 50px  0px;
+    .us-image {
+      padding: 20px 0 50px 0px;
     }
-    .company-profile{
-      .header-wrapper{
-        .item-title{
+    .company-profile {
+      .header-wrapper {
+        .item-title {
           font-size: 3rem;
           font-weight: bold;
           padding-left: 16px;
-          border-left: 7px solid #c93d0a ;
+          border-left: 7px solid #c93d0a;
         }
       }
-      .profile-list{
+      .profile-list {
         line-height: 1.8;
-        .profile-item{
+        .profile-item {
           padding-left: 25px;
           margin-block: 10px;
           display: grid;
           grid-template-columns: 1fr 5fr;
           gap: 20px;
-
         }
       }
     }

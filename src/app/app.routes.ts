@@ -16,12 +16,13 @@ import { MediaFileComponent } from './features/company/media-file/media-file.com
 import { EmployeeListComponent } from './features/employee/employee-list/employee-list.component';
 import { ProductListComponent } from './features/product/product-list/product-list.component';
 import { NewsListComponent } from './features/news/news-list/news-list.component';
-import { AboutPageComponent } from './shared/about-page/about-page.component';
-import { HomePageComponent } from './shared/home-page/home-page.component';
+import { HomePageComponent } from './features/landing-page/home-page/home-page.component';
+import { AboutPageComponent } from './features/landing-page/about-page/about-page.component';
+import { ServicePageComponent } from './features/landing-page/service-page/service-page.component';
+import { ProjectPageComponent } from './features/landing-page/project-page/project-page.component';
+import { ContactPageComponent } from './features/landing-page/contact-page/contact-page.component';
 import { BannerComponent } from './features/banner/banner.component';
-import { ProjectPageComponent } from './shared/project-page/project-page.component';
-import { ContactPageComponent } from './shared/contact-page/contact-page.component';
-import { ServicePageComponent } from './shared/service-page/service-page.component';
+
 export const routes: Routes = [
   {
     path: '',
@@ -37,15 +38,15 @@ export const routes: Routes = [
       },
       {
         path: 'service-page',
-        component:ServicePageComponent
+        component: ServicePageComponent
       },
       {
         path: 'project-page',
-        component:ProjectPageComponent
+        component: ProjectPageComponent
       },
       {
         path: 'contact-page',
-        component:ContactPageComponent
+        component: ContactPageComponent
       }
     ]
   }, // ✅ Landing Page

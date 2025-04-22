@@ -1,6 +1,6 @@
 //header
 .navbar {
-  height: 60px;
+  height: 64px;
   background: #1b1f3b; /* Dark navy */
   padding: 15px 5%;
   display: flex;
@@ -11,7 +11,7 @@
   left: 0;
   z-index: 1000;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  .ant-layout-header{
+  .ant-layout-header {
     background: #1b1f3b !important ;
   }
   .menu-toggle {
@@ -86,34 +86,34 @@
 
 //Responsive
 @media (min-width: 768px) and (max-width: 1024px) {
-  .navbar{
+  .navbar {
     display: flex;
     justify-content: space-between;
-    .menu-toggle{
+    .menu-toggle {
       display: block;
       font-size: 1.2rem;
     }
-    .navbar-menu{
+    .navbar-menu {
       display: none;
     }
-    .navbar-language{
+    .navbar-language {
       display: none;
     }
   }
 }
 @media (min-width: 320px) and (max-width: 768px) {
-  .navbar{
+  .navbar {
     display: flex;
     justify-content: space-between;
-    .menu-toggle{
+    .menu-toggle {
       display: block;
       font-size: 1.2rem;
       cursor: pointer;
     }
-    .navbar-menu{
+    .navbar-menu {
       display: none;
     }
-    .navbar-language{
+    .navbar-language {
       display: none;
     }
   }
@@ -128,7 +128,7 @@
   width: 100%;
   background-color: #f5f5f5;
   color: #333333;
-  padding: 100px 0 ;
+  padding: 100px 0;
   font-family: 'Arial', sans-serif;
 }
 
@@ -139,7 +139,7 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-.footer-section[_ngcontent-ng-c2572784450] h3[_ngcontent-ng-c2572784450]{
+.footer-section[_ngcontent-ng-c2572784450] h3[_ngcontent-ng-c2572784450] {
   color: #f4a460;
 }
 .footer-section h3 {
@@ -170,7 +170,7 @@
 }
 
 .footer-section ul li a:hover {
-  color:#f4a460;
+  color: #f4a460;
   text-decoration: none;
 }
 
@@ -189,7 +189,7 @@
   gap: 10px;
 }
 
-.newsletter-form input[type="email"] {
+.newsletter-form input[type='email'] {
   flex: 1;
   padding: 10px;
   background-color: #e8e8e8; /* nền input xám sáng */
@@ -221,38 +221,12 @@
   font-size: 13px;
   color: #777777;
 }
-.ant-layout-footer{
-  padding: 0 ;
+.ant-layout-footer {
+  padding: 0;
 }
-.footer[_ngcontent-ng-c2572784450]{
-  padding: 60px 0 10px 0 ;
+.footer[_ngcontent-ng-c2572784450] {
+  padding: 60px 0 10px 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //responsive bannerbanner
 // @media (max-width: 768px) {
@@ -360,9 +334,6 @@
 //   font-size: 1rem;
 //   line-height: 1.5;
 // }
-
-
-
 
 // .project-card {
 //   background: white;

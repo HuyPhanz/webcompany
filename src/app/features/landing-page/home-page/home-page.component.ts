@@ -2,12 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { NzButtonComponent } from 'ng-zorro-antd/button';
 import { NzCarouselComponent, NzCarouselContentDirective } from 'ng-zorro-antd/carousel';
 import { NzIconDirective } from 'ng-zorro-antd/icon';
-import { IT_FIELD } from '../../constant';
+import { IT_FIELD } from '../../../constant';
 
 @Component({
   selector: 'app-home-page',
   imports: [NzButtonComponent, NzCarouselComponent, NzCarouselContentDirective, NzIconDirective],
   templateUrl: './home-page.component.html',
+  standalone: true,
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
@@ -30,5 +31,4 @@ export class HomePageComponent {
   goNext(): void {
     this.carousel?.next();
   }
-
 }
