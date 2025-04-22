@@ -1,0 +1,41 @@
+<nz-table nzBordered [nzData]="productOfData" nzTableLayout="fixed">
+  <thead>
+    <tr>
+      <th nzWidth="20%">Title</th>
+      <th nzWidth="55%">Content</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (data of productOfData; track data) {
+      <tr>
+        @if (!editCache[data.slug].edit) {
+          <td>{{ data.title }}</td>
+          <td>{{ data.content }}</td>
+          <td>
+            <button nz-button nzType="primary" (click)="startEdit(data.slug)"><nz-icon nzType="edit" />Edit</button>
+            <button nz-button nzType="primary" nzDanger (click)="deleteNew(data.id)">
+              <nz-icon nzType="delete" />Delete
+            </button>
+          </td>
+        } @else {
+          <td><input type="text" nz-input [(ngModel)]="editCache[data.slug].data.title" /></td>
+          <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.slug].data.content"></textarea></td>
+          <td>
+            <button nz-button nzType="primary" (click)="updateNew(data.slug)" class="save">Save</button
+            ><button
+              nz-popconfirm
+              nz-button
+              nzType="dashed"
+              nzDanger
+              nzPopconfirmTitle="Sure to cancel?"
+              (nzOnConfirm)="cancelEdit(data.slug)"
+            >
+              Cancel
+            </button>
+          </td>
+        }
+      </tr>
+    }
+  </tbody>
+</nz-table>

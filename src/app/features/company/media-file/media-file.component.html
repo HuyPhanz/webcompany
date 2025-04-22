@@ -1,0 +1,64 @@
+<nz-card nzTitle="Media Files" class="custom-card">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Entity Type</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng chọn loại thực thể!">
+        <nz-select formControlName="entityType" nzPlaceHolder="Select entity type">
+          <nz-option nzValue="COMPANY_INFO" nzLabel="Company Info"></nz-option>
+          <nz-option nzValue="ABOUT_US" nzLabel="Company detail"></nz-option>
+          <nz-option nzValue="MEMBER" nzLabel="Company Members"></nz-option>
+          <nz-option nzValue="COMPANY_HISTORY" nzLabel="Company History"></nz-option>
+          <nz-option nzValue="PRODUCT" nzLabel="Product"></nz-option>
+          <nz-option nzValue="NEWS" nzLabel="News"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>ID </nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập ID thực thể!">
+        <input nz-input formControlName="entityId" placeholder="Nhập ID thực thể" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Đường dẫn</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập đường dẫn!">
+        <input nz-input formControlName="url" placeholder="Nhập đường dẫn" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Tên file gốc</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập tên file!">
+        <input nz-input formControlName="fileName" placeholder="Nhập tên file" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Đường dẫn URL</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập đường dẫn URL!">
+        <input nz-input formControlName="filePath" placeholder="Nhập đường dẫn URL" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Loại file</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập loại file!">
+        <input nz-input formControlName="fileType" placeholder="Ví dụ: jpg, png" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Kích thước file</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập kích thước file!">
+        <input nz-input formControlName="fileSize" placeholder="Nhập kích thước (KB, MB)" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" [disabled]="!validateForm.valid">Lưu</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-card>

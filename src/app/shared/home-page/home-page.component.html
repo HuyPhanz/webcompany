@@ -1,0 +1,233 @@
+<!--banner-->
+<section id="home" class="hero">
+  <div class="hero-wrapper">
+    <div class="hero-content">
+      <h1>Empower Your Business with <br />Next-Gen IT Solutions</h1>
+      <p>Innovative, Scalable, and Future-Proof Technologies for Your Success</p>
+      <button nz-button nzType="primary">Về chúng tôi</button>
+    </div>
+    <div class="hero-image">
+      <nz-carousel #carousel [nzEffect]="effects" nzAutoPlay>
+        @for (index of arrays; track index) {
+          <div nz-carousel-content>
+            <img [src]="index" alt="" />
+          </div>
+        }
+      </nz-carousel>
+      <!--      control-->
+      <div class="carousel-controls">
+        <button nz-button nzType="default" (click)="goPrev()">
+          <nz-icon nzType="left" nzTheme="outline" />
+        </button>
+        <button nz-button nzType="default" (click)="goNext()">
+          <nz-icon nzType="right" nzTheme="outline" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Why Choose Us? -->
+<section id="why-choose-us" class="why-choose-us">
+  <h2>Why Choose Us<span class="question-mark"> ?</span></h2>
+  <div class="cards-container">
+    <div class="card">
+      <div class="card-icon">
+        <nz-icon nzType="customer-service" class="service-icon" nzTheme="outline" />
+      </div>
+      <div class="title">
+        <h3>Dịch vụ tư vấn xây dựng hệ thống CNTT</h3>
+        <a href="#" type="button">
+          <span>Xem thêm</span>
+          <span class="icon">
+            <nz-icon nzType="arrow-right" nzTheme="outline" class="arrow-right" />
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <nz-icon nzType="property-safety" nzTheme="outline" class="service-icon" />
+      </div>
+      <div class="title">
+        <h3>Dịch vụ tư vấn các công nghệ mới</h3>
+        <a href="#" type="button">
+          <span>Xem thêm</span>
+          <span><nz-icon nzType="arrow-right" nzTheme="outline" class="arrow-right" /></span>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <nz-icon nzType="pinterest" nzTheme="outline" class="service-icon" />
+      </div>
+      <div class="title">
+        <h3>Dịch vụ phát triển - bảo trì - vận hành hệ thống</h3>
+        <a href="#" type="button">
+          <span>Xem thêm</span>
+          <span><nz-icon nzType="arrow-right" nzTheme="outline" class="arrow-right" /></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About us-->
+<section id="about" class="about-us">
+  <h3 class="title-about">About Us<span class="dot">.</span></h3>
+  <div class="about-content">
+    <div class="content-title">
+      <h3 class="text">Là người đồng hành trên con đường đổi mới và phát triển của khách hàng</h3>
+      <p>
+        Trong bối cảnh xã với hội với rất nhiều lĩnh vực, doanh nghiệp thay đổi không ngừng từng ngày từng giờ thì việc
+        ứng dụng nhanh chóng công nghệ tiên tiến trở nên vô cùng cấp bách trong công cuộc tăng sức cạnh tranh cũng như
+        tối ưu hiệu suất. DTDI Company chúng tôi là một tổ chức đặc biệt được sinh ra với mục đích giúp quý khách hàng
+        sử dụng triệt để những công nghệ tiên tiến ấy.
+      </p>
+    </div>
+    <div class="content-image">
+      <img
+        src="https://scontent-hkg1-2.xx.fbcdn.net/v/t39.30808-6/482242753_122228042156179587_1438700596550534802_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGZFsw_DnUhOa_mW4Tdf7W4tJKHA3Dc_Q-0kocDcNz9D7B4RQcHcFbMBCBxLA2_cpmd5xOd1Je5Gx-Ij35qmpn7&_nc_ohc=0of-M-G-CQcQ7kNvwFmRi3b&_nc_oc=AdnwaoiZ2WkhC8YlMRwUd7TYtnBfxEB-BE0lcfLPE-9QA-jBotW4rRKWKKkcjg8gDIws2awvqtUOyO8eyWz7zQcd&_nc_zt=23&_nc_ht=scontent-hkg1-2.xx&_nc_gid=Imx3W9G5qPDZ7SZocf5jRA&oh=00_AfEU1k-ZcD2pz4ttiKDqEmKVr7UsR6vXHUMLbz6Ht4yZsw&oe=6806F6BF"
+        alt=""
+      />
+    </div>
+  </div>
+</section>
+<!--IT Fields-->
+<section id="fields" class="section dark-section">
+  <h2 class="section-title"><span class="first-title">IT </span>Fields</h2>
+  <div class="fields-grid">
+    @for (item of itField; track item) {
+      <div class="field-item">
+        <img [src]="item.image" [alt]="item.title" />
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </div>
+    }
+  </div>
+</section>
+<!-- What we have  -->
+<section id="project" class="project">
+  <div class="container">
+    <div class="content-title">
+      <h2>What <br />we have <span class="dot">.</span></h2>
+      <p>
+        Phát triển mới các phần mềm dùng cho hệ thống nghiệp vụ, cho sản phẩm,... trong các doanh nghiệp kèm theo xử lý
+        như: thêm tính năng, phát triển, bảo trì,...
+      </p>
+      <a href="#" type="button">
+        <span>Xem thêm</span>
+        <span class="icon"><nz-icon nzType="arrow-right" nzTheme="outline" class="arrow-right" /></span>
+      </a>
+    </div>
+    <div class="content-card">
+      <figure class="card-banner">
+        <img src="/assets/img/feature-1.png" alt="" />
+      </figure>
+      <div class="card-title">
+        <div class="title">
+          <h3>Dịch vụ tư vấn xây dựng hệ thống CNTT</h3>
+          <p>
+            Chúng tôi thực hiện phát triển mới các phần mềm dùng cho hệ thống nghiệp vụ, cho sản phẩm,... trong các
+            doanh nghiệp kèm theo xử lý như: thêm tính năng, phát triển, bảo trì,...
+          </p>
+        </div>
+        <div class="feature-list">
+          <span class="feature-item">Web System</span>
+          <span class="feature-item">Smartphone System</span>
+          <span class="feature-item">Windows App</span>
+          <span class="feature-item">Phát triển Salesforce</span>
+        </div>
+      </div>
+    </div>
+    <div class="content-card">
+      <figure class="card-banner">
+        <img src="/assets/img/feature-2.png" alt="" />
+      </figure>
+      <div class="card-title">
+        <div class="title">
+          <h3>
+            Dịch vụ phát triển - bảo trì - vận hành hệ thống</h3>
+          <p>
+            Tại DTDI Solutions, với phương châm sản phẩm trao tới tay khách hàng là sản phẩm tối ưu nhất, chúng tôi luôn thực hiện việc phát triển hệ thống sau khi lắng nghe, khai thác, thấu hiểu mọi mong muốn của khách hàng.
+          </p>
+        </div>
+        <div class="feature-list">
+          <span class="feature-item">Tư vấn DX</span>
+          <span class="feature-item">Tư vấn điện toán đám mây</span>
+          <span class="feature-item">Windows App</span>
+        </div>
+      </div>
+    </div>
+    <div class="content-card">
+      <figure class="card-banner">
+        <img src="/assets/img/feature-3.png" alt="" />
+      </figure>
+      <div class="card-title">
+        <div class="title">
+          <h3>Dịch vụ tư vấn các công nghệ mới</h3>
+          <p>
+            Sở hữu nhiều chứng nhận: Amazon Web Services (AWS),
+            Microsoft Azure, GCP, PMP,…Chúng tôi cam kết mang
+            tới khách hàng những dịch vụ, giải pháp công nghệ
+            kỹ thuật tân tiến - Tính cạnh tranh cao - Bảo mật an toàn.
+          </p>
+        </div>
+        <div class="feature-list">
+          <span class="feature-item">AI (Trí tuệ nhân tạo)</span>
+          <span class="feature-item">Big data</span>
+          <span class="feature-item">Blockchain</span>
+          <span class="feature-item">Người máy-tự động hoá</span>
+          <span class="feature-item">Low-code technology</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Custom contact-->
+<section id="contact">
+  <div class="container">
+    <h2 class="title">
+      Let’s work <br />
+      together <span class="dot">.</span>
+    </h2>
+
+    <div class="contact-wrapper">
+      <!-- Form -->
+      <div class="form-container">
+        <form action="#">
+          <div class="form-row">
+            <input type="text" placeholder="Your name*" required />
+            <input type="email" placeholder="Email address*" required />
+          </div>
+
+          <div class="form-row">
+            <input type="text" placeholder="Subject" />
+            <input type="text" placeholder="Phone number" />
+          </div>
+
+          <textarea placeholder="Your Message *" required></textarea>
+
+          <div class="form-checkbox">
+            <input type="checkbox" id="terms" required />
+            <label for="terms">Accept Terms of Services and Privacy Policy</label>
+          </div>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Google Map -->
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.742481331918!2d105.7730625747203!3d21.043681887099875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab40803e385b%3A0x71a293c26c84b2b0!2sTHE%20NINE%20TOWER!5e0!3m2!1svi!2s!4v1713423150000!5m2!1svi!2s"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
