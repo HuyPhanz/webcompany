@@ -27,7 +27,7 @@ export class AuthService {
         this.token.set(res.token);
         this.router.navigate(['/']);
       }
-    })
+    });
   }
 
   logout(): void {

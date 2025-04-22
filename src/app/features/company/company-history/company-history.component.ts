@@ -32,7 +32,7 @@ import { CompanyService } from '../company.service';
 })
 export class CompanyHistoryComponent implements OnDestroy {
   //import service
-  companyService = inject(CompanyService)
+  companyService = inject(CompanyService);
   //validate
   private fb = inject(NonNullableFormBuilder);
   private destroy$ = new Subject<void>();
@@ -61,14 +61,16 @@ export class CompanyHistoryComponent implements OnDestroy {
   }
 
   submitForm(): void {
-    if(this.validateForm.valid){
+    if (this.validateForm.valid) {
       const formValue = this.validateForm.getRawValue();
-    this.companyService.createCompanyHistory(formValue).subscribe({
-      next: (res) => {
-        console.log('data:', res);},
-      error: (error) => {
-        console.log(error);}
-    })
+      this.companyService.createCompanyHistory(formValue).subscribe({
+        next: (res) => {
+          console.log('data:', res);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      });
     }
   }
 }

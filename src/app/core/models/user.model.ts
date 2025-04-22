@@ -5,6 +5,6 @@ export interface User {
   role: 'admin' | 'user';
 }
 export interface LoginRes {
-  role: string
-  token: string
+  role: string;
+  token: string;
 }

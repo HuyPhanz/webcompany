@@ -1,21 +1,27 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Employee } from './interfaces';
-import { Observable } from 'rxjs';
-import { delay, map } from 'rxjs/operators';
+import { EmployeeReqDTO, EmployeeResDTO } from './interfaces';
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
   http = inject(HttpClient);
-  apiUrl = 'https://freeapi.miniprojectideas.com/api/EmployeeApp/';
-  url = 'http://localhost:3000/employees';
-  getAllEmployee(): Observable<Employee[]> {
-    return this.http.get<{ data: Employee[] }>(this.apiUrl + 'GetAllEmployee').pipe(map((res) => res.data));
-    //Service have to .pipe(map()) nếu response bị bọc in object.
-  }
+  apiUrl = 'http://10.0.40.28:8080/api/employees';
 
-  createEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.url, employee).pipe(delay(1000));
+  //getAllPloyee()
+  getAllPloyee() {
+    return this.http.get<EmployeeResDTO[]>(this.apiUrl);
+  }
+  //CreatePloyee()
+  createPloyee(data: EmployeeReqDTO) {
+    return this.http.post<EmployeeReqDTO>(this.apiUrl, data);
+  }
+  //updatePloyee()
+  updatePloyee(data: EmployeeResDTO) {
+    return this.http.put<EmployeeResDTO>(`${this.apiUrl+'/id'}/${data.id}`, data);
+  }
+  //deletePloyee()
+  deletePloyee(id: number) {
+    return this.http.delete<EmployeeReqDTO>(`${this.apiUrl}/${id}`);
   }
 }

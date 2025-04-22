@@ -1,4 +1,4 @@
-import { Injectable , inject} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProductReqDTO, ProductResDTO } from './interface';
@@ -10,11 +10,11 @@ export class ProductService {
   apiUrl = 'http://10.0.40.28:8080/api/products';
 
   //Post
-  createProduct (data:ProductReqDTO): Observable<ProductReqDTO> {
-    return this.http.post<ProductReqDTO>(this.apiUrl, data)
+  createProduct(data: ProductReqDTO): Observable<ProductReqDTO> {
+    return this.http.post<ProductReqDTO>(this.apiUrl, data);
   }
   // Get All
-  getALlProduct () {
+  getALlProduct() {
     return this.http.get<ProductResDTO[]>(this.apiUrl);
   }
   // Get By Id
@@ -22,11 +22,11 @@ export class ProductService {
   //   return this.http.get<typeOfProduct>(`${this.apiUrl}/${id}`)
   // }
   //Update
-  updateProduct(data:ProductReqDTO):Observable<ProductReqDTO> {
-    return this.http.put<ProductReqDTO> (`${this.apiUrl}/${data.slug}`, data)
+  updateProduct(data: ProductResDTO): Observable<ProductResDTO> {
+    return this.http.put<ProductResDTO>(`${this.apiUrl}/${data.id}`, data);
   }
   //Delete
   deleteProduct(id: number): Observable<ProductReqDTO> {
-    return this.http.delete<ProductReqDTO>(`${this.apiUrl}/${id}`)
+    return this.http.delete<ProductReqDTO>(`${this.apiUrl}/${id}`);
   }
 }

@@ -29,7 +29,7 @@ export class LoginPageComponent {
   private fb = inject(NonNullableFormBuilder);
   loginForm = this.fb.group({
     username: this.fb.control('', [Validators.required]),
-    password: this.fb.control('', [Validators.required]),
+    password: this.fb.control('', [Validators.required])
   });
 
   authService = inject(AuthService);

@@ -1,10 +1,10 @@
 <nz-table nzBordered [nzData]="productOfData" nzTableLayout="fixed">
   <thead>
-  <tr>
-    <th nzWidth="20%">Title</th>
-    <th nzWidth="55%">Content</th>
-    <th>Action</th>
-  </tr>
+    <tr>
+      <th nzWidth="20%">Title</th>
+      <th nzWidth="55%">Content</th>
+      <th>Action</th>
+    </tr>
   </thead>
   <tbody>
     @for (data of productOfData; track data) {
@@ -13,9 +13,7 @@
           <td>{{ data.title }}</td>
           <td>{{ data.content }}</td>
           <td>
-            <button nz-button nzType="primary" (click)="startEdit(data.slug)">
-              <nz-icon nzType="edit" />Edit
-            </button>
+            <button nz-button nzType="primary" (click)="startEdit(data.slug)"><nz-icon nzType="edit" />Edit</button>
             <button nz-button nzType="primary" nzDanger (click)="deleteProduct(data.id)">
               <nz-icon nzType="delete" />Delete
             </button>
@@ -24,9 +22,17 @@
           <td><input type="text" nz-input [(ngModel)]="editCache[data.slug].data.title" /></td>
           <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.slug].data.content"></textarea></td>
           <td>
-            <button nz-button nzType="primary" (click)="saveEdit(data.slug)" class="save">
-              Save
-            </button><button nz-popconfirm nz-button nzType="dashed" nzDanger nzPopconfirmTitle="Sure to cancel?" (nzOnConfirm)="cancelEdit(data.slug)">Cancel</button>
+            <button nz-button nzType="primary" (click)="updateProduct(data.slug)" class="save">Save</button
+            ><button
+              nz-popconfirm
+              nz-button
+              nzType="dashed"
+              nzDanger
+              nzPopconfirmTitle="Sure to cancel?"
+              (nzOnConfirm)="cancelEdit(data.slug)"
+            >
+              Cancel
+            </button>
           </td>
         }
       </tr>

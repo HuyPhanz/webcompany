@@ -9,8 +9,7 @@ describe('MediaFileComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MediaFileComponent]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MediaFileComponent);
     component = fixture.componentInstance;

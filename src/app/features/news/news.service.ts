@@ -1,7 +1,7 @@
-import { Injectable , inject} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { typeOfNews } from './interface';
+import { NewsReqDTO, NewsResDTO } from './interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,24 +10,23 @@ export class NewsService {
   apiUrl = 'http://10.0.40.28:8080/api/news';
 
   // Api-Post
-  createNew(data:typeOfNews): Observable<typeOfNews> {
-    return this.http.post<typeOfNews>(this.apiUrl, data)
+  createNew(data: NewsReqDTO): Observable<NewsReqDTO> {
+    return this.http.post<NewsReqDTO>(this.apiUrl, data);
   }
   // Api-Get ( Read )
   // getNewById(id:number): Observable<typeOfNews> {
   //   return this.http.get<typeOfNews>(`${this.apiUrl}/${id}`)
   // }
   // Api Get All data
-  getAllNews(): Observable<typeOfNews[]> {
-    return this.http.get<typeOfNews[]>(this.apiUrl)
+  getAllNews(): Observable<NewsResDTO[]> {
+    return this.http.get<NewsResDTO[]>(this.apiUrl);
   }
-  // Update News
-  // updateNew(data:typeOfNews): Observable<typeOfNews> {
-  //   return this.http.put<typeOfNews>(`${this.apiUrl}/${data.slug}`, data)
-  // }
-  //Delete Item
-  // deleteItemNew(id:number):Observable<typeOfNews>  {
-  //   return this.http.delete<typeOfNews>(`${this.apiUrl}/${id}`)
-  // }
-
+  //delete
+  deleteNew(id: number): Observable<NewsReqDTO> {
+    return this.http.delete<NewsReqDTO>(`${this.apiUrl}/${id}`);
+  }
+  //update
+  updateNew(id: NewsResDTO): Observable<NewsResDTO> {
+    return this.http.delete<NewsResDTO>(`${this.apiUrl}/${id}`);
+  }
 }

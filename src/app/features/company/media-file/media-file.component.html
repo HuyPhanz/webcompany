@@ -3,7 +3,7 @@
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Entity Type</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng chọn loại thực thể!">
-        <nz-select formControlName="entity_type" nzPlaceHolder="Select entity type">
+        <nz-select formControlName="entityType" nzPlaceHolder="Select entity type">
           <nz-option nzValue="COMPANY_INFO" nzLabel="Company Info"></nz-option>
           <nz-option nzValue="ABOUT_US" nzLabel="Company detail"></nz-option>
           <nz-option nzValue="MEMBER" nzLabel="Company Members"></nz-option>
@@ -17,7 +17,7 @@
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>ID </nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập ID thực thể!">
-        <input nz-input formControlName="entity_id" placeholder="Nhập ID thực thể" />
+        <input nz-input formControlName="entityId" placeholder="Nhập ID thực thể" />
       </nz-form-control>
     </nz-form-item>
 
@@ -31,28 +31,28 @@
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Tên file gốc</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập tên file!">
-        <input nz-input formControlName="file_name" placeholder="Nhập tên file" />
+        <input nz-input formControlName="fileName" placeholder="Nhập tên file" />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Đường dẫn URL</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập đường dẫn URL!">
-        <input nz-input formControlName="file_path" placeholder="Nhập đường dẫn URL" />
+        <input nz-input formControlName="filePath" placeholder="Nhập đường dẫn URL" />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Loại file</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập loại file!">
-        <input nz-input formControlName="file_type" placeholder="Ví dụ: jpg, png" />
+        <input nz-input formControlName="fileType" placeholder="Ví dụ: jpg, png" />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Kích thước file</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Vui lòng nhập kích thước file!">
-        <input nz-input formControlName="file_size" placeholder="Nhập kích thước (KB, MB)" />
+        <input nz-input formControlName="fileSize" placeholder="Nhập kích thước (KB, MB)" />
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>

@@ -16,15 +16,13 @@ import { ProductService } from '../product.service';
 export class ProductListComponent implements OnInit {
   //service api
   serviceProduct = inject(ProductService);
-  //
   editCache: Record<string, { edit: boolean; data: ProductReqDTO }> = {};
   productOfData: Product[] = [];
   startEdit(id: string): void {
     this.editCache[id].edit = true;
   }
-
   cancelEdit(id: string): void {
-    const index = this.productOfData.findIndex(item => item.slug === id);
+    const index = this.productOfData.findIndex((item) => item.slug === id);
     this.editCache[id] = {
       data: { ...this.productOfData[index] },
       edit: false
@@ -33,25 +31,34 @@ export class ProductListComponent implements OnInit {
 
   //delete product
   deleteProduct(id: number): void {
-    this.serviceProduct.deleteProduct(id).subscribe(()=>{
+    this.serviceProduct.deleteProduct(id).subscribe(() => {
       // this.productOfData = this.productOfData.filter(item => item.id !== id);
       this.getAllProducts();
-    })
+    });
   }
 
-  saveEdit(id: string): void {
-    const index = this.productOfData.findIndex(item => item.slug === id);
-    Object.assign(this.productOfData[index], this.editCache[id].data);
-    this.editCache[id].edit = false;
+  updateProduct(id: string): void {
+    const index = this.productOfData.findIndex((item) => item.slug === id);
+    const updatedProduct = {
+      id: this.productOfData[index].id,
+      ...this.editCache[id].data
+    };
+
+    this.serviceProduct.updateProduct(updatedProduct).subscribe(() => {
+      this.getAllProducts();
+    });
+    alert('updated successfully.');
   }
+  //update
   updateEditCache(): void {
-    this.productOfData.forEach(item => {
+    this.productOfData.forEach((item) => {
       this.editCache[item.slug] = {
         edit: false,
         data: { ...item }
       };
     });
   }
+  //getAll
   getAllProducts() {
     this.serviceProduct.getALlProduct().subscribe({
       next: (data) => {
@@ -65,6 +72,5 @@ export class ProductListComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getAllProducts();
-
   }
 }

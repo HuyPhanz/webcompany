@@ -29,9 +29,9 @@ import { CompanyService } from '../company.service';
   styleUrl: './company-member.component.scss'
 })
 export class CompanyMemberComponent implements OnDestroy {
-
+  title = 'sdas';
   //inject serivce
-  companyService = inject(CompanyService)
+  companyService = inject(CompanyService);
   // validate
   private fb = inject(NonNullableFormBuilder);
   private destroy$ = new Subject<void>();
@@ -61,16 +61,16 @@ export class CompanyMemberComponent implements OnDestroy {
   }
 
   submitForm(): void {
-    if(this.validateForm.valid){
+    if (this.validateForm.valid) {
       const formValue = this.validateForm.getRawValue();
       this.companyService.createCompanyMember(formValue).subscribe({
         next: (res) => {
           console.log(res);
         },
-        error: err => {
+        error: (err) => {
           console.log(err);
         }
-      })
+      });
     }
   }
 }

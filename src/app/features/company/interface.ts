@@ -26,10 +26,11 @@ export interface typeOfDataCompanyDetail {
   content: string;
 }
 export interface typeOfDataMediaFile {
-  entity_type: string;
-  entity_id: string;
+  entityType: string;
+  entityId: string;
   url: string;
-  file_name: string;
-  file_path: string;
-  file_type: string;
+  fileName: string;
+  filePath: string;
+  fileType: string;
+  fileSize:string
 }

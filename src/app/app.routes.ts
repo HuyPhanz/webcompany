@@ -16,15 +16,39 @@ import { MediaFileComponent } from './features/company/media-file/media-file.com
 import { EmployeeListComponent } from './features/employee/employee-list/employee-list.component';
 import { ProductListComponent } from './features/product/product-list/product-list.component';
 import { NewsListComponent } from './features/news/news-list/news-list.component';
-import {LayoutLandingComponent} from './landingPage/layout-landing/layout-landing/layout-landing.component';
-import { HomeComponent } from './landingPage/home/home.component';
-import { TeserComponent } from './landingPage/teser/teser.component';
-
+import { AboutPageComponent } from './shared/about-page/about-page.component';
+import { HomePageComponent } from './shared/home-page/home-page.component';
+import { BannerComponent } from './features/banner/banner.component';
+import { ProjectPageComponent } from './shared/project-page/project-page.component';
+import { ContactPageComponent } from './shared/contact-page/contact-page.component';
+import { ServicePageComponent } from './shared/service-page/service-page.component';
 export const routes: Routes = [
-  { path: '',
+  {
+    path: '',
     component: LandingPageComponent,
-    children:[
-    ] }, // ✅ Landing Page
+    children: [
+      {
+        path: '',
+        component: HomePageComponent
+      },
+      {
+        path: 'about',
+        component: AboutPageComponent
+      },
+      {
+        path: 'service-page',
+        component:ServicePageComponent
+      },
+      {
+        path: 'project-page',
+        component:ProjectPageComponent
+      },
+      {
+        path: 'contact-page',
+        component:ContactPageComponent
+      }
+    ]
+  }, // ✅ Landing Page
   {
     path: 'app',
     component: LayoutComponent,
@@ -32,6 +56,10 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'banner',
+        component: BannerComponent
       },
       {
         path: 'company',
@@ -88,21 +116,5 @@ export const routes: Routes = [
     component: LoginPageComponent
   },
 
-  { path: 'notFound', component: NotFoundPageComponent },
-  {
-    path:'layout-lading',
-    component: LayoutLandingComponent,
-    children:[
-      {
-        path:'home',
-        component: HomeComponent
-      }
-    ]
-  },
-
-  {
-    path: 'tester',
-    component: TeserComponent
-  },
-
+  { path: 'notFound', component: NotFoundPageComponent }
 ];

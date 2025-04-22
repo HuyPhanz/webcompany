@@ -11,6 +11,6 @@ export interface ProductResDTO {
   slug: string;
 }
 
-export interface Product extends ProductReqDTO{
+export interface Product extends ProductReqDTO {
   id: number;
 }

@@ -13,9 +13,8 @@ import { NewsService } from '../news.service';
   styleUrl: './news-form.component.scss'
 })
 export class NewsFormComponent {
-
   //service
-  newService = inject(NewsService)
+  newService = inject(NewsService);
   private fb = inject(NonNullableFormBuilder);
 
   serviceForm = this.fb.group({
@@ -27,11 +26,12 @@ export class NewsFormComponent {
   submitForm(): void {
     const formValue = this.serviceForm.getRawValue();
     this.newService.createNew(formValue).subscribe({
-      next: res => {
+      next: (res) => {
         console.log(res);
-      },error: err => {
+      },
+      error: (err) => {
         console.log(err);
       }
-    })
+    });
   }
 }
