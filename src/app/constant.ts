@@ -6,6 +6,7 @@ export interface MenuItem {
 export const MENU_HEADER: MenuItem[] = [
   { title: 'Trang chủ', href: '' },
   { title: 'Về chúng tôi', href: 'about' },
+  { title: 'Tin tức', href: 'news-page' },
   { title: 'Dịch vụ', href: 'service-page' },
   { title: 'Dự án', href: 'project-page' },
   { title: 'Liên lạc', href: 'contact-page' }

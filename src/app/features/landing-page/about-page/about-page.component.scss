@@ -14,7 +14,7 @@
           line-height: 1.1;
           font-weight: bold;
           .question-mark {
-            color: #c93d0a;
+            color: #f4a460;
           }
         }
       }
@@ -40,18 +40,20 @@
         .item-title {
           font-size: 3rem;
           font-weight: bold;
-          padding-left: 16px;
-          border-left: 7px solid #c93d0a;
         }
       }
       .profile-list {
-        line-height: 1.8;
+        line-height: 1.3;
+        border: 1px solid #f4a460;
+        padding:0 20px;
         .profile-item {
-          padding-left: 25px;
+          border-bottom: 1px solid #e8e6e6;
           margin-block: 10px;
           display: grid;
           grid-template-columns: 1fr 5fr;
-          gap: 20px;
+          .business-list{
+            line-height: 1.8;
+          }
         }
       }
     }

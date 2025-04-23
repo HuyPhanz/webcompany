@@ -1,0 +1,22 @@
+.news-detail{
+  padding: 60px 100px;
+  .container{
+    width: 1200px;
+    margin: 0 auto;
+    .content-title{
+      padding-bottom: 10px;
+      border-bottom: 1px solid lightgray;
+      .time-wrapper{
+        text-align: right;
+        margin-right: 10px;
+      }
+      .title{
+        font-size: 32px;
+      }
+    }
+    .content-text{
+      margin-top: 20px;
+      font-size: 17px;
+    }
+  }
+}
