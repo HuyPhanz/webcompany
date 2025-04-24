@@ -18,17 +18,17 @@
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>Images</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
+<!--        -->
         <nz-upload
-          [nzMultiple]="true"
           [nzListType]="'picture-card'"
-          [nzShowUploadList]="{ showRemoveIcon: true }"
-          [(nzFileList)]="fileList"
+          [nzFileList]="fileList"
+          [nzShowUploadList]="{ showPreviewIcon: true, showRemoveIcon: true }"
           [nzBeforeUpload]="beforeUpload"
+          [nzPreview]="handlePreview"
         >
-          <button nz-button nzType="primary">
-            <nz-icon nzType="upload" nzTheme="outline" />
-          </button>
+          <button nz-button> <nz-icon nzType="upload" nzTheme="outline" /> Upload</button>
         </nz-upload>
+<!--        -->
       </nz-form-control>
     </nz-form-item>
 <!--    submit-->
