@@ -7,6 +7,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { Product, ProductReqDTO } from '../interface';
 import { ProductService } from '../product.service';
+
 @Component({
   selector: 'app-product-list',
   imports: [FormsModule, NzInputModule, NzPopconfirmModule, NzTableModule, NzButtonModule, NzIconModule],
@@ -14,63 +15,65 @@ import { ProductService } from '../product.service';
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent implements OnInit {
-  //service api
-  serviceProduct = inject(ProductService);
+  //service
+ productService = inject(ProductService);
   editCache: Record<string, { edit: boolean; data: ProductReqDTO }> = {};
   productOfData: Product[] = [];
-  startEdit(id: string): void {
-    this.editCache[id].edit = true;
-  }
-  cancelEdit(id: string): void {
-    const index = this.productOfData.findIndex((item) => item.slug === id);
-    this.editCache[id] = {
-      data: { ...this.productOfData[index] },
-      edit: false
-    };
-  }
 
-  //delete product
-  deleteProduct(id: number): void {
-    this.serviceProduct.deleteProduct(id).subscribe(() => {
-      // this.productOfData = this.productOfData.filter(item => item.id !== id);
+  ngOnInit() {
+    this.getAllProducts();
+  }
+  //get APi
+  getAllProducts() {
+    this.productService.getAllProducts().subscribe((res) => {
+      this.productOfData = res;
+      this.updateEditCache();
+    });
+  }
+  //delete
+  deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe(() => {
       this.getAllProducts();
     });
   }
+  //update
+  updateProduct(id: number): void {
+    const index = this.productOfData.findIndex((item) => item.id === id);
+    const data = { ...this.editCache[id].data };
 
-  updateProduct(id: string): void {
-    const index = this.productOfData.findIndex((item) => item.slug === id);
-    const updatedProduct = {
+    // Bổ sung: ép imageUrls thành array nếu cần
+    if (data.tags && typeof data.tags === 'string') {
+      data.tags = [data.tags];
+    }
+
+    const updateProduct = {
       id: this.productOfData[index].id,
-      ...this.editCache[id].data
+      ...data
     };
 
-    this.serviceProduct.updateProduct(updatedProduct).subscribe(() => {
+    this.productService.updateProduct(updateProduct).subscribe(() => {
       this.getAllProducts();
     });
     alert('updated successfully.');
   }
-  //update
+  //
   updateEditCache(): void {
     this.productOfData.forEach((item) => {
-      this.editCache[item.slug] = {
+      this.editCache[item.id] = {
         edit: false,
         data: { ...item }
       };
     });
   }
-  //getAll
-  getAllProducts() {
-    this.serviceProduct.getALlProduct().subscribe({
-      next: (data) => {
-        this.productOfData = data;
-        this.updateEditCache();
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    });
+  //start edit
+  startEdit(id: number): void {
+    this.editCache[id].edit = true;
   }
-  ngOnInit(): void {
-    this.getAllProducts();
+  cancelEdit(id: number): void {
+    const index = this.productOfData.findIndex((item) => item.id === id);
+    this.editCache[id] = {
+      data: { ...this.productOfData[index] },
+      edit: false
+    };
   }
 }
