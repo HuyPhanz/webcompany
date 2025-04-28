@@ -27,7 +27,14 @@
         <input nz-input formControlName="contactEmail" placeholder="Enter company email" />
       </nz-form-control>
     </nz-form-item>
-
+<!--    year-->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Year</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid year">
+        <input nz-input formControlName="year" placeholder="Enter company year" />
+      </nz-form-control>
+    </nz-form-item>
+<!--    -->
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Phone</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid phone number">
@@ -41,7 +48,14 @@
         <input nz-input formControlName="contactAddress" placeholder="Enter company address" />
       </nz-form-control>
     </nz-form-item>
-
+    <!--    director-->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Director</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid director">
+        <input nz-input formControlName="director" placeholder="Enter company director" />
+      </nz-form-control>
+    </nz-form-item>
+<!--  Working Hours  -->
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Working Hours</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Please input working hours">
@@ -49,10 +63,11 @@
       </nz-form-control>
     </nz-form-item>
 
+<!--  Map Embed URL  -->
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Map Embed URL</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Please input map embed URL">
-        <input nz-input formControlName="mapEmbedUrl" placeholder="Enter Map Url" />
+        <input nz-input formControlName="mapUrl" placeholder="Enter Map Url" />
       </nz-form-control>
     </nz-form-item>
 
