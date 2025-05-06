@@ -20,6 +20,7 @@ import { EmployeeListComponent } from './features/employee/employee-list/employe
 import { ProjectComponent } from './features/projects/project/project.component';
 import { BannerFormComponent } from './features/banner_home/banner-form/banner-form.component';
 import { BannerComponent } from './features/banner/banner.component';
+import { CompanyRoutes } from './features/company/company.routes';
 
 export const routes: Routes = [
   {
@@ -78,10 +79,10 @@ export const routes: Routes = [
         path: 'employee',
         component: EmployeeFormComponent
       },
-      {
-        path: 'member',
-        component: MemberComponent
-      },
+      // {
+      //   path: 'member',
+      //   component: MemberComponent
+      // },
       {
         path: 'employee-list',
         component: EmployeeListComponent
