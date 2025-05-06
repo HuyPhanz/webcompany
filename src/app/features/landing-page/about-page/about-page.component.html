@@ -8,50 +8,51 @@
         </h3>
       </div>
       <div class="text">
-        <h3>Là người đồng hành trên con đường đổi mới và phát triển của khách hàng</h3>
+        @for (index of dataCompanyDetail; track index) {
+        <h3>{{index.title}}</h3>
         <p>
-          Trong bối cảnh xã với hội rất nhiều lĩnh vực, doanh nghiệp thay đổi không ngừng từng ngày từng giờ thì việc
-          ứng dụng nhanh chóng công nghệ tiên tiến trở nên vô cùng cấp bách trong công cuộc tăng sức cạnh tranh cũng như
-          tối ưu hiệu suất. DTDI COMPANYS chúng tôi là một tổ chức đặc biệt được sinh ra với mục đích giúp quý khách
-          hàng sử dụng triệt để những công nghệ tiên tiến ấy.
+       {{index.description}}
         </p>
+        }
       </div>
     </div>
     <div class="us-image">
       <img src="/assets/about-us.jpg" alt="" />
     </div>
     <div class="company-profile">
+      @for (index of dataCompanyInfo; track index) {
+
       <div class="header-wrapper">
         <h2 class="h2 item-title">Thông tin công ty</h2>
       </div>
       <ul class="profile-list">
         <li class="profile-item">
           <p class="profile-category">Tên công ty</p>
-          CÔNG TY CỔ PHẦN CÔNG NGHỆ DTDI
+          {{index.siteName}}
         </li>
         <li class="profile-item">
           <p class="profile-category">Địa chỉ</p>
-          Tầng 12, tòa nhà Viwaseen Tower, 48 Tố Hữu, Phường Trung Văn, Quận Nam Từ Liêm, Thành phố Hà Nội.
+          {{index.contactAddress}}
         </li>
         <li class="profile-item">
           <p class="profile-category">Thành lập</p>
-          Tháng 3 năm 2022
+          {{index.year}}
         </li>
         <li class="profile-item">
           <p class="profile-category">Email</p>
-          contact&#64;dtdtech.com.vn
+          {{index.contactEmail}}
         </li>
         <li class="profile-item">
           <p class="profile-category">Số điện thoại</p>
-          0362588598
+          {{index.contactPhone}}
         </li>
         <li class="profile-item">
-          <p class="profile-category">Giám đốc thực tập</p>
-          Nguyễn Chí Lân
+          <p class="profile-category">Giám đốc</p>
+          {{index.director}}
         </li>
         <li class="profile-item">
           <p class="profile-category">Giờ làm việc</p>
-          8:00 - 17:00
+          {{index.workingHours}}
         </li>
         <li class="profile-item">
           <p class="profile-category">Dịch vụ</p>
@@ -62,6 +63,7 @@
           </ul>
         </li>
       </ul>
+      }
     </div>
   </div>
 </section>

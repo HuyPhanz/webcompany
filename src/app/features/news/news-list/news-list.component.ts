@@ -5,7 +5,7 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { News, NewsReqDTO } from '../interface';
+import {  NewsReqDTO, NewsResDTO } from '../interface';
 import { NewsService } from '../news.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class NewsListComponent implements OnInit {
   //service
   newService = inject(NewsService);
   editCache: Record<string, { edit: boolean; data: NewsReqDTO }> = {};
-  productOfData: News[] = [];
+  newOfData: NewsResDTO[] = [];
 
   ngOnInit() {
     this.getAllNews();
@@ -26,7 +26,7 @@ export class NewsListComponent implements OnInit {
   //get APi
   getAllNews() {
     this.newService.getAllNews().subscribe((res) => {
-      this.productOfData = res;
+      this.newOfData = res;
       this.updateEditCache();
     });
   }
@@ -37,10 +37,10 @@ export class NewsListComponent implements OnInit {
     });
   }
   //update
-  updateNew(id: string): void {
-    const index = this.productOfData.findIndex((item) => item.slug === id);
+  updateNew(id: number): void {
+    const index = this.newOfData.findIndex((item) => item.id === id);
     const updateNew = {
-      id: this.productOfData[index].id,
+      id: this.newOfData[index].id,
       ...this.editCache[id].data
     };
 
@@ -51,21 +51,21 @@ export class NewsListComponent implements OnInit {
   }
   //
   updateEditCache(): void {
-    this.productOfData.forEach((item) => {
-      this.editCache[item.slug] = {
+    this.newOfData.forEach((item) => {
+      this.editCache[item.id] = {
         edit: false,
         data: { ...item }
       };
     });
   }
   //start edit
-  startEdit(id: string): void {
+  startEdit(id: number): void {
     this.editCache[id].edit = true;
   }
-  cancelEdit(id: string): void {
-    const index = this.productOfData.findIndex((item) => item.slug === id);
+  cancelEdit(id: number): void {
+    const index = this.newOfData.findIndex((item) => item.id === id);
     this.editCache[id] = {
-      data: { ...this.productOfData[index] },
+      data: { ...this.newOfData[index] },
       edit: false
     };
   }

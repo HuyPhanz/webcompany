@@ -13,6 +13,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { Observable, Observer, Subject } from 'rxjs';
+import { CustomerContactService } from '../customer-contact.service';
 @Component({
   selector: 'app-customer-contact',
   imports: [
@@ -28,6 +29,8 @@ import { Observable, Observer, Subject } from 'rxjs';
   styleUrl: './customer-contact.component.scss'
 })
 export class CustomerContactComponent implements OnDestroy {
+  //service
+  customerContact = inject(CustomerContactService);
   private fb = inject(NonNullableFormBuilder);
   private destroy$ = new Subject<void>();
   validateForm = this.fb.group({
@@ -35,7 +38,7 @@ export class CustomerContactComponent implements OnDestroy {
     email: this.fb.control('', [Validators.email, Validators.required]),
     phone: this.fb.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
     message: this.fb.control('', [Validators.required, Validators.minLength(6), Validators.maxLength(1000)]),
-    status: ['active', [Validators.required]]
+    status: ['', [Validators.required]],
   });
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -57,7 +60,12 @@ export class CustomerContactComponent implements OnDestroy {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
+      const valueForm = this.validateForm.getRawValue();
+      this.customerContact.createCustomerContact(valueForm).subscribe({
+        next: (res) => {
+          console.log(res);
+        }
+      })
     } else {
       Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {

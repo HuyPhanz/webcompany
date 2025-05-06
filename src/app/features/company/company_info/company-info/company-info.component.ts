@@ -5,7 +5,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { CompanyService } from '../company.service';
+import { CompanyInfoService } from '../company-info.service';
 
 @Component({
   selector: 'app-company',
@@ -36,27 +36,30 @@ import { CompanyService } from '../company.service';
 })
 export class CompanyInfoComponent {
   //service
-  companyService = inject(CompanyService);
+  companyInfoService = inject(CompanyInfoService);
 
   private fb = inject(NonNullableFormBuilder);
   //validate
   validateForm = this.fb.group({
     siteName: this.fb.control('', [Validators.required]),
     icon: this.fb.control('', [Validators.required]),
+    year: this.fb.control(0, [Validators.required]),
     siteDescription: this.fb.control('', [Validators.required]),
+    director: this.fb.control('', [Validators.required]),
     contactEmail: this.fb.control('', [Validators.email, Validators.required]),
     contactPhone: this.fb.control('', [Validators.required, Validators.pattern('^[0-9]*$')]),
     contactAddress: this.fb.control('', [Validators.required]),
     workingHours: this.fb.control('', [Validators.required]),
-    mapEmbedUrl: this.fb.control('', [Validators.required])
+    mapUrl: this.fb.control('', [Validators.required])
   });
-
   onSubmit(): void {
     if (this.validateForm.valid) {
       const formValue = this.validateForm.getRawValue();
-      this.companyService.createCompanyInfo(formValue).subscribe({
+      this.companyInfoService.createCompanyInfo(formValue).subscribe({
         next: (res) => {
           console.log(res);
+        }, error: (err) => {
+          console.log(err);
         }
       });
     }

@@ -19,8 +19,8 @@ export class NewsFormComponent {
 
   serviceForm = this.fb.group({
     title: ['', [Validators.required, Validators.maxLength(255), Validators.minLength(6)]],
-    content: ['', [Validators.required, Validators.minLength(6)]],
-    slug: ['', [Validators.required, Validators.pattern('^[a-z0-9]+(?:-[a-z0-9]+)*$')]]
+    description: ['', [Validators.required, Validators.minLength(6)]],
+    image: ['', [Validators.required]],
   });
 
   submitForm(): void {

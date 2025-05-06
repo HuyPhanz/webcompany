@@ -3,85 +3,16 @@
     <h3>Khám Phá Blog & Tin Tức</h3>
 
     <div class="news-cards">
+      @for (index of dataNews; track index) {
       <div class="news-card">
-        <img src="https://picsum.photos/400/250?random=4" alt="News Image">
+        <img [src]="index.image" alt="News Image">
         <div class="news-card-content">
-          <h4>Tiêu đề bài viết 1</h4>
-          <p>Một đoạn mô tả ngắn gọn, thu hút người đọc khám phá thêm nội dung chi tiết.</p>
+          <h4>{{index.title}}</h4>
+          <p>{{index.description}}</p>
           <a href="#" class="read-more">Xem thêm</a>
         </div>
       </div>
-
-      <div class="news-card">
-        <img src="https://picsum.photos/400/250?random=5" alt="News Image">
-        <div class="news-card-content">
-          <h4>Tiêu đề bài viết 2</h4>
-          <p>Thông tin ngắn gọn giúp người đọc nắm bắt nội dung bài viết một cách nhanh chóng.</p>
-          <a href="#" class="read-more">Xem thêm</a>
-        </div>
-      </div>
-
-      <div class="news-card">
-        <img src="https://picsum.photos/400/250?random=6" alt="News Image">
-        <div class="news-card-content">
-          <h4>Tiêu đề bài viết 3</h4>
-          <p>Khơi gợi sự tò mò và hứng thú cho người đọc với một đoạn giới thiệu hấp dẫn.</p>
-          <a href="#" class="read-more">Xem thêm</a>
-        </div>
-      </div>
-      <div class="news-card">
-        <img src="https://picsum.photos/400/250?random=4" alt="News Image">
-        <div class="news-card-content">
-          <h4>Tiêu đề bài viết 1</h4>
-          <p>Một đoạn mô tả ngắn gọn, thu hút người đọc khám phá thêm nội dung chi tiết.</p>
-          <a href="#" class="read-more">Xem thêm</a>
-        </div>
-      </div>
-
-      <div class="news-card">
-        <img src="https://picsum.photos/400/250?random=5" alt="News Image">
-        <div class="news-card-content">
-          <h4>Tiêu đề bài viết 2</h4>
-          <p>Thông tin ngắn gọn giúp người đọc nắm bắt nội dung bài viết một cách nhanh chóng.</p>
-          <a href="#" class="read-more">Xem thêm</a>
-        </div>
-      </div>
-
-      <div class="news-card">
-        <img src="https://picsum.photos/400/250?random=6" alt="News Image">
-        <div class="news-card-content">
-          <h4>Tiêu đề bài viết 3</h4>
-          <p>Khơi gợi sự tò mò và hứng thú cho người đọc với một đoạn giới thiệu hấp dẫn.</p>
-          <a href="#" class="read-more">Xem thêm</a>
-        </div>
-      </div>
-      <div class="news-card">
-        <img src="https://picsum.photos/400/250?random=4" alt="News Image">
-        <div class="news-card-content">
-          <h4>Tiêu đề bài viết 1</h4>
-          <p>Một đoạn mô tả ngắn gọn, thu hút người đọc khám phá thêm nội dung chi tiết.</p>
-          <a href="#" class="read-more">Xem thêm</a>
-        </div>
-      </div>
-
-      <div class="news-card">
-        <img src="https://picsum.photos/400/250?random=5" alt="News Image">
-        <div class="news-card-content">
-          <h4>Tiêu đề bài viết 2</h4>
-          <p>Thông tin ngắn gọn giúp người đọc nắm bắt nội dung bài viết một cách nhanh chóng.</p>
-          <a href="#" class="read-more">Xem thêm</a>
-        </div>
-      </div>
-
-      <div class="news-card">
-        <img src="https://picsum.photos/400/250?random=6" alt="News Image">
-        <div class="news-card-content">
-          <h4>Tiêu đề bài viết 3</h4>
-          <p>Khơi gợi sự tò mò và hứng thú cho người đọc với một đoạn giới thiệu hấp dẫn.</p>
-          <a href="#" class="read-more">Xem thêm</a>
-        </div>
-      </div>
+      }
     </div>
-
   </div>
 </section>
