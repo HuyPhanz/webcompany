@@ -6,7 +6,7 @@
 }
 
 .app-layout {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .menu-sidebar {
@@ -84,3 +84,7 @@ nz-content {
 .inner-content {
   background: #fff;
 }
+
+
+//
+

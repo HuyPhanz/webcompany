@@ -2,8 +2,8 @@
   <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
     <!-- Name -->
     <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired>Username</nz-form-label>
-      <nz-form-control [nzSpan]="10" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+      <nz-form-label [nzSpan]="6" nzRequired>Username</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
         <input nz-input formControlName="username" placeholder="Please enter your username" />
         <ng-template #userErrorTpl let-control>
           @if (control.errors?.['required']) {
@@ -17,8 +17,8 @@
     </nz-form-item>
     <!-- Email -->
     <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired>E-mail</nz-form-label>
-      <nz-form-control [nzSpan]="10" nzHasFeedback [nzErrorTip]="emailErrorTpl">
+      <nz-form-label [nzSpan]="6" nzRequired>E-mail</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="emailErrorTpl">
         <input nz-input formControlName="email" placeholder="E-mail" type="email" />
         <ng-template #emailErrorTpl let-control>
           @if (control.errors?.['email']) {
@@ -32,15 +32,15 @@
     </nz-form-item>
     <!-- Password -->
     <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired>Password</nz-form-label>
-      <nz-form-control [nzSpan]="10" nzHasFeedback nzErrorTip="Please input your password!">
+      <nz-form-label [nzSpan]="6" nzRequired>Password</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your password!">
         <input nz-input type="password" formControlName="password" placeholder="Please enter your username" />
       </nz-form-control>
     </nz-form-item>
     <!-- Confirm -->
     <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired>Confirm Password</nz-form-label>
-      <nz-form-control [nzSpan]="10" nzHasFeedback [nzErrorTip]="passwordErrorTpl">
+      <nz-form-label [nzSpan]="6" nzRequired>Confirm Password</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="passwordErrorTpl">
         <input nz-input type="password" placeholder="Confirm your password" />
         <ng-template #passwordErrorTpl let-control>
           @if (control.errors?.['required']) {
@@ -54,8 +54,8 @@
     </nz-form-item>
     <!-- EM-CODE -->
     <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired>CODE</nz-form-label>
-      <nz-form-control [nzSpan]="10" nzHasFeedback >
+      <nz-form-label [nzSpan]="6" nzRequired>CODE</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback >
         <input
           nz-input
           type="number"
@@ -68,8 +68,8 @@
     </nz-form-item>
     <!-- ROLE -->
     <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzFor="role" nzRequired>Role</nz-form-label>
-      <nz-form-control [nzSpan]="10" nzErrorTip="Please select your role!">
+      <nz-form-label [nzSpan]="6" nzFor="role" nzRequired>Role</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="Please select your role!">
         <nz-select id="role" formControlName="role" nzPlaceHolder="Select a option and change input text above">
           <nz-option nzValue="ADMIN" nzLabel="ADMIN"></nz-option>
           <nz-option nzValue="EDITOR" nzLabel="EDITOR"></nz-option>
@@ -78,7 +78,7 @@
     </nz-form-item>
     <!-- Button -->
     <nz-form-item>
-      <nz-form-control [nzOffset]="7" [nzSpan]="10">
+      <nz-form-control [nzOffset]="6" [nzSpan]="10">
         <button nz-button nzType="primary" [disabled]="!validateForm.valid">Submit</button>
         <button nz-button (click)="resetForm($event)">Reset</button>
       </nz-form-control>

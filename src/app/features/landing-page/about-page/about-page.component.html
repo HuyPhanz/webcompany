@@ -20,12 +20,13 @@
       <img src="/assets/about-us.jpg" alt="" />
     </div>
     <div class="company-profile">
-      @for (index of dataCompanyInfo; track index) {
+
 
       <div class="header-wrapper">
         <h2 class="h2 item-title">Thông tin công ty</h2>
       </div>
       <ul class="profile-list">
+        @for (index of dataCompanyInfo; track index) {
         <li class="profile-item">
           <p class="profile-category">Tên công ty</p>
           {{index.siteName}}
@@ -62,8 +63,8 @@
             <li>・Dịch vụ thiết kế hệ thống phát triển hệ thống, phát triển offshore</li>
           </ul>
         </li>
+        }
       </ul>
-      }
     </div>
   </div>
 </section>

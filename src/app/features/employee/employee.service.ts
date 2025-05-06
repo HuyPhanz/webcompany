@@ -6,7 +6,7 @@ import { EmployeeReqDTO, EmployeeResDTO } from './interfaces';
 })
 export class EmployeeService {
   http = inject(HttpClient);
-  apiUrl = 'http://10.0.40.28:8080/api/employees';
+  apiUrl = 'http://26.179.251.121:8080/api/members';
 
   //getAllPloyee()
   getAllPloyee() {

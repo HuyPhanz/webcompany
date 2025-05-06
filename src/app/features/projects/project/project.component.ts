@@ -1,36 +1,41 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { NzCardComponent } from 'ng-zorro-antd/card';
+import { NzCardModule } from 'ng-zorro-antd/card';
 import { FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-
+import { ProjectService } from '../project.service';
+import { NzNoAnimationModule } from 'ng-zorro-antd/core/no-animation';
 @Component({
-  selector: 'app-project',
+  selector: 'app-project-form',
   standalone: true,
-  templateUrl: './project.component.html',
-  styleUrl: './project.component.scss',
   imports: [
     NzTagModule,
     NzIconModule,
-    NzCardComponent,
+    NzCardModule,
     ReactiveFormsModule,
     NzButtonModule,
     NzFormModule,
     NzInputModule,
     FormsModule,
-  ]
+    NzNoAnimationModule
+  ],
+  templateUrl: './project.component.html',
+  styleUrl: './project.component.scss'
 })
 export class ProjectComponent {
-  //validate
+// service
+  ProjectService = inject(ProjectService);
+//validate
   private fb = inject(NonNullableFormBuilder)
   validateForm = this.fb.group({
-    title: [null, Validators.required],
-    description: [null, Validators.required]
+    title: ['', Validators.required],
+    description: ['', Validators.required],
+    image: ['', Validators.required],
   })
-  //hastag
+  //hashtag
   tags = ['#Technology'];
   inputVisible = false;
   inputValue = '';
@@ -59,26 +64,23 @@ export class ProjectComponent {
     this.inputValue = '';
     this.inputVisible = false;
   }
-
-
   //submmit
-
   onSubmit(): void {
     if (this.validateForm.valid) {
-      const formValue = this.validateForm.value;
+      const formValue = this.validateForm.getRawValue();
       const data = {
         title: formValue.title,
         description: formValue.description,
+        image: formValue.image,
         tags: this.tags
       };
-      // this.http.post('https://your-api.com/projects', data).subscribe({
-      //   next: (res) => {
-      //     console.log('✅ Gửi thành công:', res);
-      //   },
-      //   error: (err) => {
-      //     console.error('❌ Gửi thất bại:', err);
-      //   }
-      // });
+      this.ProjectService.createProject(data).subscribe({
+        next: (res) => {
+          console.log(res);
+        }, error: err => {
+          console.log(err);
+        }
+      })
       console.log('Submitted Data:', data);
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
@@ -89,5 +91,4 @@ export class ProjectComponent {
       });
     }
   }
-
 }

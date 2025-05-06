@@ -1,114 +1,87 @@
 <!--banner-->
-<section id="home" class="hero">
-  <div class="hero-wrapper">
-    <div class="hero-content">
-      <h1>Empower Your Business with <br />Next-Gen IT Solutions</h1>
-      <p>Innovative, Scalable, and Future-Proof Technologies for Your Success</p>
-      <button nz-button nzType="primary">Về chúng tôi</button>
-    </div>
-    <div class="hero-image">
-      <nz-carousel #carousel [nzEffect]="effects" nzAutoPlay>
-        @for (index of arrays; track index) {
-          <div nz-carousel-content>
-            <img [src]="index" alt="" />
-          </div>
-        }
-      </nz-carousel>
-      <!--      control-->
-      <div class="carousel-controls">
-        <button nz-button nzType="default" (click)="goPrev()">
-          <nz-icon nzType="left" nzTheme="outline" />
-        </button>
-        <button nz-button nzType="default" (click)="goNext()">
-          <nz-icon nzType="right" nzTheme="outline" />
-        </button>
-      </div>
+<nz-carousel #carouselRef nzAutoPlay [nzEffect]="'fade'" class="custom-carousel">
+  <div nz-carousel-content class="slide"
+       style="background-image: url('https://www.camaramurcia.es/wp-content/uploads/2023/07/Formacion-Ejecutiva-Camara-Comercio-Murcia-1030x579.jpg')">
+    <div class="overlay-text">
+      <h3>Thể thao là không ngừng bỏ cuộc.</h3>
     </div>
   </div>
-</section>
+  <div nz-carousel-content class="slide"
+       style="background-image: url('https://cdn.ufidelitas.ac.cr/wp-content/uploads/2025/01/03171058/programa-de-formacion-ejecutiva-promueve-liderazgo.jpg')">
+    <div class="overlay-text">
+      <h3>Thể thao là không ngừng bỏ cuộc.</h3>
+    </div>
+  </div>
+  <!-- Nút điều hướng -->
+  <!-- Nút Prev -->
+  <button nz-button nzShape="circle" class="carousel-btn prev-btn" (click)="carouselRef.pre()">
+    <i nz-icon nzType="left" nzTheme="outline"></i>
+  </button>
+  <!-- Nút Next -->
+  <button nz-button nzShape="circle" class="carousel-btn next-btn" (click)="carouselRef.next()">
+    <i nz-icon nzType="right" nzTheme="outline"></i>
+  </button>
+</nz-carousel>
+
 <!-- Why Choose Us? -->
 <section id="why-choose-us" class="why-choose-us">
-  <h2>Why Choose Us<span class="question-mark"> ?</span></h2>
-  <div class="cards-container">
-    <div class="card">
-      <div class="card-icon">
-        <nz-icon nzType="customer-service" class="service-icon" nzTheme="outline" />
-      </div>
-      <div class="title">
-        <h3>Dịch vụ tư vấn xây dựng hệ thống CNTT</h3>
-        <a href="#" type="button">
-          <span>Xem thêm</span>
-          <span class="icon">
-            <nz-icon nzType="arrow-right" nzTheme="outline" class="arrow-right" />
-          </span>
-        </a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-icon">
-        <nz-icon nzType="property-safety" nzTheme="outline" class="service-icon" />
-      </div>
-      <div class="title">
-        <h3>Dịch vụ tư vấn các công nghệ mới</h3>
-        <a href="#" type="button">
-          <span>Xem thêm</span>
-          <span><nz-icon nzType="arrow-right" nzTheme="outline" class="arrow-right" /></span>
-        </a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-icon">
-        <nz-icon nzType="pinterest" nzTheme="outline" class="service-icon" />
-      </div>
-      <div class="title">
-        <h3>Dịch vụ phát triển - bảo trì - vận hành hệ thống</h3>
-        <a href="#" type="button">
-          <span>Xem thêm</span>
-          <span><nz-icon nzType="arrow-right" nzTheme="outline" class="arrow-right" /></span>
-        </a>
+  <div class="main">
+    <h2 class="main-title">WHY CHOOSE <span class="us">US</span> </h2>
+    <p class="subtitle">Prepare for the future project expenses and get everything needed.</p>
+
+    <div nz-row [nzGutter]="[24, 24]" class="card-grid">
+      <div
+        nz-col
+        *ngFor="let card of cards"
+        [nzXs]="24"
+        [nzSm]="12"
+        [nzMd]="8"
+      >
+        <div class="feature-card">
+          <div class="card-icon">
+            <nz-icon [nzType]="card.icon" nzTheme="outline" class="custom-icon" />
+          </div>
+          <h3 class="card-title">{{ card.title }}</h3>
+          <div class="underline"></div>
+          <p class="card-description">
+            {{ card.description }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 <!-- About us-->
-<section id="about" class="about-us">
-  <h3 class="title-about">About Us<span class="dot">.</span></h3>
-  <div class="about-content">
-    <div class="content-title">
-      <h3 class="text">Là người đồng hành trên con đường đổi mới và phát triển của khách hàng</h3>
-      <p>
-        Trong bối cảnh xã với hội với rất nhiều lĩnh vực, doanh nghiệp thay đổi không ngừng từng ngày từng giờ thì việc
-        ứng dụng nhanh chóng công nghệ tiên tiến trở nên vô cùng cấp bách trong công cuộc tăng sức cạnh tranh cũng như
-        tối ưu hiệu suất. DTDI Company chúng tôi là một tổ chức đặc biệt được sinh ra với mục đích giúp quý khách hàng
-        sử dụng triệt để những công nghệ tiên tiến ấy.
-      </p>
-    </div>
-    <div class="content-image">
-      <img
-        src="https://scontent-hkg1-2.xx.fbcdn.net/v/t39.30808-6/482242753_122228042156179587_1438700596550534802_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGZFsw_DnUhOa_mW4Tdf7W4tJKHA3Dc_Q-0kocDcNz9D7B4RQcHcFbMBCBxLA2_cpmd5xOd1Je5Gx-Ij35qmpn7&_nc_ohc=0of-M-G-CQcQ7kNvwFmRi3b&_nc_oc=AdnwaoiZ2WkhC8YlMRwUd7TYtnBfxEB-BE0lcfLPE-9QA-jBotW4rRKWKKkcjg8gDIws2awvqtUOyO8eyWz7zQcd&_nc_zt=23&_nc_ht=scontent-hkg1-2.xx&_nc_gid=Imx3W9G5qPDZ7SZocf5jRA&oh=00_AfEU1k-ZcD2pz4ttiKDqEmKVr7UsR6vXHUMLbz6Ht4yZsw&oe=6806F6BF"
-        alt=""
-      />
-    </div>
-  </div>
-</section>
-<!--IT Fields-->
-<section id="fields" class="section dark-section">
-  <h2 class="section-title"><span class="first-title">IT </span>Fields</h2>
-  <div class="fields-grid">
-    @for (item of itField; track item) {
-      <div class="field-item">
-        <img [src]="item.image" [alt]="item.title" />
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.text }}</p>
+<section id="about-us" class="about-us">
+  <div class="main">
+    <h2 class="about-us-title">ABOUT <span class="dot">US</span> </h2>
+    <div class="content">
+      <div class="content-title">
+        <h4>
+          Là người đồng hành trên con đường đổi mới và phát triển của khách hàng
+        </h4>
+        <p>Dưới bối cảnh xã hội không ngừng chuyển mình, nơi mà các lĩnh vực
+          và doanh nghiệp liên tục đổi mới từng ngày, việc nhanh chóng ứng
+          dụng công nghệ hiện đại đã trở thành yếu tố then chốt để nâng cao
+          năng lực cạnh tranh và tối ưu hiệu quả vận hành.
+          <span class="website">DTDI Company Solution</span>
+          tự hào là đơn vị tiên phong, được hình thành với sứ mệnh đồng hành
+          cùng quý khách hàng trong hành trình khai thác và ứng dụng tối
+          đa những giá trị mà công nghệ tiên tiến mang lại.
+        </p>
       </div>
-    }
+      <div class="content-image">
+        <img src="/assets/about-us.jpg" alt="">
+      </div>
+    </div>
   </div>
 </section>
+
 <!-- What we have  -->
 <section id="project" class="project">
   <div class="container">
     <div class="content-title">
-      <h2>What <br />we have <span class="dot">.</span></h2>
+      <h2>What <br /><span class="dot">We</span> have <span class="dot">.</span></h2>
       <p>
         Phát triển mới các phần mềm dùng cho hệ thống nghiệp vụ, cho sản phẩm,... trong các doanh nghiệp kèm theo xử lý
         như: thêm tính năng, phát triển, bảo trì,...
@@ -118,74 +91,49 @@
         <span class="icon"><nz-icon nzType="arrow-right" nzTheme="outline" class="arrow-right" /></span>
       </a>
     </div>
-    <div class="content-card">
+
+    <div class="content-card" *ngFor="let index of dataProject; let i = index">
       <figure class="card-banner">
-        <img src="/assets/img/feature-1.png" alt="" />
+        <img [src]="index.image" alt="" />
       </figure>
       <div class="card-title">
         <div class="title">
-          <h3>Dịch vụ tư vấn xây dựng hệ thống CNTT</h3>
-          <p>
-            Chúng tôi thực hiện phát triển mới các phần mềm dùng cho hệ thống nghiệp vụ, cho sản phẩm,... trong các
-            doanh nghiệp kèm theo xử lý như: thêm tính năng, phát triển, bảo trì,...
-          </p>
+          <h3>{{ index.title }}</h3>
+          <p>{{ index.description }}</p>
         </div>
         <div class="feature-list">
-          <span class="feature-item">Web System</span>
-          <span class="feature-item">Smartphone System</span>
-          <span class="feature-item">Windows App</span>
-          <span class="feature-item">Phát triển Salesforce</span>
+          <span *ngFor="let tag of index.tags" class="feature-item">{{ tag }}</span>
         </div>
       </div>
     </div>
-    <div class="content-card">
-      <figure class="card-banner">
-        <img src="/assets/img/feature-2.png" alt="" />
-      </figure>
-      <div class="card-title">
-        <div class="title">
-          <h3>Dịch vụ phát triển - bảo trì - vận hành hệ thống</h3>
-          <p>
-            Tại DTDI Solutions, với phương châm sản phẩm trao tới tay khách hàng là sản phẩm tối ưu nhất, chúng tôi luôn
-            thực hiện việc phát triển hệ thống sau khi lắng nghe, khai thác, thấu hiểu mọi mong muốn của khách hàng.
-          </p>
-        </div>
-        <div class="feature-list">
-          <span class="feature-item">Tư vấn DX</span>
-          <span class="feature-item">Tư vấn điện toán đám mây</span>
-          <span class="feature-item">Windows App</span>
-        </div>
-      </div>
-    </div>
-    <div class="content-card">
-      <figure class="card-banner">
-        <img src="/assets/img/feature-3.png" alt="" />
-      </figure>
-      <div class="card-title">
-        <div class="title">
-          <h3>Dịch vụ tư vấn các công nghệ mới</h3>
-          <p>
-            Sở hữu nhiều chứng nhận: Amazon Web Services (AWS), Microsoft Azure, GCP, PMP,…Chúng tôi cam kết mang tới
-            khách hàng những dịch vụ, giải pháp công nghệ kỹ thuật tân tiến - Tính cạnh tranh cao - Bảo mật an toàn.
-          </p>
-        </div>
-        <div class="feature-list">
-          <span class="feature-item">AI (Trí tuệ nhân tạo)</span>
-          <span class="feature-item">Big data</span>
-          <span class="feature-item">Blockchain</span>
-          <span class="feature-item">Người máy-tự động hoá</span>
-          <span class="feature-item">Low-code technology</span>
-        </div>
+
+    <!-- Các card khác -->
+  </div>
+</section>
+<!--PARTNERS-->
+
+<section class="partners-section">
+  <div class="container">
+    <h2 class="section-title"> OUR <span class="first-title">PARTNERS</span></h2>
+    <p class="section-subtitle">
+      Các doanh nghiệp hàng đầu đã và đang tin tưởng hợp tác cùng <strong>DTDI Company Solution</strong>
+    </p>
+
+    <div class="partners-logos">
+      <div class="logo-card" *ngFor="let partner of partners">
+        <img [src]="partner.logo" [alt]="partner.name" />
       </div>
     </div>
   </div>
 </section>
+
+
 <!--Custom contact-->
-<section id="contact">
+<section id="contact" class="contact">
   <div class="container">
     <h2 class="title">
       Let’s work <br />
-      together <span class="dot">.</span>
+       <span class="dot">together</span>
     </h2>
 
     <div class="contact-wrapper">

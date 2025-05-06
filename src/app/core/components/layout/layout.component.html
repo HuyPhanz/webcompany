@@ -14,17 +14,13 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="Table List" nzIcon="unordered-list">
         <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
-          </li>
+          @for (item of LIST_ADMIN ; track item) {
+            <li nz-menu-item nzMatchRouter>
+              <a [routerLink]="item.href">{{item.title}}</a>
+            </li>
+          }
         </ul>
       </li>
       <li nz-submenu nzOpen nzTitle="Category" nzIcon="appstore">
@@ -33,7 +29,10 @@
             <a routerLink="banner">Banner</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="project">Service</a>
+            <a routerLink="products">Product</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="project">Project</a>
           </li>
         </ul>
       </li>
@@ -46,44 +45,13 @@
             <a routerLink="employee">Employee</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="company-history">Company History</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
             <a routerLink="company-detail">Company Detail</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="company-member">Member</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="products">Product</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="news">News</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="customer-contact">Customer Contact</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="media-file">Media file</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Table List" nzIcon="unordered-list">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="employee-list">Employee List</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="product-list">Product List</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="new-list">New List</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="project-list">Project List</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="service-list">Service-list</a>
           </li>
         </ul>
       </li>

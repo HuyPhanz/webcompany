@@ -1,27 +1,89 @@
+<!--<section class="contact-section">-->
+<!--  <div class="container">-->
+<!--    <div class="section-title">-->
+<!--      <h2>Contact Us</h2>-->
+<!--      <p>We would love to hear from you. Please fill out the form below.</p>-->
+<!--    </div>-->
+<!--    <form class="contact-form">-->
+<!--      <div class="form-row">-->
+<!--        <input type="text" placeholder="Your name*" required formControlName="name"  />-->
+<!--        <input type="email" placeholder="Email address*" required formControlName="email" />-->
+<!--      </div>-->
+<!--      <div class="form-row">-->
+<!--        <input type="text" placeholder="Subject"  />-->
+<!--        <input type="text" placeholder="Phone number" formControlName="phone"/>-->
+<!--      </div>-->
+<!--      <div class="form-row">-->
+<!--        <textarea placeholder="Your Message *" rows="6" required formControlName="message"></textarea>-->
+<!--      </div>-->
+<!--      <div class="form-row checkbox-row">-->
+<!--        <input type="checkbox" id="terms" />-->
+<!--        <label for="terms">Accept Terms of Services and Privacy Policy</label>-->
+<!--      </div>-->
+<!--      <div class="form-row">-->
+<!--        <button type="submit" class="submit-btn">Send Message</button>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</section>-->
 <section class="contact-section">
   <div class="container">
     <div class="section-title">
       <h2>Contact Us</h2>
       <p>We would love to hear from you. Please fill out the form below.</p>
     </div>
-    <form class="contact-form">
-      <div class="form-row">
-        <input type="text" placeholder="Your name*" required />
-        <input type="email" placeholder="Email address*" required />
+
+    <form [formGroup]="validateForm" (ngSubmit)="submitForm()" nz-form>
+      <div class="form-grid">
+        <div class="form-item">
+          <nz-form-item>
+            <nz-form-control [nzErrorTip]="'Please input your name!'">
+              <input nz-input formControlName="name" placeholder="Your name*" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div class="form-item">
+          <nz-form-item>
+            <nz-form-control [nzErrorTip]="'Please input a valid email!'">
+              <input nz-input formControlName="email" placeholder="Email address*" type="email" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <!-- Status -->
+        <div class="form-item">
+          <nz-form-item>
+            <nz-form-control [nzErrorTip]="'Please input a valid status!'">
+              <nz-select id="status" formControlName="status" >
+                <nz-option nzValue="NEW" nzLabel="New"></nz-option>
+                <nz-option nzValue="CLOSED" nzLabel="Closed"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+<!--        -->
+        <div class="form-item">
+          <nz-form-item>
+            <nz-form-control [nzErrorTip]="'Please input a valid status!'">
+              <input nz-input formControlName="phone" placeholder="Phone number" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
       </div>
-      <div class="form-row">
-        <input type="text" placeholder="Subject" />
-        <input type="text" placeholder="Phone number" />
+
+      <div class="form-item full-width">
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="'Please enter your message!'">
+            <textarea nz-input formControlName="message" rows="6" placeholder="Your Message *"></textarea>
+          </nz-form-control>
+        </nz-form-item>
       </div>
-      <div class="form-row">
-        <textarea placeholder="Your Message *" rows="6" required></textarea>
-      </div>
-      <div class="form-row checkbox-row">
-        <input type="checkbox" id="terms" />
-        <label for="terms">Accept Terms of Services and Privacy Policy</label>
-      </div>
-      <div class="form-row">
-        <button type="submit" class="submit-btn">Send Message</button>
+
+      <div class="form-item ">
+        <button nz-button nzType="primary" class="submit-btn" type="submit">
+          Send Message
+        </button>
       </div>
     </form>
   </div>

@@ -3,6 +3,7 @@ import { NzContentComponent, NzHeaderComponent, NzLayoutComponent, NzSiderCompon
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { NzIconDirective } from 'ng-zorro-antd/icon';
 import { NzMenuDirective, NzMenuItemComponent, NzSubMenuComponent } from 'ng-zorro-antd/menu';
+import { LIST_ADMIN } from '../../../constant';
 
 @Component({
   selector: 'app-layout',
@@ -24,4 +25,5 @@ import { NzMenuDirective, NzMenuItemComponent, NzSubMenuComponent } from 'ng-zor
 })
 export class LayoutComponent {
   isCollapsed = false;
+  protected readonly LIST_ADMIN = LIST_ADMIN;
 }

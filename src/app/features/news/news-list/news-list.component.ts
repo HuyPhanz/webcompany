@@ -10,6 +10,7 @@ import { NewsService } from '../news.service';
 
 @Component({
   selector: 'app-news-list',
+  standalone: true,
   imports: [FormsModule, NzInputModule, NzPopconfirmModule, NzTableModule, NzButtonModule, NzIconModule],
   templateUrl: './news-list.component.html',
   styleUrl: './news-list.component.scss'

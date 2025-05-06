@@ -9,7 +9,7 @@ import { CustomerContact, CustomerContactResDTO,CustomerContactReqDTO  } from '.
 export class CustomerContactService {
   http = inject(HttpClient);
   // API
-  apiUrl = 'http://26.179.251.121:8080/api/customer-contacts';
+  apiUrl = 'http://26.54.201.159:8080/api/customer-contacts';
   // create API
   createCustomerContact(data: CustomerContactReqDTO): Observable<CustomerContactResDTO> {
     return this.http.post<CustomerContactResDTO>(this.apiUrl, data);
