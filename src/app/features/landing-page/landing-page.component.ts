@@ -3,7 +3,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
-import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { MENU_HEADER } from '../../constant';
 import { filter } from 'rxjs';
@@ -22,7 +22,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     NzMenuModule,
     NzIconModule,
     NzCarouselModule,
-    NzButtonModule
+    NzButtonModule,
+    RouterLinkActive
   ],
   styles: [
     `

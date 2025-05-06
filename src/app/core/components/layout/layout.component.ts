@@ -4,6 +4,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { NzIconDirective } from 'ng-zorro-antd/icon';
 import { NzMenuDirective, NzMenuItemComponent, NzSubMenuComponent } from 'ng-zorro-antd/menu';
 import { LIST_ADMIN } from '../../../constant';
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-layout',
@@ -20,7 +21,8 @@ import { LIST_ADMIN } from '../../../constant';
     NzMenuItemComponent,
     NzSiderComponent,
     NzSubMenuComponent,
-    RouterLink
+    RouterLink,
+    BreadcrumbComponent
   ]
 })
 export class LayoutComponent {

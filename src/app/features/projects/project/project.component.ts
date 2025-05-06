@@ -26,23 +26,23 @@ import { NzNoAnimationModule } from 'ng-zorro-antd/core/no-animation';
   styleUrl: './project.component.scss'
 })
 export class ProjectComponent {
-// service
+  // service
   ProjectService = inject(ProjectService);
-//validate
-  private fb = inject(NonNullableFormBuilder)
+  //validate
+  private fb = inject(NonNullableFormBuilder);
   validateForm = this.fb.group({
     title: ['', Validators.required],
     description: ['', Validators.required],
-    image: ['', Validators.required],
-  })
+    image: ['', Validators.required]
+  });
   //hashtag
   tags = ['#Technology'];
   inputVisible = false;
   inputValue = '';
   @ViewChild('inputElement', { static: false }) inputElement?: ElementRef;
 
-  handleClose(removedTag: {}): void {
-    this.tags = this.tags.filter(tag => tag !== removedTag);
+  handleClose(removedTag: any): void {
+    this.tags = this.tags.filter((tag) => tag !== removedTag);
   }
 
   sliceTagName(tag: string): string {
@@ -77,13 +77,14 @@ export class ProjectComponent {
       this.ProjectService.createProject(data).subscribe({
         next: (res) => {
           console.log(res);
-        }, error: err => {
+        },
+        error: (err) => {
           console.log(err);
         }
-      })
+      });
       console.log('Submitted Data:', data);
     } else {
-      Object.values(this.validateForm.controls).forEach(control => {
+      Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {
           control.markAsDirty();
           control.updateValueAndValidity();

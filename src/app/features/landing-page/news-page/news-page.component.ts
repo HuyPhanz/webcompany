@@ -6,19 +6,19 @@ import { NewsResDTO } from '../../news/interface';
   selector: 'app-news-page',
   imports: [],
   templateUrl: './news-page.component.html',
+  standalone: true,
   styleUrl: './news-page.component.scss'
 })
 export class NewsPageComponent implements OnInit {
-    newService = inject(NewsService);
-    dataNews: NewsResDTO [] = []
+  newService = inject(NewsService);
+  dataNews: NewsResDTO[] = [];
 
-    getAllDataNews (){
-      this.newService.getAllNews().subscribe(data => {
-        this.dataNews = data;
-      })
-    }
-    ngOnInit() {
-      this.getAllDataNews();
-    }
+  getAllDataNews() {
+    this.newService.getAllNews().subscribe((data) => {
+      this.dataNews = data;
+    });
+  }
+  ngOnInit() {
+    this.getAllDataNews();
+  }
 }
-

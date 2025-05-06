@@ -3,15 +3,15 @@
     <h3>Khám Phá Blog & Tin Tức</h3>
 
     <div class="news-cards">
-      @for (index of dataNews; track index) {
-      <div class="news-card">
-        <img [src]="index.image" alt="News Image">
-        <div class="news-card-content">
-          <h4>{{index.title}}</h4>
-          <p>{{index.description}}</p>
-          <a href="#" class="read-more">Xem thêm</a>
+      @for (news of dataNews; track $index) {
+        <div class="news-card">
+          <img [src]="news.image" alt="News Image" />
+          <div class="news-card-content">
+            <h4>{{ news.title }}</h4>
+            <p>{{ news.description }}</p>
+            <a href="#" class="read-more">Xem thêm</a>
+          </div>
         </div>
-      </div>
       }
     </div>
   </div>

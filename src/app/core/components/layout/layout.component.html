@@ -14,11 +14,34 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="Company" nzIcon="unordered-list">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['company', 'info']">Info</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['company', 'customer']">Customer</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['employee']">Employee</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['product']">Product</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['news']">News</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['project']">Project</a>
+      </li>
+      <!--      remove-->
       <li nz-submenu nzOpen nzTitle="Table List" nzIcon="unordered-list">
         <ul>
-          @for (item of LIST_ADMIN ; track item) {
+          @for (item of LIST_ADMIN; track item) {
             <li nz-menu-item nzMatchRouter>
-              <a [routerLink]="item.href">{{item.title}}</a>
+              <a [routerLink]="item.href">{{ item.title }}</a>
             </li>
           }
         </ul>
@@ -68,6 +91,7 @@
         >
           <nz-icon class="trigger" [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" />
         </span>
+        <app-breadcrumb-component></app-breadcrumb-component>
       </div>
     </nz-header>
     <nz-content>

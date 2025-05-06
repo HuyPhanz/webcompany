@@ -17,8 +17,9 @@
 }
 
 .header-trigger {
-  height: 64px;
-  padding: 20px 24px;
+  display: inline-flex;
+  padding: 0;
+  height: fit-content;
   font-size: 20px;
   cursor: pointer;
   transition:
@@ -69,22 +70,19 @@ nz-header {
 }
 
 .app-header {
-  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
   height: 64px;
-  padding: 0;
+  padding: 0 16px;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 
 nz-content {
-  margin: 24px;
-  height: 100vh;
+  margin: 16px 16px 0 16px;
+  padding: 16px;
+  height: calc(100vh - (16px + 64px));
+  overflow: auto;
+  background: white;
 }
-
-.inner-content {
-  background: #fff;
-}
-
-
-//
-

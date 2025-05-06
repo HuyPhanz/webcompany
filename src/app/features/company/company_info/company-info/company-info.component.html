@@ -1,5 +1,37 @@
-<nz-card nzTitle="Company Introduction" class="custom-card">
-  <form nz-form [formGroup]="validateForm" (ngSubmit)="onSubmit()">
+<div>
+  <h1>Company Detail</h1>
+  <form nz-form [formGroup]="detailForm" (ngSubmit)="onSubmitDetail()">
+    <!-- title -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="title" nzRequired>Title</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzErrorTip="Please input title!">
+        <input nz-input id="title" formControlName="title" placeholder="Please enter title" />
+      </nz-form-control>
+    </nz-form-item>
+    <!-- address  -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Content</nz-form-label>
+      <nz-form-control [nzSpan]="14" nzHasFeedback nzErrorTip="Please enter your company address!">
+        <nz-textarea-count [nzMaxCharacterCount]="1000">
+          <textarea
+            nz-input
+            rows="2"
+            formControlName="description"
+            placeholder="Please enter your company address"
+          ></textarea>
+        </nz-textarea-count>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- submit -->
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" [disabled]="detailForm.invalid">Submit</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+
+  <h1>Company Information</h1>
+  <form nz-form [formGroup]="infoForm" (ngSubmit)="onSubmitInfo()">
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Site Name</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Please input site name">
@@ -27,14 +59,14 @@
         <input nz-input formControlName="contactEmail" placeholder="Enter company email" />
       </nz-form-control>
     </nz-form-item>
-<!--    year-->
+    <!--    year-->
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Year</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid year">
         <input nz-input formControlName="year" placeholder="Enter company year" />
       </nz-form-control>
     </nz-form-item>
-<!--    -->
+    <!--    -->
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Phone</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid phone number">
@@ -55,7 +87,7 @@
         <input nz-input formControlName="director" placeholder="Enter company director" />
       </nz-form-control>
     </nz-form-item>
-<!--  Working Hours  -->
+    <!--  Working Hours  -->
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Working Hours</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Please input working hours">
@@ -63,7 +95,7 @@
       </nz-form-control>
     </nz-form-item>
 
-<!--  Map Embed URL  -->
+    <!--  Map Embed URL  -->
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Map Embed URL</nz-form-label>
       <nz-form-control [nzSpan]="14" nzErrorTip="Please input map embed URL">
@@ -73,8 +105,8 @@
 
     <nz-form-item>
       <nz-form-control [nzSpan]="14" [nzOffset]="6">
-        <button nz-button nzType="primary" [disabled]="validateForm.invalid">Submit</button>
+        <button nz-button nzType="primary" [disabled]="infoForm.invalid">Submit</button>
       </nz-form-control>
     </nz-form-item>
   </form>
-</nz-card>
+</div>

@@ -20,27 +20,19 @@ import { CompanyInfoService } from '../company-info.service';
   ],
   templateUrl: './company-info.component.html',
   styleUrl: './company-info.component.scss',
-  styles: [
-    `
-      .ant-select.ant-select-in-form-item.phone-select {
-        width: 80px;
-      }
-      .register-area {
-        margin-bottom: 8px;
-      }
-      .ant-card-head-title {
-        font-size: 25px;
-      }
-    `
-  ]
+  standalone: true
 })
 export class CompanyInfoComponent {
   //service
   companyInfoService = inject(CompanyInfoService);
 
   private fb = inject(NonNullableFormBuilder);
-  //validate
-  validateForm = this.fb.group({
+  //form
+  detailForm = this.fb.group({
+    title: this.fb.control('', Validators.required),
+    description: this.fb.control('', [Validators.required, Validators.minLength(6), Validators.maxLength(1000)])
+  });
+  infoForm = this.fb.group({
     siteName: this.fb.control('', [Validators.required]),
     icon: this.fb.control('', [Validators.required]),
     year: this.fb.control(0, [Validators.required]),
@@ -52,13 +44,29 @@ export class CompanyInfoComponent {
     workingHours: this.fb.control('', [Validators.required]),
     mapUrl: this.fb.control('', [Validators.required])
   });
-  onSubmit(): void {
-    if (this.validateForm.valid) {
-      const formValue = this.validateForm.getRawValue();
+
+  onSubmitInfo(): void {
+    if (this.infoForm.valid) {
+      const formValue = this.infoForm.getRawValue();
       this.companyInfoService.createCompanyInfo(formValue).subscribe({
         next: (res) => {
           console.log(res);
-        }, error: (err) => {
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    }
+  }
+
+  onSubmitDetail(): void {
+    if (this.detailForm.valid) {
+      const formValue = this.detailForm.getRawValue();
+      this.companyInfoService.createCompanyDetail(formValue).subscribe({
+        next: (result) => {
+          console.log(result);
+        },
+        error: (err) => {
           console.log(err);
         }
       });
