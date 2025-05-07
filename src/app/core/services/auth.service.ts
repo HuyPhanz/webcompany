@@ -9,13 +9,14 @@ import { LoginRes } from '../models/user.model';
 })
 export class AuthService {
   private tokenKey = 'auth_token';
+  private roleKey = 'user_role';
   private apiUrl = environment.API_URL;
 
   httpClient = inject(HttpClient);
-
   router = inject(Router);
 
   private token = signal<string | null>(localStorage.getItem(this.tokenKey));
+  role = signal<string | null>(localStorage.getItem(this.roleKey));
 
   isAuthenticated = computed(() => !!this.token());
 
@@ -24,6 +25,7 @@ export class AuthService {
       next: (res) => {
         console.log(res);
         localStorage.setItem(this.tokenKey, res.token);
+        localStorage.setItem(this.roleKey, res.role);
         this.token.set(res.token);
         this.router.navigate(['/']);
       }
@@ -32,6 +34,8 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.roleKey);
     this.token.set(null);
+    this.role.set(null);
   }
 }

@@ -52,7 +52,6 @@ export const routes: Routes = [
         path: 'news-page',
         component: NewsPageComponent
       },
-
       {
         path: 'news-detail',
         component: NewsDetailComponent
