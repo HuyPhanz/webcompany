@@ -3,7 +3,6 @@ import { NotFoundPageComponent } from './core/components/not-found-page/not-foun
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { Routes } from '@angular/router';
 import { LandingPageComponent } from './features/landing-page/landing-page.component';
-import { EmployeeFormComponent } from './features/employee/employee-form/employee-form.component';
 import { ProductFormComponent } from './features/products/product-form/product-form.component';
 import { NewsFormComponent } from './features/news/news-form/news-form.component';
 import { ProductListComponent } from './features/products/product-list/product-list.component';
@@ -16,11 +15,11 @@ import { NewsPageComponent } from './features/landing-page/news-page/news-page.c
 import { NewsDetailComponent } from './features/landing-page/news-detail/news-detail.component';
 import { ProjectPageComponent } from './features/landing-page/project-page/project-page.component';
 import { ProjectListComponent } from './features/projects/project-list/project-list.component';
-import { EmployeeListComponent } from './features/employee/employee-list/employee-list.component';
 import { ProjectComponent } from './features/projects/project/project.component';
 import { BannerFormComponent } from './features/banner_home/banner-form/banner-form.component';
 import { BannerComponent } from './features/banner/banner.component';
 import { CompanyRoutes } from './features/company/company.routes';
+import { EmployeeRoutes } from './features/employee/employee.routes';
 
 export const routes: Routes = [
   {
@@ -76,15 +75,8 @@ export const routes: Routes = [
       // employee
       {
         path: 'employee',
-        component: EmployeeFormComponent
-      },
-      // {
-      //   path: 'member',
-      //   component: MemberComponent
-      // },
-      {
-        path: 'employee-list',
-        component: EmployeeListComponent
+        children: EmployeeRoutes,
+        data: { breadcrumb: 'Employee' }
       },
       // product
       {

@@ -9,6 +9,7 @@ import {
   CompanyDetailResDTO,
   CompanyDetail
 } from './interface';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ import {
 export class CompanyInfoService {
   http = inject(HttpClient);
   // API
-  apiUrl = 'http://26.179.251.121:8080/api/company-info';
+  apiUrl = environment.API_URL + '/company-info';
   // create API
   createCompanyInfo(data: CompanyInfoReqDTO): Observable<CompanyInfoReqDTO> {
     return this.http.post<CompanyInfoReqDTO>(this.apiUrl, data);

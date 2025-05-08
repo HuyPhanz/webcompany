@@ -26,6 +26,7 @@ import { CustomerContactService } from '../customer-contact.service';
     NzButtonModule
   ],
   templateUrl: './customer-contact.component.html',
+  standalone: true,
   styleUrl: './customer-contact.component.scss'
 })
 export class CustomerContactComponent implements OnDestroy {
@@ -38,7 +39,7 @@ export class CustomerContactComponent implements OnDestroy {
     email: this.fb.control('', [Validators.email, Validators.required]),
     phone: this.fb.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
     message: this.fb.control('', [Validators.required, Validators.minLength(6), Validators.maxLength(1000)]),
-    status: ['', [Validators.required]],
+    status: ['', [Validators.required]]
   });
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -65,7 +66,7 @@ export class CustomerContactComponent implements OnDestroy {
         next: (res) => {
           console.log(res);
         }
-      })
+      });
     } else {
       Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {

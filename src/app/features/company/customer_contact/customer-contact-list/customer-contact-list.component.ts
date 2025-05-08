@@ -5,18 +5,23 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import {  CustomerContactReqDTO,  CustomerContactResDTO } from '../interface';
+import { CustomerContactReqDTO, CustomerContactResDTO } from '../interface';
 import { CustomerContactService } from '../customer-contact.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-contact-list',
   imports: [FormsModule, NzInputModule, NzPopconfirmModule, NzTableModule, NzButtonModule, NzIconModule],
   templateUrl: './customer-contact-list.component.html',
+  standalone: true,
   styleUrl: './customer-contact-list.component.scss'
 })
 export class CustomerContactListComponent implements OnInit {
   //service
   customerContactService = inject(CustomerContactService);
+  router = inject(Router);
+  route = inject(ActivatedRoute);
+
   editCache: Record<string, { edit: boolean; data: CustomerContactReqDTO }> = {};
   customerContactOfData: CustomerContactResDTO[] = [];
 
@@ -28,7 +33,7 @@ export class CustomerContactListComponent implements OnInit {
     this.customerContactService.getAlLDataCustomerContact().subscribe((res) => {
       this.customerContactOfData = res;
       this.updateEditCache();
-    })
+    });
   }
   //delete
   deleteDataCustomerContact(id: number) {
@@ -68,5 +73,11 @@ export class CustomerContactListComponent implements OnInit {
       data: { ...this.customerContactOfData[index] },
       edit: false
     };
+  }
+
+  goToAdd() {
+    this.router.navigate(['add'], {
+      relativeTo: this.route
+    });
   }
 }
