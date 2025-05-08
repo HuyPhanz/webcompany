@@ -7,15 +7,20 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { Project, ProjectReqDTO } from '../interface';
 import { ProjectService } from '../project.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-project-list',
   imports: [FormsModule, NzInputModule, NzPopconfirmModule, NzTableModule, NzButtonModule, NzIconModule],
   templateUrl: './project-list.component.html',
+  standalone: true,
   styleUrl: './project-list.component.scss'
 })
 export class ProjectListComponent implements OnInit {
   //service
   projectService = inject(ProjectService);
+  router = inject(Router);
+  route = inject(ActivatedRoute);
+
   editCache: Record<string, { edit: boolean; data: ProjectReqDTO }> = {};
   projectOfData: Project[] = [];
 
@@ -74,5 +79,11 @@ export class ProjectListComponent implements OnInit {
       data: { ...this.projectOfData[index] },
       edit: false
     };
+  }
+
+  goToAdd() {
+    this.router.navigate(['add'], {
+      relativeTo: this.route
+    });
   }
 }

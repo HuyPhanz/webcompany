@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CompanyInfoService } from '../../company/company_info/company-info.service';
-import { CompanyDetailResDTO, CompanyInfoResDTO } from '../../company/company_info/interface';
+import { CompanyService } from '../../company/company.service';
+import { CompanyDetailResDTO, CompanyInfoResDTO } from '../../company/interface';
 
 @Component({
   selector: 'app-about-page',
@@ -11,7 +11,7 @@ import { CompanyDetailResDTO, CompanyInfoResDTO } from '../../company/company_in
 })
 export class AboutPageComponent implements OnInit {
   // get Api About
-  companyInfoService = inject(CompanyInfoService);
+  companyInfoService = inject(CompanyService);
   dataCompanyDetail: CompanyDetailResDTO[] = [];
 
   getAllDataCompanyDetail() {

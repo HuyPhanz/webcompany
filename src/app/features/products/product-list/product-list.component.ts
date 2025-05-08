@@ -7,16 +7,21 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { Product, ProductReqDTO } from '../interface';
 import { ProductService } from '../product.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
   imports: [FormsModule, NzInputModule, NzPopconfirmModule, NzTableModule, NzButtonModule, NzIconModule],
   templateUrl: './product-list.component.html',
+  standalone: true,
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent implements OnInit {
   //service
- productService = inject(ProductService);
+  productService = inject(ProductService);
+  router = inject(Router);
+  route = inject(ActivatedRoute);
+
   editCache: Record<string, { edit: boolean; data: ProductReqDTO }> = {};
   productOfData: Product[] = [];
 
@@ -75,5 +80,11 @@ export class ProductListComponent implements OnInit {
       data: { ...this.productOfData[index] },
       edit: false
     };
+  }
+
+  goToAdd() {
+    this.router.navigate(['add'], {
+      relativeTo: this.route
+    });
   }
 }

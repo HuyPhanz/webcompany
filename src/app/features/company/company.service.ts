@@ -9,12 +9,12 @@ import {
   CompanyDetailResDTO,
   CompanyDetail
 } from './interface';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CompanyInfoService {
+export class CompanyService {
   http = inject(HttpClient);
   // API
   apiUrl = environment.API_URL + '/company-info';

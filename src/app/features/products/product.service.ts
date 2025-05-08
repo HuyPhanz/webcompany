@@ -2,12 +2,13 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product, ProductReqDTO, ProductResDTO } from './interface';
+import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   http = inject(HttpClient);
-  apiUrl = 'http://26.179.251.121:8080/api/products';
+  apiUrl = environment.API_URL + '/products';
 
   // Api-Post
   createProduct(data: ProductReqDTO): Observable<ProductResDTO> {
@@ -26,7 +27,7 @@ export class ProductService {
     return this.http.delete<ProductResDTO>(`${this.apiUrl}/${id}`);
   }
   //update
-  updateProduct(data:Product): Observable<ProductReqDTO> {
+  updateProduct(data: Product): Observable<ProductReqDTO> {
     return this.http.put<ProductReqDTO>(`${this.apiUrl}/${data.id}`, data);
   }
 }

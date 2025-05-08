@@ -11,8 +11,8 @@ import { ProductResDTO } from '../../products/interface';
 import { ProjectService } from '../../projects/project.service';
 import { ProjectResDTO } from '../../projects/interface';
 import { NzColDirective, NzRowDirective } from 'ng-zorro-antd/grid';
-import { CompanyInfoService } from '../../company/company_info/company-info.service';
-import { CompanyDetailResDTO } from '../../company/company_info/interface';
+import { CompanyService } from '../../company/company.service';
+import { CompanyDetailResDTO } from '../../company/interface';
 @Component({
   selector: 'app-home-page',
   imports: [
@@ -57,7 +57,7 @@ export class HomePageComponent implements OnInit {
     });
   }
   // get Api About
-  companyInfoService = inject(CompanyInfoService);
+  companyInfoService = inject(CompanyService);
   dataCompanyDetail: CompanyDetailResDTO[] = [];
 
   getAllDataCompanyDetail() {

@@ -1,48 +1,53 @@
-<nz-table  nzBordered [nzData]="newOfData" nzTableLayout="fixed">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th>Created Date</th>
-      <th>Modified Date</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (data of newOfData; track data) {
+<div>
+  <div class="flex justify-end mb-2">
+    <button nz-button (click)="goToAdd()">Add news</button>
+  </div>
+  <nz-table nzBordered [nzData]="newOfData" nzTableLayout="fixed">
+    <thead>
       <tr>
-        @if (!editCache[data.id].edit) {
-          <td>{{ data.title }}</td>
-          <td>{{ data.description }}</td>
-          <td>{{ data.image }}</td>
-          <td>{{ data.createdDate }}</td>
-          <td>{{ data.modifiedDate }}</td>
-          <td>
-            <button nz-button nzType="primary" (click)="startEdit(data.id)"><nz-icon nzType="edit" />Edit</button>
-            <button nz-button nzType="primary" nzDanger (click)="deleteNew(data.id)">
-              <nz-icon nzType="delete" />Delete
-            </button>
-          </td>
-        } @else {
-          <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.title" /></td>
-          <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.id].data.description"></textarea></td>
-          <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.id].data.image"></textarea></td>
-          <td>
-            <button nz-button nzType="primary" (click)="updateNew(data.id)" class="save">Save</button
-            ><button
-              nz-popconfirm
-              nz-button
-              nzType="dashed"
-              nzDanger
-              nzPopconfirmTitle="Sure to cancel?"
-              (nzOnConfirm)="cancelEdit(data.id)"
-            >
-              Cancel
-            </button>
-          </td>
-        }
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Created Date</th>
+        <th>Modified Date</th>
+        <th>Action</th>
       </tr>
-    }
-  </tbody>
-</nz-table>
+    </thead>
+    <tbody>
+      @for (data of newOfData; track data) {
+        <tr>
+          @if (!editCache[data.id].edit) {
+            <td>{{ data.title }}</td>
+            <td>{{ data.description }}</td>
+            <td>{{ data.image }}</td>
+            <td>{{ data.createdDate }}</td>
+            <td>{{ data.modifiedDate }}</td>
+            <td>
+              <button nz-button nzType="primary" (click)="startEdit(data.id)"><nz-icon nzType="edit" />Edit</button>
+              <button nz-button nzType="primary" nzDanger (click)="deleteNew(data.id)">
+                <nz-icon nzType="delete" />Delete
+              </button>
+            </td>
+          } @else {
+            <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.title" /></td>
+            <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.id].data.description"></textarea></td>
+            <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.id].data.image"></textarea></td>
+            <td>
+              <button nz-button nzType="primary" (click)="updateNew(data.id)" class="save">Save</button
+              ><button
+                nz-popconfirm
+                nz-button
+                nzType="dashed"
+                nzDanger
+                nzPopconfirmTitle="Sure to cancel?"
+                (nzOnConfirm)="cancelEdit(data.id)"
+              >
+                Cancel
+              </button>
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </nz-table>
+</div>

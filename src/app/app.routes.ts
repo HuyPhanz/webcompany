@@ -3,10 +3,6 @@ import { NotFoundPageComponent } from './core/components/not-found-page/not-foun
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { Routes } from '@angular/router';
 import { LandingPageComponent } from './features/landing-page/landing-page.component';
-import { ProductFormComponent } from './features/products/product-form/product-form.component';
-import { NewsFormComponent } from './features/news/news-form/news-form.component';
-import { ProductListComponent } from './features/products/product-list/product-list.component';
-import { NewsListComponent } from './features/news/news-list/news-list.component';
 import { HomePageComponent } from './features/landing-page/home-page/home-page.component';
 import { AboutPageComponent } from './features/landing-page/about-page/about-page.component';
 import { ServicePageComponent } from './features/landing-page/service-page/service-page.component';
@@ -14,12 +10,12 @@ import { ContactPageComponent } from './features/landing-page/contact-page/conta
 import { NewsPageComponent } from './features/landing-page/news-page/news-page.component';
 import { NewsDetailComponent } from './features/landing-page/news-detail/news-detail.component';
 import { ProjectPageComponent } from './features/landing-page/project-page/project-page.component';
-import { ProjectListComponent } from './features/projects/project-list/project-list.component';
-import { ProjectComponent } from './features/projects/project/project.component';
-import { BannerFormComponent } from './features/banner_home/banner-form/banner-form.component';
-import { BannerComponent } from './features/banner/banner.component';
 import { CompanyRoutes } from './features/company/company.routes';
 import { EmployeeRoutes } from './features/employee/employee.routes';
+import { ProductRoutes } from './features/products/products.routes';
+import { NewsRoutes } from './features/news/news.routes';
+import { ProjectRoutes } from './features/projects/projects.routes';
+import { BannerRoutes } from './features/banner_home/banner.routes';
 
 export const routes: Routes = [
   {
@@ -61,11 +57,6 @@ export const routes: Routes = [
     path: 'app',
     component: LayoutComponent,
     children: [
-      // banner
-      {
-        path: 'banner',
-        component: BannerFormComponent
-      },
       // company-info
       {
         path: 'company',
@@ -81,40 +72,32 @@ export const routes: Routes = [
       // product
       {
         path: 'products',
-        component: ProductFormComponent
-      },
-
-      {
-        path: 'product-list',
-        component: ProductListComponent
+        children: ProductRoutes,
+        data: { breadcrumb: 'Products' }
       },
       // news
       {
         path: 'news',
-        component: NewsFormComponent
-      },
-      {
-        path: 'new-list',
-        component: NewsListComponent
+        children: NewsRoutes,
+        data: { breadcrumb: 'News' }
       },
       // project
       {
         path: 'project',
-        component: ProjectComponent
+        children: ProjectRoutes,
+        data: { breadcrumb: 'Projects' }
       },
+      // banner
       {
-        path: 'project-list',
-        component: ProjectListComponent
+        path: 'banner',
+        children: BannerRoutes,
+        data: { breadcrumb: 'Banner' }
       }
     ]
   },
   {
     path: 'auth',
     component: LoginPageComponent
-  },
-  {
-    path: 'banner',
-    component: BannerComponent
   },
   { path: 'notFound', component: NotFoundPageComponent }
 ];

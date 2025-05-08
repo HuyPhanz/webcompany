@@ -28,7 +28,7 @@
         <a [routerLink]="['employee']">Employee</a>
       </li>
       <li nz-menu-item nzMatchRouter>
-        <a [routerLink]="['product']">Product</a>
+        <a [routerLink]="['products']">Product</a>
       </li>
       <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['news']">News</a>
@@ -36,48 +36,51 @@
       <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['project']">Project</a>
       </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['banner']">Banner</a>
+      </li>
       <!--      remove-->
-      <li nz-submenu nzOpen nzTitle="Table List" nzIcon="unordered-list">
-        <ul>
-          @for (item of LIST_ADMIN; track item) {
-            <li nz-menu-item nzMatchRouter>
-              <a [routerLink]="item.href">{{ item.title }}</a>
-            </li>
-          }
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Category" nzIcon="appstore">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="banner">Banner</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="products">Product</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="project">Project</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="company">Company Info</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="employee">Employee</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="company-detail">Company Detail</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="news">News</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="customer-contact">Customer Contact</a>
-          </li>
-        </ul>
-      </li>
+      <!--      <li nz-submenu nzOpen nzTitle="Table List" nzIcon="unordered-list">-->
+      <!--        <ul>-->
+      <!--          @for (item of LIST_ADMIN; track item) {-->
+      <!--            <li nz-menu-item nzMatchRouter>-->
+      <!--              <a [routerLink]="item.href">{{ item.title }}</a>-->
+      <!--            </li>-->
+      <!--          }-->
+      <!--        </ul>-->
+      <!--      </li>-->
+      <!--      <li nz-submenu nzOpen nzTitle="Category" nzIcon="appstore">-->
+      <!--        <ul>-->
+      <!--          <li nz-menu-item nzMatchRouter>-->
+      <!--            <a routerLink="banner">Banner</a>-->
+      <!--          </li>-->
+      <!--          <li nz-menu-item nzMatchRouter>-->
+      <!--            <a routerLink="products">Product</a>-->
+      <!--          </li>-->
+      <!--          <li nz-menu-item nzMatchRouter>-->
+      <!--            <a routerLink="project">Project</a>-->
+      <!--          </li>-->
+      <!--        </ul>-->
+      <!--      </li>-->
+      <!--      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">-->
+      <!--        <ul>-->
+      <!--          <li nz-menu-item nzMatchRouter>-->
+      <!--            <a routerLink="company">Company Info</a>-->
+      <!--          </li>-->
+      <!--          <li nz-menu-item nzMatchRouter>-->
+      <!--            <a routerLink="employee">Employee</a>-->
+      <!--          </li>-->
+      <!--          <li nz-menu-item nzMatchRouter>-->
+      <!--            <a routerLink="company-detail">Company Detail</a>-->
+      <!--          </li>-->
+      <!--          <li nz-menu-item nzMatchRouter>-->
+      <!--            <a routerLink="news">News</a>-->
+      <!--          </li>-->
+      <!--          <li nz-menu-item nzMatchRouter>-->
+      <!--            <a routerLink="customer-contact">Customer Contact</a>-->
+      <!--          </li>-->
+      <!--        </ul>-->
+      <!--      </li>-->
     </ul>
   </nz-sider>
   <nz-layout>

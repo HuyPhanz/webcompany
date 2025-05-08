@@ -5,7 +5,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { CompanyInfoService } from '../company-info.service';
+import { CompanyService } from '../../company.service';
 
 @Component({
   selector: 'app-company',
@@ -24,7 +24,7 @@ import { CompanyInfoService } from '../company-info.service';
 })
 export class CompanyInfoComponent {
   //service
-  companyInfoService = inject(CompanyInfoService);
+  companyInfoService = inject(CompanyService);
 
   private fb = inject(NonNullableFormBuilder);
   //form

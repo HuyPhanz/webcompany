@@ -5,8 +5,9 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import {  NewsReqDTO, NewsResDTO } from '../interface';
+import { NewsReqDTO, NewsResDTO } from '../interface';
 import { NewsService } from '../news.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-list',
@@ -18,6 +19,9 @@ import { NewsService } from '../news.service';
 export class NewsListComponent implements OnInit {
   //service
   newService = inject(NewsService);
+  router = inject(Router);
+  route = inject(ActivatedRoute);
+
   editCache: Record<string, { edit: boolean; data: NewsReqDTO }> = {};
   newOfData: NewsResDTO[] = [];
 
@@ -69,5 +73,11 @@ export class NewsListComponent implements OnInit {
       data: { ...this.newOfData[index] },
       edit: false
     };
+  }
+
+  goToAdd() {
+    this.router.navigate(['add'], {
+      relativeTo: this.route
+    });
   }
 }
