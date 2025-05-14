@@ -1,123 +1,130 @@
+.contact-page {
+  .banner-contact {
+    height: 460px;
+    background-image: url('https://www.teacherph.com/wp-content/uploads/2023/03/The-Action-Research-Landscape-A-Critical-Analysis-of-Related-Literature-and-Emerging-Trends.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Quan trọng để .banner-title định vị */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* Lớp phủ để chữ nổi bật hơn */
+      z-index: 1;
+    }
+
+    .banner-title {
+      position: relative; /* Đảm bảo nó nằm trên lớp phủ */
+      z-index: 2;
+
+      h1 {
+        display: inline-block;
+        border-left: 3px solid #FEA359;
+        border-right: 3px solid #FEA359;
+        padding: 0 15px;
+        font-size: 40px;
+        color: white;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Làm chữ nổi rõ hơn */
+      }
+    }
+  }
+}
 
 .contact-section {
   padding: 40px 20px;
   display: flex;
   justify-content: center;
 }
-
 .container {
   max-width: 800px;
   background: #ffffff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-}
+  .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    h2 {
+      font-size: 30px;
+      color: #f59e0b;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 30px;
-
-  h2 {
-    font-size: 30px;
-    color: #f59e0b;
-    font-weight: bold;
-    margin-bottom: 10px;
+    p {
+      color: #475569;
+      font-size: 16px;
+    }
   }
+  .contact-content{
+    .form{
+      display: grid;
+      grid-template-columns:1fr 1fr;
+      gap: 10px;
+      .message{
+        grid-column: span 2;
+      }
+      .button-submit{
+        grid-column: span 2;
+        button{
+          width: 100%;
+          background-color: #FEA359;
+          border: none;
+        }
+      }
+      input[nz-input],
+      textarea[nz-input]{
+        border-radius: 8px;
+        padding: 10px 14px;
+        transition: all 0.3s ease;
+        font-size: 15px;
+        color: #333;
+        background-color: #fff;
+      }
+      //
+      input[nz-input],
+      textarea[nz-input]:focus {
+        outline: none;
+      }
+      //
+      input[nz-input]::placeholder,
+      textarea[nz-input]::placeholder {
+        font-style: italic;
+      }
+      ::ng-deep .ant-select {
+        width: 100%;
+      }
 
-  p {
-    color: #475569;
-    font-size: 16px;
-  }
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.form-item {
-  display: flex;
-  flex-direction: column;
-
-  input[nz-input],
-  textarea[nz-input] {
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    border: 1px solid #e5e7eb;
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  textarea[nz-input] {
-    resize: none;
-  }
-}
-
-.full-width {
-  grid-column: span 2;
-}
-
-.checkbox-row {
-  margin-top: 10px;
-  margin-bottom: 20px;
-
-  label {
-    font-size: 14px;
-    color: #475569;
-  }
-}
-.form-item{
-  button{
-    width: 100%;
-    background-color: #6366f1;
-    padding: 20px;
-    color: #ffffff;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &:hover {
-      background-color: #4f46e5;
+      ::ng-deep .ant-select-selector {
+        height: 46px !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        align-items: center;
+        padding: 0 14px !important;
+        transition: all 0.3s ease;
+        background-color: #fff;
+      }
+      ::ng-deep .ant-select-focused .ant-select-selector,
+      ::ng-deep .ant-select-selector:focus,
+      ::ng-deep .ant-select-open .ant-select-selector {
+      }
+      ::ng-deep .ant-select-selection-item {
+        font-size: 15px;
+        line-height: 1;
+        color: #333;
+      }
     }
   }
 }
 
-.form-item {
-  display: flex;
-  flex-direction: column;
 
-  input[nz-input],
-  textarea[nz-input],
-  nz-select {
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    border:none;
-    outline: none !important;
-    padding: 10px;
-    font-size: 14px;
-  }
 
-  nz-select {
 
-    display: flex;
-    align-items: center;
-    height: 40px; /* đảm bảo cùng chiều cao với input */
-  }
-
-  textarea[nz-input] {
-    resize: none;
-  }
-}
-
-/* Chỉnh sửa bên trong nz-select */
-::ng-deep .ant-select-selector {
-  background-color: #f9f9f9 !important;
-  border-radius: 6px !important;
-  border: none !important;
-  outline: none !important;
-  padding: 5px 10px !important;
-  height: 40px !important;
-  display: flex;
-  align-items: center;
-}
