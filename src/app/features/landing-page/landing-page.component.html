@@ -1,9 +1,9 @@
 <nz-layout>
   <nz-header>
     <header class="navbar">
-      <div class="navbar-container">
-        <!-- Logo -->
-        <div class="navbar-logo">
+      <div class="navbar-container ">
+        <!-- Logo + Brand Text -->
+        <div class="navbar-logo ">
           <img src="/assets/img/logo_dtdi.svg" alt="logo" />
         </div>
 
@@ -22,6 +22,7 @@
                   routerLinkActive="active"
                   [routerLinkActiveOptions]="{ exact: true }"
                   [class.active]="currentRoute === item.href || (currentRoute === '' && item.href === '')"
+                  [class.home]="item.title === 'HOME'"
                 >
                   {{ item.title }}
                 </a>
@@ -29,23 +30,37 @@
             }
           </ul>
         </nav>
-
-        <!-- Language Switcher -->
-        <div class="navbar-language">
-          <a nz-dropdown [nzDropdownMenu]="langMenu" [nzClickHide]="false" class="lang-btn">
-            {{ selectedLang }}
-            <span><nz-icon nzType="down" class="dropdown-icon"></nz-icon></span>
-          </a>
-          <nz-dropdown-menu #langMenu="nzDropdownMenu">
-            <ul nz-menu>
-              <li nz-menu-item>en</li>
-              <li nz-menu-item>vi</li>
+          <div class="navbar-language " nz-dropdown [nzDropdownMenu]="languageMenu">
+            <span class="lang-trigger">
+              {{ currentLanguage === 'vi' ? 'TIẾNG VIỆT' : 'ENGLISH' }}
+              <img
+                [src]="currentLanguage === 'vi' ? 'https://flagcdn.com/w40/vn.png' : 'https://flagcdn.com/w40/gb.png'"
+                width="16"
+                alt="flag"
+              />
+              <nz-icon nzType="down"></nz-icon>
+            </span>
+          </div>
+          <nz-dropdown-menu #languageMenu="nzDropdownMenu">
+            <ul nz-menu class="nz-menu language-menu">
+              <li nz-menu-item (click)="switchLanguage('vi')">
+                <span class="lang-option">
+                  <span>TIẾNG VIỆT</span>
+                  <img src="https://flagcdn.com/w40/vn.png" width="16" alt="" />
+                </span>
+                  </li>
+                  <li nz-menu-item (click)="switchLanguage('en')">
+                <span class="lang-option">
+                  <span>ENGLISH</span>
+                  <img src="https://flagcdn.com/w40/gb.png" width="16" alt="" />
+                </span>
+              </li>
             </ul>
           </nz-dropdown-menu>
-        </div>
       </div>
     </header>
   </nz-header>
+
   <nz-content>
     <router-outlet></router-outlet>
   </nz-content>
@@ -57,7 +72,7 @@
           <p>Have questions? Reach out, and let's talk about your needs.</p>
           <ul>
             <li>✉️ <a href="mailto:support@itsolutions.com">support&#64;itsolutions.com</a></li>
-            <li>📍 New York, USA</li>
+            <li>📍 48 Tố Hữu, Trung Văn, Nam Từ Liêm, Hà Nội, Việt Nam</li>
             <li>📞 <a href="tel:+1234567890">+1 234 567 890</a></li>
           </ul>
         </div>
@@ -76,9 +91,9 @@
           <h3>🌍 <b>Stay Connected</b></h3>
           <p>Follow us for updates and insights.</p>
           <div class="social-icons">
-            <a href="#"><img src="facebook-icon.png" alt="Facebook" /></a>
-            <a href="#"><img src="twitter-icon.png" alt="Twitter" /></a>
-            <a href="#"><img src="linkedin-icon.png" alt="LinkedIn" /></a>
+            <a href="#"><nz-icon nzType="facebook" nzTheme="outline" class="icon icon-facebook" /></a>
+            <a href="#"><nz-icon nzType="twitter" nzTheme="outline" class="icon icon-twitter" /></a>
+            <a href="#"><nz-icon nzType="linkedin" nzTheme="outline" class="icon icon-linkedin" /></a>
           </div>
         </div>
 

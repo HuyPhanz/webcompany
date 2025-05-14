@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -9,12 +7,16 @@ import { MENU_HEADER } from '../../constant';
 import { filter } from 'rxjs';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 @Component({
   selector: 'app-landing-page',
   templateUrl: 'landing-page.component.html',
   styleUrl: 'landing-page.component.scss',
   standalone: true,
   imports: [
+    NzDropDownModule,
+    NzIconModule,
     NzLayoutModule,
     RouterLink,
     RouterOutlet,
@@ -48,10 +50,17 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
   ]
 })
 export class LandingPageComponent implements OnInit {
+  //select language
+  currentLanguage = 'vi';
+
+  switchLanguage(lang: string): void {
+    this.currentLanguage = lang;
+    console.log('Ngôn ngữ hiện tại:', lang);
+  }
   //constant
   menuHeader = MENU_HEADER;
-  //header
-  selectedLang: 'en' | 'vi' = 'en';
+
+  // isMenuOpen
   isMenuOpen = false;
   //
   currentRoute = '';
