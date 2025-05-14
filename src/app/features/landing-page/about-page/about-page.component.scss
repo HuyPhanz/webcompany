@@ -1,61 +1,286 @@
-.about-us {
-  padding: 60px 100px;
-  .container {
+.banner-us{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 460px;
+  background-color: black;
+  background-image: url("https://www.dinhvangcomputer.vn/upload/images/asdasda(3).jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(49, 46, 46, 0.4); /* Lớp phủ để chữ nổi bật hơn */
+    z-index: 1;
+  }
+  .title{
+    position: relative; /* Đảm bảo nó nằm trên lớp phủ */
+    z-index: 2;
+    h1{
+      display: inline-block;
+      border-left: 3px solid #FEA359;
+      border-right: 3px solid #FEA359;
+      padding: 0 15px;
+      font-size: 40px;
+      color: white;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Làm chữ nổi rõ hơn */
+
+    }
+  }
+}
+.about-us{
+  background-color: #ffffff;
+  padding: 100px 0px ;
+  .main{
     width: 1200px;
-    margin: 0 auto;
-    .content-title {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    //company-info
+    .company-info{
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding: 20px 0;
-      .title {
-        h3 {
-          font-size: 60px;
-          color: black;
-          line-height: 1.1;
-          font-weight: bold;
-          .question-mark {
-            color: #f4a460;
-          }
+      grid-template-columns: 670px 1fr;
+      gap: 10px;
+      .our-picture{
+        img{
+          width: 100%;
+          border-radius: 20px;
         }
       }
-      .text {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        h3 {
+      .content{
+        border-radius: 20px;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 2px solid #f1b38b;
+        h1{
+          font-size: 36px;
+          line-height: 1.4;
+
+        }
+        .content-description{
           font-size: 16px;
-        }
-        p {
-          font-size: 14px;
-          line-height: 1.7;
-          font-weight: 400;
-        }
-      }
-    }
-    .us-image {
-      padding: 20px 0 50px 0px;
-    }
-    .company-profile {
-      .header-wrapper {
-        .item-title {
-          font-size: 3rem;
-          font-weight: bold;
-        }
-      }
-      .profile-list {
-        line-height: 1.3;
-        border: 1px solid #f4a460;
-        padding:0 20px;
-        .profile-item {
-          border-bottom: 1px solid #e8e6e6;
-          margin-block: 10px;
-          display: grid;
-          grid-template-columns: 1fr 5fr;
-          .business-list{
-            line-height: 1.8;
+          line-height: 2.1;
+          margin-bottom: 30px;
+          text-align: justify;
+          .website{
+            color: #FEA457;
+            font-weight: 500;
           }
+        }
+        button{
+          a{
+            padding: 10px 20px ;
+            color: #fff;
+            background-color: #FEA457;
+            border-radius: 20px;
+          }
+        }
+
+      }
+    }
+    //reputation
+    .reputation{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      padding: 30px 0 10px 0;
+      .card{
+        border:1px solid #eebe9b;
+        padding:30px;
+        background-color: #faf9f9;
+        border-radius: 20px;
+        .icon{
+          font-size: 30px;
+        }
+        h3{
+          font-size: 20px;
+        }
+        p{
+          font-size: 14px;
+        }
+      }
+    }
+    //who-we-are-section
+    .who-we-are-section {
+      text-align: center;
+      padding: 20px 0px;
+      font-family: Arial, sans-serif;
+      .section-label {
+        color: gray;
+        font-weight: 500;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .section-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        .highlight-blue {
+          color: #FEA457;
+        }
+        .highlight-green {
+          color: 	#6FCF97;
+        }
+      }
+      .stats-grid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        .stat-item {
+          padding: 0 30px;
+          min-width: 150px;
+          margin: 10px 0;
+          .stat-number {
+            font-size: 26px;
+            font-weight: bold;
+            color: #05032b;
+          }
+          .stat-desc {
+            font-size: 16px;
+            color: #333;
+          }
+        }
+        .divider {
+          width: 1px;
+          height: 50px;
+          background-color: #FEA457;
+        }
+      }
+    }
+    // board-of-management.component.scss
+    .board-section {
+      width: 100%;
+      text-align: center;
+      background: #fff;
+      color: black;
+      padding: 15px 0 20px 0;
+      .section-subtitle {
+        font-size: 14px;
+        text-transform: uppercase;
+        color: gray;
+        font-weight: 500;
+      }
+      .section-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: black;
+        margin-bottom: 40px;
+      }
+      .board-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 16px;
+        .board-member {
+          display: flex;
+          flex-direction: row;
+          background: #ffffff;
+          color: black;
+
+          .board-photo {
+            width: 50%;
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+          }
+
+          .board-info {
+            padding: 20px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+
+            .member-name {
+              font-size: 20px;
+              font-weight: 700;
+            }
+
+            .member-role {
+              font-size: 14px;
+              margin: 4px 0 8px;
+              font-weight: 500;
+            }
+
+            .divider {
+              width: 40px;
+              height: 1px;
+              background: #888;
+              margin: 8px 0;
+            }
+
+            .member-desc {
+              font-size: 14px;
+              color: #ccc;
+            }
+          }
+        }
+      }
+      .member-grid-bottom {
+        margin-top: 32px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+
+        .bottom-member {
+          position: relative;
+          overflow: hidden;
+          border-radius: 6px;
+
+          .bottom-photo {
+            background-size: cover;
+            background-position: center;
+            aspect-ratio: 1 / 1;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            .bottom-overlay {
+              width: 100%;
+              padding: 16px;
+              background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+              color: white;
+
+              .bottom-name {
+                margin: 0;
+                font-size: 1.1rem;
+                color: white;
+                font-weight: bold;
+              }
+
+              .bottom-role {
+                margin: 4px 0 0;
+                font-size: 0.95rem;
+              }
+            }
+          }
+
+          &:hover .bottom-photo {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+          }
+        }
+      }
+
+      // Responsive mobile
+      @media (max-width: 768px) {
+        .member-grid-bottom {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     }
   }
 }
+
+
+
+
+
+

@@ -1,70 +1,116 @@
-<section id="about" class="about-us">
-  <div class="container">
-    <div class="content-title">
-      <div class="title">
-        <h3>
-          Who <br />
-          We Are <span class="question-mark">?</span>
-        </h3>
+<section class="banner-us">
+  <div class="title">
+    <h1>VỀ CHÚNG TÔI</h1>
+  </div>
+</section>
+<section class="about-us">
+  <div class="main">
+<!--company-info-->
+    <div class="company-info">
+      <div class="our-picture">
+        <img src="/assets/about-us.jpg" alt="">
       </div>
-      <div class="text">
-        @for (index of dataCompanyDetail; track index) {
-        <h3>{{index.title}}</h3>
-        <p>
-       {{index.description}}
+      <div class="content">
+        <h1 class="content-title">
+          Công nghệ là sức mạnh, nhân sự là nền tảng
+        </h1>
+        <p class="content-description">
+          Tại <span class="website">DTDI Company Solution</span> chúng tôi không ngừng đổi mới
+          và sáng tạo để mang đến các giải pháp công nghệ hiệu quả,
+          hiện đại và thân thiện.
+          Đội ngũ của chúng tôi là những người trẻ, đam mê công nghệ
+          và luôn sẵn sàng chinh phục những thử thách mới để tạo ra
+          giá trị thật sự cho khách hàng và cộng đồng.
         </p>
-        }
+          <button><a href="">Contact Us</a></button>
       </div>
     </div>
-    <div class="us-image">
-      <img src="/assets/about-us.jpg" alt="" />
-    </div>
-    <div class="company-profile">
-
-
-      <div class="header-wrapper">
-        <h2 class="h2 item-title">Thông tin công ty</h2>
+<!--reputation-->
+    <div class="reputation">
+    <div class="card">
+      <div class="icon">
+        ⚙️
       </div>
-      <ul class="profile-list">
-        @for (index of dataCompanyInfo; track index) {
-        <li class="profile-item">
-          <p class="profile-category">Tên công ty</p>
-          {{index.siteName}}
-        </li>
-        <li class="profile-item">
-          <p class="profile-category">Địa chỉ</p>
-          {{index.contactAddress}}
-        </li>
-        <li class="profile-item">
-          <p class="profile-category">Thành lập</p>
-          {{index.year}}
-        </li>
-        <li class="profile-item">
-          <p class="profile-category">Email</p>
-          {{index.contactEmail}}
-        </li>
-        <li class="profile-item">
-          <p class="profile-category">Số điện thoại</p>
-          {{index.contactPhone}}
-        </li>
-        <li class="profile-item">
-          <p class="profile-category">Giám đốc</p>
-          {{index.director}}
-        </li>
-        <li class="profile-item">
-          <p class="profile-category">Giờ làm việc</p>
-          {{index.workingHours}}
-        </li>
-        <li class="profile-item">
-          <p class="profile-category">Dịch vụ</p>
-          <ul class="business-list">
-            Chúng tôi cung cấp các dịch vụ phát triển hệ thống phần mềm doanh nghiệp dưới đây:
-            <li>・Dịch vụ tư vấn, cung cấp giải pháp &amp; dịch vụ chuyển đổi số hệ thống phần mềm doanh nghiệp</li>
-            <li>・Dịch vụ thiết kế hệ thống phát triển hệ thống, phát triển offshore</li>
-          </ul>
-        </li>
+      <h3>Commitment</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+    </div>
+    <div class="card">
+      <div class="icon">
+        ⚖️
+      </div>
+      <h3>Honesty</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+    </div>
+    <div class="card">
+      <div class="icon">
+        📈
+      </div>
+      <h3>Growth</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+    </div>
+  </div>
+<!--WHO WE ARE-->
+    <div class="who-we-are-section">
+      <p class="section-label">WHO WE ARE</p>
+      <h2 class="section-title">
+        A <span class="highlight-blue">global team</span> with a <span class="highlight-green">focused mission</span>
+      </h2>
+
+      <div class="stats-grid">
+        @for ( experience of companyExperienceOfData; track $index) {
+        <div class="stat-item">
+          <div class="stat-number">19 years</div>
+          <div class="stat-desc">of successful operation</div>
+        </div>
+        <div class="divider"  *ngIf="$index < companyExperienceOfData.length - 1"></div>
         }
-      </ul>
+<!--        <div class="stat-item">-->
+<!--          <div class="stat-number">1,000+</div>-->
+<!--          <div class="stat-desc">successful digital projects</div>-->
+<!--        </div>-->
+<!--        <div class="divider"></div>-->
+
+<!--        <div class="stat-item">-->
+<!--          <div class="stat-number">11 offices</div>-->
+<!--          <div class="stat-desc">in 3 continents</div>-->
+<!--        </div>-->
+<!--        <div class="divider"></div>-->
+
+<!--        <div class="stat-item">-->
+<!--          <div class="stat-number">1,000+</div>-->
+<!--          <div class="stat-desc">team members</div>-->
+<!--        </div>-->
+      </div>
+    </div>
+<!--Get to know us-->
+    <div class="board-section">
+      <h3 class="section-subtitle">GET TO KNOW US</h3>
+      <h2 class="section-title">Board of management</h2>
+    <!--  board-grid  -->
+<!--      <div class="board-grid">-->
+<!--        <div class="board-member" >-->
+<!--          @for (member of members; track $index) {-->
+<!--          <div class="board-photo" [ngStyle]="{'background-image': 'url(' + member.image + ')'}"></div>-->
+<!--          <div class="board-info">-->
+<!--            <h3 class="member-name">{{ member.name }}</h3>-->
+<!--            <p class="member-role">{{ member.role }}</p>-->
+<!--            <div class="divider"></div>-->
+<!--            <p class="member-desc">{{ member.description }}</p>-->
+<!--          </div>-->
+<!--          }-->
+<!--        </div>-->
+<!--      </div>-->
+    <!--   member-grid-bottom   -->
+<!--      <div class="member-grid-bottom">-->
+<!--        <div class="bottom-member" *ngFor="let member of bottomMembers">-->
+<!--          <div class="bottom-photo" [ngStyle]="{'background-image': 'url(' + member.image + ')'}">-->
+<!--            <div class="bottom-overlay">-->
+<!--              <h3 class="bottom-name">{{ member.name }}</h3>-->
+<!--              <p class="bottom-role">{{ member.role }}</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
 </section>
