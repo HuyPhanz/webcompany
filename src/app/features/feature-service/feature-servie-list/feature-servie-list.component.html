@@ -8,16 +8,16 @@
       <th>Title</th>
       <th>Description</th>
       <th>Image</th>
-      <th>Action</th>
+      <th nzWidth="15%">Action</th>
     </tr>
     </thead>
     <tbody>
       @for (data of featureServiceOfData; track data) {
         <tr>
           @if (!editCache[data.id].edit) {
-            <td>{{ data.title }}</td>
-            <td>{{ data.description }}</td>
-            <td>{{ data.image }}</td>
+            <td nzEllipsis>{{ data.title }}</td>
+            <td nzEllipsis>{{ data.description }}</td>
+            <td nzEllipsis>{{ data.image }}</td>
             <td>
               <button nz-button nzType="primary" (click)="startEdit(data.id)"><nz-icon nzType="edit" /></button>
               <button

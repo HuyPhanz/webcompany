@@ -7,6 +7,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FeatureServiceReqDTO, FeatureServiceResDTO } from '../interface';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { FeatureService } from '../feature-service.service';
 @Component({
   selector: 'app-feature-servie-list',
@@ -19,7 +20,8 @@ export class FeatureServieListComponent implements OnInit {
   featureService = inject(FeatureService);
   router = inject(Router);
   route = inject(ActivatedRoute);
-
+  // message
+  message = inject(NzMessageService);
   editCache: Record<string, { edit: boolean; data: FeatureServiceReqDTO }> = {};
   // Data Rendering
   featureServiceOfData: FeatureServiceResDTO[] = [];
@@ -51,7 +53,7 @@ export class FeatureServieListComponent implements OnInit {
     this.featureService.updateData(updatePartners).subscribe(() => {
       this.getAllData();
     });
-    alert('updated successfully.');
+    this.message.success('Cập nhật thành công!');
   }
   //
   updateEditCache(): void {
