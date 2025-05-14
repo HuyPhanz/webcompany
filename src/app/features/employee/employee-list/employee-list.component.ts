@@ -28,7 +28,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EmployeeListComponent implements OnInit {
   //service
-  employeeService = inject(EmployeeService);
   router = inject(Router);
   route = inject(ActivatedRoute);
 
@@ -36,14 +35,11 @@ export class EmployeeListComponent implements OnInit {
   editCache: Record<string, { edit: boolean; data: EmployeeReqDTO }> = {};
   //list
   listOfData: Employee[] = [];
-
-  ngOnInit() {
-    this.getAllEmployee();
-  }
-
-  //getAPI
+  //service
+  employeeService = inject(EmployeeService);
+  //get API
   getAllEmployee() {
-    this.employeeService.getAllPloyee().subscribe({
+    this.employeeService.getAllEmployee().subscribe({
       next: (data) => {
         this.listOfData = data;
         this.updateEditCache();
@@ -53,20 +49,17 @@ export class EmployeeListComponent implements OnInit {
       }
     });
   }
-
-  //delete
+  //delete API
   deleteProduct(id: number): void {
     this.employeeService.deletePloyee(id).subscribe(() => {
       this.getAllEmployee();
     });
   }
-
-  //start
+  //start edit
   startEdit(id: number): void {
     this.editCache[id].edit = true;
   }
-
-  //cancel
+  //cancel edit
   cancelEdit(id: number): void {
     const index = this.listOfData.findIndex((item) => item.id === id);
     this.editCache[id] = {
@@ -74,7 +67,6 @@ export class EmployeeListComponent implements OnInit {
       edit: false
     };
   }
-
   //update edit
   updateEditCache(): void {
     this.listOfData.forEach((item) => {
@@ -85,14 +77,14 @@ export class EmployeeListComponent implements OnInit {
     });
   }
   //update Employee
-  updatePloyee(id: number): void {
+  updateEmployee(id: number): void {
     const index = this.listOfData.findIndex((item) => item.id === id);
-    const updatedPloyee = {
+    const updatedEmployee = {
       id: this.listOfData[index].id,
       ...this.editCache[id].data
     };
 
-    this.employeeService.updatePloyee(updatedPloyee).subscribe(() => {
+    this.employeeService.updatePloyee(updatedEmployee).subscribe(() => {
       this.getAllEmployee();
       this.editCache[id].edit = false;
     });
@@ -102,5 +94,8 @@ export class EmployeeListComponent implements OnInit {
     this.router.navigate(['add'], {
       relativeTo: this.route
     });
+  }
+  ngOnInit() {
+    this.getAllEmployee();
   }
 }

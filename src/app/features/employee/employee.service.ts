@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { EmployeeReqDTO, EmployeeResDTO } from './interfaces';
 import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,12 +11,12 @@ export class EmployeeService {
   apiUrl = environment.API_URL + '/members';
 
   //getAllPloyee()
-  getAllPloyee() {
+  getAllEmployee():Observable<EmployeeResDTO[]> {
     return this.http.get<EmployeeResDTO[]>(this.apiUrl);
   }
   //CreatePloyee()
-  createPloyee(data: EmployeeReqDTO) {
-    return this.http.post<EmployeeReqDTO>(this.apiUrl, data);
+  createPloyee(data: EmployeeReqDTO):Observable<EmployeeResDTO> {
+    return this.http.post<EmployeeResDTO>(this.apiUrl, data);
   }
   //updatePloyee()
   updatePloyee(data: EmployeeResDTO) {

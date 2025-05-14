@@ -23,51 +23,33 @@ type role = 'ADMIN' | 'EDITOR';
   styleUrls: ['./employee-form.component.scss']
 })
 export class EmployeeFormComponent {
-  //http client
   private fb = inject(NonNullableFormBuilder);
   //service
   employeeService = inject(EmployeeService);
   //validate
   validateForm = this.fb.group({
-    username: this.fb.control('', [Validators.required], [this.userNameAsyncValidator]),
+    username: this.fb.control('', [Validators.required]),
     email: this.fb.control('', [Validators.email, Validators.required]),
     password: this.fb.control('', [Validators.required]),
     role: this.fb.control<role | null>(null, Validators.required),
     emCode: ['', [Validators.required, Validators.pattern(/^\d{6}$/)]]
   });
 
-  userNameAsyncValidator(control: AbstractControl): Observable<ValidationErrors | null> {
-    return new Observable((observer: Observer<ValidationErrors | null>) => {
-      setTimeout(() => {
-        if (control.value === 'JasonWood') {
-          observer.next({ error: true, duplicated: true });
-        } else {
-          observer.next(null);
-        }
-        observer.complete();
-      }, 1000);
-    });
-  }
-
   submitForm(): void {
     if (this.validateForm.valid) {
       const formValue = this.validateForm.getRawValue();
       this.employeeService.createPloyee(formValue).subscribe({
-        next: (res) => {
-          console.log('Employee created successfully:', res);
-          this.resetForm(new MouseEvent(''));
-        },
-        error: (err) => {
-          console.error('Failed to create employee:', err);
+        next: (result) => {
+          console.log(result);
         }
       });
     } else {
-      console.log('Form is invalid. Please check the fields.');
-      // Có thể thêm thông báo cho người dùng biết rằng form không hợp lệ
+      Object.values(this.validateForm.controls).forEach((control) => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
     }
-  }
-  resetForm(e: MouseEvent): void {
-    e.preventDefault();
-    this.validateForm.reset();
   }
 }
