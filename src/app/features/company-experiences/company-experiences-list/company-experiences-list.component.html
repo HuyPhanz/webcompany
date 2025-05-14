@@ -4,7 +4,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Action</th>
+      <th nzWidth="15%">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -28,7 +28,7 @@
             </td>
           } @else {
             <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.title" /></td>
-            <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.id].data.description"></textarea></td>
+            <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.description" /></td>
             <td>
               <button nz-button nzType="primary" (click)="updateCompanyExperience(data.id)" class="save">Save</button
               ><button

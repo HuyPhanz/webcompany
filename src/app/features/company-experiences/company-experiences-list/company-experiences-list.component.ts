@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ExperienceReqDTO, ExperienceResDTO } from '../interface';
 import { CompanyExperiencesService } from '../company-experiences.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
+
 @Component({
   selector: 'app-company-experiences-list',
   imports: [FormsModule, NzInputModule, NzPopconfirmModule, NzTableModule, NzButtonModule, NzIconModule],
