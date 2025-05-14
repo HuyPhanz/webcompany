@@ -24,9 +24,7 @@
     "@angular/router": "^19.2.0",
     "@tailwindcss/postcss": "^4.0.10",
     "ng-zorro-antd": "^19.1.0",
-    "postcss": "^8.5.3",
     "rxjs": "~7.8.0",
-    "tailwindcss": "^4.0.10",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
@@ -41,6 +39,7 @@
     "@commitlint/config-conventional": "^19.7.1",
     "@types/jasmine": "~5.1.0",
     "angular-eslint": "19.2.0",
+    "autoprefixer": "^10.4.21",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
@@ -53,7 +52,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^15.4.3",
+    "postcss": "^8.5.3",
     "prettier": "^3.5.3",
+    "tailwindcss": "^4.0.17",
     "typescript": "~5.7.2",
     "typescript-eslint": "8.25.0"
   },
