@@ -1,65 +1,26 @@
-<section id="news" class="news">
-  <div class="container">
-    <div class="content-title">
-      <div class="title">
-        <h3>Dịch vụ <span class="dot">.</span></h3>
-      </div>
-      <div class="text">
-        <h3>Chúng tôi giải quyết các khía cạnh của Dịch vụ CNTT chuyên nghiệp</h3>
-      </div>
+<section class="service-page" id="service-page">
+  <div class="banner-service">
+    <div class="banner-title">
+      <h1>DỊCH VỤ</h1>
+    </div>
+  </div>
+  <div class="service-featured">
+    <div class="service-featured-title">
+      <h2>Feature Service</h2>
+      <h1>A wide range of waste disposal services</h1>
     </div>
 
-    <div class="content">
-      <div class="content-list">
-        <h3>Dịch vụ tư vấn xây dựng hệ thống CNTT</h3>
-        <div class="content-text">
-          <p>
-            Chúng tôi thực hiện phát triển mới các phần mềm dùng cho hệ thống nghiệp vụ, cho sản phẩm,... trong các
-            doanh nghiệp kèm theo xử lý như: thêm tính năng, phát triển, bảo trì,...
-          </p>
-          <div class="feature-list">
-            <span class="list-item">Web System</span>
-            <span class="list-item">Smartphone System</span>
-            <span class="list-item">Windows App</span>
-            <span class="list-item">Phát triển Salesforce</span>
-            <span class="list-item">Phát triển SAP</span>
-            <span class="list-item">Phát triển Odoo</span>
+    <div class="cards-grid">
+      <div class="cards">
+        @for (service of dataFeatureService; track $index) {
+          <div class="card-item">
+            <div class="icon">
+              <img [src]="service.image" alt="{{ service.title }}"  />
+            </div>
+            <h4 class="title">{{ service.title }}</h4>
+            <p class="desc">{{ service.description }}</p>
           </div>
-        </div>
-      </div>
-      <div class="content-list">
-        <h3>Dịch vụ tư vấn xây dựng hệ thống CNTT</h3>
-        <div class="content-text">
-          <p>
-            Chúng tôi thực hiện phát triển mới các phần mềm dùng cho hệ thống nghiệp vụ, cho sản phẩm,... trong các
-            doanh nghiệp kèm theo xử lý như: thêm tính năng, phát triển, bảo trì,...
-          </p>
-          <div class="feature-list">
-            <span class="list-item">Web System</span>
-            <span class="list-item">Smartphone System</span>
-            <span class="list-item">Windows App</span>
-            <span class="list-item">Phát triển Salesforce</span>
-            <span class="list-item">Phát triển SAP</span>
-            <span class="list-item">Phát triển Odoo</span>
-          </div>
-        </div>
-      </div>
-      <div class="content-list item-finally">
-        <h3>Dịch vụ tư vấn xây dựng hệ thống CNTT</h3>
-        <div class="content-text">
-          <p>
-            Chúng tôi thực hiện phát triển mới các phần mềm dùng cho hệ thống nghiệp vụ, cho sản phẩm,... trong các
-            doanh nghiệp kèm theo xử lý như: thêm tính năng, phát triển, bảo trì,...
-          </p>
-          <div class="feature-list">
-            <span class="list-item">Web System</span>
-            <span class="list-item">Smartphone System</span>
-            <span class="list-item">Windows App</span>
-            <span class="list-item">Phát triển Salesforce</span>
-            <span class="list-item">Phát triển SAP</span>
-            <span class="list-item">Phát triển Odoo</span>
-          </div>
-        </div>
+        }
       </div>
     </div>
   </div>
