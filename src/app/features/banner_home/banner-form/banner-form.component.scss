@@ -1,0 +1,21 @@
+.upload-large {
+  width: 100%;
+  min-height: 200px;
+}
+
+.upload-large .ant-upload {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upload-large i {
+  font-size: 32px;
+}
+
+.upload-large div {
+  font-size: 16px;
+}

@@ -1,12 +1,10 @@
 export interface BannerReqDTO {
-  title:string;
-  description:string;
+  slogan:string;
   imageUrls: string[];
 }
 export interface BannerResDTO {
   id: number;
-  title:string;
-  description:string;
+  slogan:string;
   imageUrls: string[];
 }
 export interface Banner extends BannerReqDTO {

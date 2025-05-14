@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Banner, BannerResDTO,BannerReqDTO  } from './interface';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import { Banner, BannerResDTO,BannerReqDTO  } from './interface';
 export class BannerService {
   http = inject(HttpClient);
   // API
-  apiUrl = 'http://26.179.251.121:8080/api/banners';
+  apiUrl = environment.API_URL+'/banners';
+
   // create API
   createBanner(data:BannerReqDTO): Observable<BannerReqDTO> {
     return this.http.post<BannerReqDTO>(this.apiUrl, data);
