@@ -1,0 +1,59 @@
+<section class="project-detail" *ngIf="projectDetail">
+  <div class="breadcrumb-header">
+    <div class="breadcrumb">
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>
+          <a [routerLink]="'/'">Home</a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <a [routerLink]="'/project-page'">Dự án nổi bật</a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <b>
+            {{ projectDetail.title }}
+          </b>
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
+    </div>
+  </div>
+  <div class="content">
+    <div class="title-project">
+      {{ projectDetail.title }}
+    </div>
+    <div class="project-info">
+      <div class="project-info-header">
+        <div class="image-info">
+          <img [src]="projectDetail.image" [alt]="projectDetail.title">
+        </div>
+        <div class="text-info">
+          <div class="text-title">
+              <h1>
+                {{projectDetail.title}}
+              </h1>
+              <div class="text-description">
+                <h1>Thông tin dự án</h1>
+                <div class="description">
+                  <p>{{projectDetail.description}}</p>
+                </div>
+                <a [routerLink]="['/contact-page  ']">Liên hệ với chúng tôi</a>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info-body">
+        <h1>Chi tiết dự án</h1>
+        <div class="project-info-detail">
+          <div class="info-detail-left">
+            <h3>TỔNG QUAN  {{ projectDetail.title }}</h3>
+            <p>
+              {{ projectDetail.content }}
+            </p>
+          </div>
+          <div class="info-detail-right">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

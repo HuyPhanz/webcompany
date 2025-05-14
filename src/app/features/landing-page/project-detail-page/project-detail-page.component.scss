@@ -1,0 +1,125 @@
+.project-detail {
+  background: #fff;
+  .breadcrumb-header {
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 20px 0;
+    .breadcrumb {
+      width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  .content {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+    .title-project {
+      font-size: 25px;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 16px; /* chừa khoảng trống cho line */
+      display: inline-block;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100px;
+        height: 3px;
+        background-color: #FEA457; /* màu vàng */
+      }
+    }
+    .project-info{
+      padding: 30px 0  0;
+      display: flex;
+      flex-direction: column;
+      .project-info-header{
+        display: grid;
+        grid-template-columns: 750px 1fr;
+        .image-info{
+          img{
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+        .text-info{
+          padding: 0 20px;
+          line-height: 1.3;
+          .text-title{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            h1{
+              font-size: 28px;
+            }
+            .text-description{
+              h1{
+                font-size: 20px;
+              }
+              .description{
+                p{
+                  text-align: justify;
+                  font-size: 16px;
+                  line-height: 1.8;
+                }
+              }
+              a{
+                padding: 12px 15px;
+                background-color: #FEA457;
+                color: #fff;
+                border-radius: 5px;
+                display: inline-block;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+      .project-info-body{
+        padding: 40px 0;
+        h1{
+          font-size: 25px;
+          font-weight: 600;
+          padding:0 0 10px 0;
+          position: relative;
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            width: 50px;
+            height: 3px;
+            background-color: #FEA457; /* màu vàng */
+          }
+        }
+        .project-info-detail{
+          display: grid;
+          grid-template-columns: 850px 1fr;
+          margin-top: 20px;
+          .info-detail-left{
+            padding:10px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            gap: 10px;
+            h3{
+              background-color: #FEA359;
+              border-radius: 5px;
+              padding:10px;
+              color: white;
+              text-transform: uppercase;
+            }
+            p{
+              text-align: justify;
+              font-size: 16px;
+              line-height: 1.8;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
