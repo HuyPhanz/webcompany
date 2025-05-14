@@ -24,6 +24,7 @@ import { FeatureServiceRoutes } from './features/feature-service/company-service
 import {
   CompanyExperiencesListComponent
 } from './features/company-experiences/company-experiences-list/company-experiences-list.component';
+import { AboutUsIntroListComponent } from './features/about-us-intro/about-us-intro-list/about-us-intro-list.component';
 // import { AuthGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
@@ -133,10 +134,15 @@ export const routes: Routes = [
         children: FeatureServiceRoutes,
         data: { breadcrumb: 'Partners' }
       },
-      //
+      //company-experience
       {
         path: 'company-experience',
         component: CompanyExperiencesListComponent,
+      },
+      //about-intro
+      {
+        path: 'about-intro',
+        component: AboutUsIntroListComponent,
       }
     ]
   },
