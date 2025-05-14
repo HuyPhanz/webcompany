@@ -1,35 +1,71 @@
-<div class="news-detail">
-  <div class="container">
-    <div class="content-title">
-      <div class="time-wrapper">
-        <span class="time"> <i>Thứ ba, 22/4/2025, 21:10 (GMT+7)</i></span>
-      </div>
-      <h3 class="title">
-        Cuộc 'lột xác' của doanh nghiệp quốc doanh TP HCM sau Đổi mới
-        Cuộc 'lột xác' của doanh nghiệp quốc doanh TP HCM sau Đổi mới
-      </h3>
-    </div>
-    <div class="content-text">
-      TPO - Công an TP Hà Nội phối hợp với Cục Cảnh sát hình sự (Bộ Công an) bắt giữ đối tượng gây ra vụ cướp tại chi nhánh ngân hàng trên địa bàn huyện Chương Mỹ, xảy ra vào ngày 21/4 vừa qua.
-      Bắt nghi phạm cướp ngân hàng ở Hà Nội ảnh 1
-      Đối tượng Lịch bị cơ quan điều tra bắt giữ.
-
-      Khoảng 4h ngày 23/4, các tổ công tác Phòng Cảnh sát hình sự và Phòng Kỹ thuật hình sự, cùng các phòng nghiệp vụ của Công an TP Hà Nội phối hợp với Cục Cảnh sát hình sự, Bộ Công an đã bắt giữ đối tượng gây ra vụ cướp tại chi nhánh ngân hàng ở huyện Chương Mỹ.
-
-      Cơ quan điều tra xác định danh tính người này là Vũ Văn Lịch (SN 1985, trú tại Nam Hải, Nam Trực, Nam Định).
-
-      Lịch bị bắt giữ khi đang lẩn trốn tại khu vực lán ngoài bãi sông Hồng (Lĩnh Nam, Hoàng Mai, Hà Nội).
-
-      Bắt nghi phạm cướp ngân hàng ở Hà Nội ảnh 2
-      Nghi phạm Vũ Văn Lịch
-
-      Cơ quan chức năng cũng thu giữ 1 điện thoại di động, hơn 75 triệu đồng tiền mặt, 176 triệu đồng trong tài khoản ngân hàng, 1 xe máy đã tháo biển kiểm soát.
-
-      Theo nguồn tin của phóng viên, đối tượng này cũng là người nghiện cờ bạc.
-
-      Trước đó, khoảng 14h ngày 21/4, một nam giới đeo khẩu trang, đội mũ lưỡi trai vào phòng giao dịch chi nhánh ngân hàng trên địa bàn huyện Chương Mỹ. Người này cầm theo dao cùng chiếc ba lô và 1 chai dung dịch - nghi là xăng trên tay.
-
-      Đối tượng này đe dọa nữ nhân viên phòng giao dịch và yêu cầu cho tiền vào ba lô. Gây án xong, đối tượng nhanh chóng bỏ trốn khỏi hiện trường.
+<section class="news-detail"  *ngIf="newsDetail">
+  <div class="breadcrumb-header">
+    <div class="breadcrumb">
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>
+          <a [routerLink]="'/'">Home</a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <a [routerLink]="'/news-page'">Tin Tức</a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <b>
+            {{newsDetail.title}}
+          </b>
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
     </div>
   </div>
-</div>
+  <div class="content">
+    <div class="title-header">
+      <h1>
+       {{newsDetail.title}}
+      </h1>
+    </div>
+    <div class="detail-info">
+      <div class="detail-info-left">
+        <div class="meta-box">
+          <span>Tin tức</span>
+          <span>|</span>
+          <span>2025-05-08 10:14:49</span>
+        </div>
+        <div class="info-text">
+          <p>
+            {{newsDetail.content}}
+          </p>
+        </div>
+      </div>
+      <div class="news-detail-right">
+        <div class="new-title-right">
+          BÀI VIẾT LIÊN QUAN
+        </div>
+        <div class="cards-right">
+          <div class="card-item-right">
+            <img src="https://vhsgroup.vn/uploads/project/430x290-680f43bfef5a2.jpg" alt="">
+            <div class="card-info">
+             <h3>THE MATRIX ONE PREMIUM</h3>
+              <p>Ngã tư Lê Quang Đạo – Mễ Trì, quận Nam Từ Liêm, Hà Nội</p>
+              <a href="">Xem thêm</a>
+            </div>
+          </div>
+          <div class="card-item-right">
+            <img src="https://vhsgroup.vn/uploads/project/430x290-680f43bfef5a2.jpg" alt="">
+            <div class="card-info">
+             <h3>THE MATRIX ONE PREMIUM</h3>
+              <p>Ngã tư Lê Quang Đạo – Mễ Trì, quận Nam Từ Liêm, Hà Nội</p>
+              <a href="">Xem thêm</a>
+            </div>
+          </div>
+          <div class="card-item-right">
+            <img src="https://vhsgroup.vn/uploads/project/430x290-680f43bfef5a2.jpg" alt="">
+            <div class="card-info">
+              <h3>THE MATRIX ONE PREMIUM</h3>
+              <p>Ngã tư Lê Quang Đạo – Mễ Trì, quận Nam Từ Liêm, Hà Nội</p>
+              <a href="">Xem thêm</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

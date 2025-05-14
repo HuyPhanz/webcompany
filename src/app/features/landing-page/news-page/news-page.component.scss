@@ -1,71 +1,252 @@
 .news-page {
+  .banner {
+    height: 460px;
+    background-image: url('https://scontent-hkg1-1.xx.fbcdn.net/v/t1.6435-9/35271481_1775354472530979_579309251923542016_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9eae26&_nc_eui2=AeEwgvQcbJyQ6S6p-Ulu9zV8bCqX5momcHRsKpfmaiZwdL1ubHHfNkYiBCVDHs71mJxnZLVbLmxY6M5YmSZTvA6k&_nc_ohc=vTP-EAvraPUQ7kNvwFVcr6j&_nc_oc=AdnRLAHz9-eSD4h5wKeb_oIPE5VEyHfAf9FoBXULGcZeT4ZZCUfLiybZME3UQ-c7RBjwHsnpfWSDxODRCVZ9KYjU&_nc_zt=23&_nc_ht=scontent-hkg1-1.xx&_nc_gid=5SZKZpBvCwMbSnhyOm4_Ow&oh=00_AfL7RtQ8Rezj1g1ils_sHiX5_jvVovGUtqzOw65lOqDUVA&oe=6843E3CD');
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Quan trọng để .banner-title định vị */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* Lớp phủ để chữ nổi bật hơn */
+      z-index: 1;
+    }
+
+    .banner-title {
+      position: relative; /* Đảm bảo nó nằm trên lớp phủ */
+      z-index: 2;
+
+      h1 {
+        display: inline-block;
+        border-left: 3px solid #FEA359;
+        border-right: 3px solid #FEA359;
+        padding: 0 15px;
+        font-size: 40px;
+        color: white;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Làm chữ nổi rõ hơn */
+      }
+    }
+  }
+}
+.news-main {
+  padding: 60px 0 30px 0;
   background: #fff;
-  padding: 40px;
+  .content {
+    width: 1200px;
+    margin: 0 auto;
+    .featured-news {
+      .top-new {
+        display: grid;
+        grid-template-columns: 700px 1fr;
+        gap: 20px;
+        padding: 0 0 30px 0px;
+        background-color: #fff;
+        border-bottom: 1px solid lightgray;
+        .picture {
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 4px;
+          }
+        }
+        .new-title {
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+
+          .title a {
+            font-size: 28px;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+            text-decoration: none;
+            &:hover {
+              color: #0066cc;
+            }
+          }
+
+          .description {
+            text-align: justify;
+            margin-top: 8px;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.8;
+          }
+
+          .meta {
+            margin-top: 10px;
+            color: #888;
+            font-size: 14px;
+          }
+        }
+      }
+      .bot-news{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        border-bottom: 1px solid lightgray;
+        padding: 15px 0 30px 0;
+        .card-new{
+          display: flex;
+          flex-direction: column; gap: 10px;
+          .title{
+            p{
+              text-align: justify;
+              color: #000000;
+            }
+            h1{
+              font-size: 18px;
+              &:hover{
+                color: #0066cc;
+              }
+            }
+            &:hover{
+              color: #0066cc;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.news-technology {
+  padding: 20px 0 60px 0;
+  background: #fff;
+  .main-content{
+    //padding: 10px;
+    width: 1200px;
+    margin: 0 auto;
+    .news-tech{
+      display: grid;
+      grid-template-columns: 1fr 386px ;
+      gap: 20px;
+      .cards-tech{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .card-item{
+          display: flex;
+          flex-direction: column;
+          h1{
+            font-size: 17px;
+          }
+          //padding: 0 15px 0 0;
+          .description{
+            display: flex;
+            gap: 10px;
+            img{
+              width: 110px;
+              height: 66px;
+            }
+            p{
+              text-align: justify;
+              font-size: 14px;
+              color: #000000;
+            }
+          }
+        }
+      }
+      .card-tech-left{
+        //display: flex;
+        //flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        .card-item-left{
+          padding: 0 0 10px 0;
+          //display: grid;
+          //grid-template-columns: 250px 1fr;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          border-bottom: 1px solid lightgray;
+          img{
+            border-radius: 5px ;
+          }
+          .title{
+            display: flex;
+            flex-direction: column;
+            h2{
+              font-size: 18px;
+            }
+            p{
+              text-align: justify;
+              font-size: 15px;
+            }
+            .detail{
+              display: flex;
+              justify-content: space-between;
+              a{
+                padding: 3px 10px;
+                background: #FEA359;
+                color: white;
+                border-radius: 5px;
+              }
+              .time{
+                font-style: italic;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-.news-page .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+.container {
+  display: flex; /* Sử dụng Flexbox */
+  justify-content: space-between; /* Tạo khoảng trống giữa các phần tử */
+  gap: 20px; /* Khoảng cách giữa 2 cột */
 }
 
-.news-page h3 {
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-weight: bold;
-  font-size: 25px;
-  text-align: center;
-  margin-bottom: 40px;
+/* Cột bên trái chiếm 7 phần */
+.card-left {
+  flex: 7;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.news-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
+/* Cột bên phải chiếm 3 phần */
+.card-right {
+  flex: 3;
 }
-.news-card {
-  background: #f9f9f9;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.news-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-
-.news-card img {
+.card-item-left img, .card-item img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  border-radius: 8px; /* Đảm bảo ảnh được bo tròn góc */
 }
 
-.news-card-content {
-  padding: 20px;
-}
-
-.news-card-content h4 {
+.card-item-left .title h2, .card-item h1 {
   font-size: 20px;
-  margin-bottom: 10px;
-  color: #0077cc;
-}
-
-.news-card-content p {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-.read-more {
-  display: inline-block;
-  text-decoration: none;
-  color: #0077cc;
   font-weight: bold;
-  transition: color 0.3s ease;
 }
 
-.read-more:hover {
-  color: #005999;
+.card-item-left .detail a {
+  color: blue;
+  text-decoration: none;
+}
+
+.card-item-left .time {
+  font-size: 12px;
+  color: gray;
+}
+
+.card-item-left .description p {
+  color: gray;
+}
+
+.card-item-left .description img {
+  width: 100%;
+  border-radius: 8px;
 }

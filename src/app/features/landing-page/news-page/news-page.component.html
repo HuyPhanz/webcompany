@@ -1,18 +1,80 @@
-<section class="news-page">
-  <div class="container">
-    <h3>Khám Phá Blog & Tin Tức</h3>
-
-    <div class="news-cards">
-      @for (news of dataNews; track $index) {
-        <div class="news-card">
-          <img [src]="news.image" alt="News Image" />
-          <div class="news-card-content">
-            <h4>{{ news.title }}</h4>
-            <p>{{ news.description }}</p>
-            <a href="#" class="read-more">Xem thêm</a>
-          </div>
+<section>
+<div class="news-page" id="news">
+  <div class="banner">
+    <div class="banner-title">
+      <h1>TIN TỨC</h1>
+    </div>
+  </div>
+</div>
+   <div  class="news-main">
+      <div class="content">
+        @for (new of dataNews; track new.id) {
+          @if (new.type === 1) {
+            <div class="featured-news">
+              <div class="top-new">
+                <div class="picture">
+                  <img [src]="new.image" alt="">
+                </div>
+                <div class="new-title">
+                  <div class="title">
+                    <a href="">{{new.title}}</a>
+                  </div>
+                  <div class="description">
+                    <p>{{new.description}}</p>
+                  </div>
+                  <div class="meta">
+                    <p>{{new.createdDate}}</p>
+                  </div>
+                </div>
+                <a [routerLink]="['/news-detail',new.id]">Detail</a>
+              </div>
+            </div>
+          }
+        }
+      </div>
+   </div>
+<!--    -->
+  <div  class="news-technology">
+    <div class="main-content">
+      <div class="news-tech">
+        <div class="card-tech-left">
+          @for (new of dataNews; track new.id) {
+            @if (new.type === 0) {
+            <div class="card-item-left">
+              <img [src]="new.image" alt="">
+              <div class="title">
+                <h2>{{ new.title }}
+                </h2>
+                <p>
+                  <i>
+                   {{new.description}}
+                  </i>
+                </p>
+                <div class="detail">
+                  <a [routerLink]="['/news-detail', new.id]">Chi tiết</a>
+                  <span class="time">{{new.createdDate}}</span>
+                </div>
+              </div>
+            </div>
+            }
+          }
         </div>
-      }
+        <div class="cards-tech">
+          @for (new of dataNews; track new.id) {
+            @if (new.type === 2) {
+            <div class="card-item">
+              <h1>{{ new.title }}</h1>
+              <div class="description">
+                <img [src]="new.image" alt="">
+                <p>
+                  {{new.description}}
+                </p>
+              </div>
+            </div>
+            }
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>

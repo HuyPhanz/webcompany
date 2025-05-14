@@ -1,22 +1,104 @@
 .news-detail{
-  padding: 60px 100px;
-  .container{
+  background: #fff;
+  .breadcrumb-header{
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 20px 0;
+    .breadcrumb {
+      width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  .content{
     width: 1200px;
     margin: 0 auto;
-    .content-title{
-      padding-bottom: 10px;
-      border-bottom: 1px solid lightgray;
-      .time-wrapper{
-        text-align: right;
-        margin-right: 10px;
-      }
-      .title{
+    padding: 40px 0;
+    .title-header{
+      position: relative;
+      padding: 0 0 10px 0;
+      h1{
         font-size: 32px;
+        line-height: 1.2;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100px;
+        height: 3px;
+        background-color: #FEA457; /* màu vàng */
       }
     }
-    .content-text{
-      margin-top: 20px;
-      font-size: 17px;
+    .detail-info{
+      padding:40px 0 20px 0;
+      display: grid;
+      grid-template-columns: 900px 1fr;
+      gap: 30px;
+      .detail-info-left{
+        .meta-box{
+          font-style: italic;
+          font-size: 17px;
+          display: flex;
+          gap: 15px;
+          color: #777;
+        }
+        .info-text{
+          padding: 15px 0 20px 0;
+          font-size: 17px;
+          line-height: 2;
+          p{
+            text-align: justify;
+          }
+        }
+      }
+      .news-detail-right{
+        .new-title-right{
+          width: 100%;
+          display: inline-block;
+          background-color: #FEA457;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 6px;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+        .cards-right{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          margin-top: 10px;
+          .card-item-right{
+            display: flex;
+            flex-direction: column;
+            padding: 0 0 10px 0;
+            border-radius: 5px;
+            background-color: #f6f3f3;
+            img{
+              border-radius: 5px;
+            }
+            .card-info{
+              padding: 10px 5px 10px 5px;
+              h3{
+                font-size: 18px;
+              }
+              p{
+                font-size: 16px;
+              }
+              a{
+                padding: 10px 20px;
+                background-color: #FEA457;
+                color: white;
+                font-weight: 700;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
