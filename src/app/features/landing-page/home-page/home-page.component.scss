@@ -130,7 +130,6 @@
     }
   }
 
-
   /* About us  */
   .about-us {
     padding: 60px 20px;
@@ -163,7 +162,7 @@
             font-size: 42px;
             font-weight: 700;
           }
-          p{
+          p{text-align: justify;
             font-size: 17px;
             line-height: 1.7;
             .website{
@@ -276,9 +275,8 @@
         }
         .card-title {
           display: flex;
-          flex: 1;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: start;
           .title {
             h3 {
               font-size: 16px;
@@ -291,8 +289,6 @@
           .feature-list {
             display: flex;
             flex-wrap: wrap;
-            margin-top: 30px;
-            gap: 10px;
             .feature-item {
               padding: 4px 8px;
               border: 1px solid black;
@@ -394,8 +390,6 @@
       font-size: 14px;
     }
   }
-
-
   /*  Contact Customer  */
   .contact{
     padding: 60px 20px;
@@ -413,65 +407,127 @@
       }
     }
     .contact-wrapper {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 30px;
-      .form-container {
-        flex: 1;
-        background: #fff;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        .form-row {
-          display: flex;
-          gap: 10px;
-          margin-bottom: 15px;
-          input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            background-color: #f5f5f5;
-            &:focus {
-              outline: none;
-            }
-          }
+      //.form-container {
+      //  flex: 1;
+      //  background: #fff;
+      //  padding: 30px;
+      //  border-radius: 10px;
+      //  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      //  .form-row {
+      //    display: flex;
+      //    gap: 10px;
+      //    margin-bottom: 15px;
+      //    input {
+      //      flex: 1;
+      //      padding: 10px;
+      //      border: 1px solid #ccc;
+      //      border-radius: 6px;
+      //      background-color: #f5f5f5;
+      //      &:focus {
+      //        outline: none;
+      //      }
+      //    }
+      //  }
+      //  textarea {
+      //    background-color: #f5f5f5;
+      //    width: 100%;
+      //    height: 150px;
+      //    padding: 10px;
+      //    border: 1px solid #ccc;
+      //    border-radius: 6px;
+      //    margin-bottom: 15px;
+      //    resize: vertical;
+      //    &:focus {
+      //      outline: none;
+      //    }
+      //  }
+      //  .form-checkbox {
+      //    margin-bottom: 15px;
+      //    display: flex;
+      //    align-items: center;
+      //    label {
+      //      margin-left: 8px;
+      //      font-size: 0.95rem;
+      //    }
+      //  }
+      //  .btn {
+      //    background-color: #FFA358;
+      //    color: white;
+      //    padding: 12px 20px;
+      //    border: none;
+      //    border-radius: 6px;
+      //    font-weight: bold;
+      //    cursor: pointer;
+      //    transition: background-color 0.3s;
+      //  }
+      //  .btn:hover {
+      //    background-color: #f68327;
+      //  }
+      //}
+
+      .form{
+        padding: 25px 20px;
+        display: grid;
+        grid-template-columns:1fr 1fr;
+        gap: 2rem;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        .message{
+          grid-column: span 2;
         }
-        textarea {
-          background-color: #f5f5f5;
+        input[nz-input],
+        textarea[nz-input]{
+          border-radius: 8px;
+          padding: 10px 14px;
+          transition: all 0.3s ease;
+          font-size: 15px;
+          color: #333;
+          background-color: #fff;
+        }
+        //
+        input[nz-input],
+        textarea[nz-input]:focus {
+          outline: none;
+        }
+        //
+        input[nz-input]::placeholder,
+        textarea[nz-input]::placeholder {
+          font-style: italic;
+        }
+        ::ng-deep .ant-select {
           width: 100%;
-          height: 150px;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 6px;
-          margin-bottom: 15px;
-          resize: vertical;
-          &:focus {
-            outline: none;
-          }
         }
-        .form-checkbox {
-          margin-bottom: 15px;
-          display: flex;
+
+        ::ng-deep .ant-select-selector {
+          height: 46px !important;
+          border-radius: 8px !important;
+
+          display: flex !important;
           align-items: center;
-          label {
-            margin-left: 8px;
-            font-size: 0.95rem;
+          padding: 0 14px !important;
+          transition: all 0.3s ease;
+          background-color: #fff;
+        }
+
+        ::ng-deep .ant-select-focused .ant-select-selector,
+        ::ng-deep .ant-select-selector:focus,
+        ::ng-deep .ant-select-open .ant-select-selector {
+        }
+
+        ::ng-deep .ant-select-selection-item {
+          font-size: 15px;
+          line-height: 1;
+          color: #333;
+        }
+        .button-submit{
+          button[nz-button]{
+            background: #f4a460;
+            border: none;
           }
         }
-        .btn {
-          background-color: #FFA358;
-          color: white;
-          padding: 12px 20px;
-          border: none;
-          border-radius: 6px;
-          font-weight: bold;
-          cursor: pointer;
-          transition: background-color 0.3s;
-        }
-        .btn:hover {
-          background-color: #f68327;
-        }
+
       }
       .map-container {
         flex: 1;

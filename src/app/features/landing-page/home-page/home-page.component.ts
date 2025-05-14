@@ -6,13 +6,20 @@ import { CommonModule } from '@angular/common';
 import { PARTNERS } from '../../../constant';
 import { BannerService } from '../../banner_home/banner.service';
 import { BannerResDTO } from '../../banner_home/interface';
-import { ProductService } from '../../products/product.service';
-import { ProductResDTO } from '../../products/interface';
-import { ProjectService } from '../../projects/project.service';
-import { ProjectResDTO } from '../../projects/interface';
 import { NzColDirective, NzRowDirective } from 'ng-zorro-antd/grid';
-import { CompanyService } from '../../company/company.service';
-import { CompanyDetailResDTO } from '../../company/interface';
+import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NzFormControlComponent, NzFormDirective } from 'ng-zorro-antd/form';
+import { NzOptionComponent, NzSelectComponent } from 'ng-zorro-antd/select';
+import { NzInputDirective } from 'ng-zorro-antd/input';
+import { CustomerContactService } from '../../company/customer_contact/customer-contact.service';
+import { ServiceResDTO } from '../../company-service/interface';
+import { CompanyServiceService } from '../../company-service/company-service.service';
+import { DataResDTO } from '../../home-intro/interface';
+import { SupportResDTO } from '../../company-support/interface';
+import { CompanySupportService } from '../../company-support/company-support.service';
+import { HomeIntroService } from '../../home-intro/home-intro.service';
+import { PartnersService } from '../../partners/partners.service';
+import { PartnersResDTO } from '../../partners/interface';
 @Component({
   selector: 'app-home-page',
   imports: [
@@ -22,17 +29,48 @@ import { CompanyDetailResDTO } from '../../company/interface';
     NzCarouselContentDirective,
     NzIconDirective,
     NzColDirective,
-    NzRowDirective
+    NzRowDirective,
+    ReactiveFormsModule,
+    NzFormControlComponent,
+    NzSelectComponent,
+    NzOptionComponent,
+    NzInputDirective,
+    NzFormDirective
   ],
   templateUrl: './home-page.component.html',
   standalone: true,
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent implements OnInit {
-  // Get API Banner
+
+  // Service API Banner
   bannerService = inject(BannerService);
+  // Get API Customer_Contact
+  contactCustomerService = inject(CustomerContactService)
+  // Get API Company Service
+  companyService = inject(CompanyServiceService)
+  // Get API Company Service
+  companySupportService = inject(CompanySupportService)
+  //Get API Home Intro
+  homeIntroService = inject(HomeIntroService);
+  //Get API Partners
+  partnerService = inject(PartnersService);
+  // value data banner
   dataBanner: BannerResDTO[] = [];
+  dataCompanyService : ServiceResDTO[] = [];
+  dataHomeIntro: DataResDTO[]=[];
+  dataCompanySupport: SupportResDTO[]=[];
+  dataPartners: PartnersResDTO[] = [];
   selectedBanner?: BannerResDTO;
+  // NgOnInit
+  ngOnInit() {
+    this.getAllDataBanner();
+    this.getAllDataCompanyService();
+    this.getAllDataCompanySupport();
+    this.getAllDataHomeIntro();
+    this.getAllDataPartners();
+  }
+  // Get API Banner
   getAllDataBanner() {
     this.bannerService.getAlLDataBanner().subscribe((data) => {
       this.dataBanner = data;
@@ -41,93 +79,73 @@ export class HomePageComponent implements OnInit {
       }
     });
   }
-  ngOnInit() {
-    this.getAllDataBanner();
-    this.getAllDataProduct();
-    this.getAllDataCompanyDetail();
-    this.getAllDataProject();
+  // Get API Company Service
+  getAllDataCompanyService(){
+    this.companyService.getAllCompanyService().subscribe((data) => {
+        this.dataCompanyService = data;
+    })
   }
-  // get Api product
-  productService = inject(ProductService);
-  dataProduct: ProductResDTO[] = [];
-
-  getAllDataProduct() {
-    this.productService.getAllProducts().subscribe((data) => {
-      this.dataProduct = data;
-    });
+  // Get API Company Support
+  getAllDataCompanySupport(){
+    this.companySupportService.getAllCompanySupport().subscribe((data) => {
+      this.dataCompanySupport = data;
+    })
   }
-  // get Api About
-  companyInfoService = inject(CompanyService);
-  dataCompanyDetail: CompanyDetailResDTO[] = [];
-
-  getAllDataCompanyDetail() {
-    this.companyInfoService.getAlLDataCompanyDetail().subscribe((data) => {
-      this.dataCompanyDetail = data;
-    });
+  // Get API Home Intro
+  getAllDataHomeIntro(){
+    this.homeIntroService.getAllData().subscribe((data) => {
+      this.dataHomeIntro = data;
+    })
   }
-  // get Api project
-  projectService = inject(ProjectService);
-  dataProject: ProjectResDTO[] = [];
-
-  getAllDataProject() {
-    this.projectService.getAllProjects().subscribe((data) => {
-      this.dataProject = data.slice(0, 3);
-    });
+  // Get API Home Intro
+  getAllDataPartners(){
+    this.partnerService.getAllData().subscribe((data) => {
+      this.dataPartners = data;
+    })
+  }
+  // Customer Contact Validate
+  private fb = inject(NonNullableFormBuilder);
+  validateForm = this.fb.group({
+    name: this.fb.control('', [Validators.required]),
+    email: this.fb.control('', [Validators.email, Validators.required]),
+    phone: this.fb.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+    message: this.fb.control('', [Validators.required, Validators.minLength(6), Validators.maxLength(1000)]),
+    status: ['', [Validators.required]]
+  });
+  submitForm(): void {
+    if (this.validateForm.valid) {
+      const valueForm = this.validateForm.getRawValue();
+      this.contactCustomerService.createCustomerContact(valueForm).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.validateForm.reset();
+        }
+      })
+    } else {
+      Object.values(this.validateForm.controls).forEach((control) => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
+    }
   }
 
+
+
+  // Carousel
   effects = 'scrollx';
-
   //next and prev
   @ViewChild('carouselRef', { static: false }) carousel!: NzCarouselComponent;
   next(): void {
     this.carousel.next();
   }
-
   prev(): void {
     this.carousel.pre();
   }
 
-  //  listCard
-  cards = [
-    {
-      icon: 'desktop',
-      title: 'Branding Identity',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore'
-    },
-    {
-      icon: 'codepen',
-      title: 'UI/UX Design',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore'
-    },
-    {
-      icon: 'edit',
-      title: 'Illustration',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore'
-    },
-    {
-      icon: 'ant-design',
-      title: 'Unique Design',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore'
-    },
-    {
-      icon: 'dropbox',
-      title: 'Easy to Customize',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore'
-    },
-    {
-      icon: 'customer-service',
-      title: 'Support',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore'
-    }
-  ];
   //PARTNERS
   partners = PARTNERS;
 
-  ///validate Form
+
 }

@@ -1,18 +1,15 @@
 <!--banner-->
 <nz-carousel #carouselRef nzAutoPlay [nzEffect]="'fade'" class="custom-carousel">
-  <div nz-carousel-content class="slide"
-       style="background-image: url('https://www.camaramurcia.es/wp-content/uploads/2023/07/Formacion-Ejecutiva-Camara-Comercio-Murcia-1030x579.jpg')">
-    <div class="overlay-text">
-      <h3>Thể thao là không ngừng bỏ cuộc.</h3>
+  @for ( banner of dataBanner; track $index) {
+    @for (image of banner.imageUrls; track $index) {
+    <div nz-carousel-content class="slide"
+         [style.background-image]="'url(' + image + ')'">
+      <div class="overlay-text">
+        <h3>{{banner.slogan}}</h3>
+      </div>
     </div>
-  </div>
-  <div nz-carousel-content class="slide"
-       style="background-image: url('https://cdn.ufidelitas.ac.cr/wp-content/uploads/2025/01/03171058/programa-de-formacion-ejecutiva-promueve-liderazgo.jpg')">
-    <div class="overlay-text">
-      <h3>Thể thao là không ngừng bỏ cuộc.</h3>
-    </div>
-  </div>
-  <!-- Nút điều hướng -->
+    }
+  }
   <!-- Nút Prev -->
   <button nz-button nzShape="circle" class="carousel-btn prev-btn" (click)="carouselRef.pre()">
     <i nz-icon nzType="left" nzTheme="outline"></i>
@@ -22,7 +19,6 @@
     <i nz-icon nzType="right" nzTheme="outline"></i>
   </button>
 </nz-carousel>
-
 <!-- Why Choose Us? -->
 <section id="why-choose-us" class="why-choose-us">
   <div class="main">
@@ -32,7 +28,7 @@
     <div nz-row [nzGutter]="[24, 24]" class="card-grid">
       <div
         nz-col
-        *ngFor="let card of cards"
+        *ngFor="let card of dataCompanySupport"
         [nzXs]="24"
         [nzSm]="12"
         [nzMd]="8"
@@ -56,27 +52,21 @@
   <div class="main">
     <h2 class="about-us-title">ABOUT <span class="dot">US</span> </h2>
     <div class="content">
+      @for ( data of dataHomeIntro; track $index) {
       <div class="content-title">
         <h4>
-          Là người đồng hành trên con đường đổi mới và phát triển của khách hàng
+          {{data.title}}
         </h4>
-        <p>Dưới bối cảnh xã hội không ngừng chuyển mình, nơi mà các lĩnh vực
-          và doanh nghiệp liên tục đổi mới từng ngày, việc nhanh chóng ứng
-          dụng công nghệ hiện đại đã trở thành yếu tố then chốt để nâng cao
-          năng lực cạnh tranh và tối ưu hiệu quả vận hành.
-          <span class="website">DTDI Company Solution</span>
-          tự hào là đơn vị tiên phong, được hình thành với sứ mệnh đồng hành
-          cùng quý khách hàng trong hành trình khai thác và ứng dụng tối
-          đa những giá trị mà công nghệ tiên tiến mang lại.
+        <p>{{data.description}}
         </p>
       </div>
       <div class="content-image">
         <img src="/assets/about-us.jpg" alt="">
       </div>
+      }
     </div>
   </div>
 </section>
-
 <!-- What we have  -->
 <section id="project" class="project">
   <div class="container">
@@ -91,43 +81,40 @@
         <span class="icon"><nz-icon nzType="arrow-right" nzTheme="outline" class="arrow-right" /></span>
       </a>
     </div>
-
-    <div class="content-card" *ngFor="let index of dataProject; let i = index">
+    @for ( data of dataCompanyService; track $index) {
+    <div class="content-card">
       <figure class="card-banner">
-        <img [src]="index.image" alt="" />
+        <img [src]="data.image" alt="" />
       </figure>
       <div class="card-title">
         <div class="title">
-          <h3>{{ index.title }}</h3>
-          <p>{{ index.description }}</p>
+          <h3>{{data.title }}</h3>
+          <p>{{ data.description }}</p>
         </div>
         <div class="feature-list">
-          <span *ngFor="let tag of index.tags" class="feature-item">{{ tag }}</span>
+          @for ( tag of data.tags; track $index) {
+            <span class="feature-item">{{ tag }}</span>
+          }
         </div>
       </div>
     </div>
-
-    <!-- Các card khác -->
+    }
   </div>
 </section>
 <!--PARTNERS-->
-
 <section class="partners-section">
   <div class="container">
     <h2 class="section-title"> OUR <span class="first-title">PARTNERS</span></h2>
     <p class="section-subtitle">
       Các doanh nghiệp hàng đầu đã và đang tin tưởng hợp tác cùng <strong>DTDI Company Solution</strong>
     </p>
-
     <div class="partners-logos">
-      <div class="logo-card" *ngFor="let partner of partners">
+      <div class="logo-card" *ngFor="let partner of dataPartners">
         <img [src]="partner.logo" [alt]="partner.name" />
       </div>
     </div>
   </div>
 </section>
-
-
 <!--Custom contact-->
 <section id="contact" class="contact">
   <div class="container">
@@ -135,29 +122,47 @@
       Let’s work <br />
        <span class="dot">together</span>
     </h2>
-
     <div class="contact-wrapper">
       <!-- Form -->
-      <div class="form-container">
-        <form action="#">
-          <div class="form-row">
-            <input type="text" placeholder="Your name*" required />
-            <input type="email" placeholder="Email address*" required />
+      <div class="contact-content">
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" >
+          <div class="form">
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="'Please input your name!'">
+                <input nz-input formControlName="name" placeholder="Your name*" />
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="'Please input a valid email!'">
+                <input nz-input formControlName="email" placeholder="Email address*" type="email" />
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="'Please input a valid status!'">
+                <nz-select id="status" formControlName="status"  nzPlaceHolder="Select status" >
+                  <nz-option nzValue="NEW" nzLabel="New"></nz-option>
+                  <nz-option nzValue="CLOSED" nzLabel="Closed"></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="'Please input a valid phone number!'">
+                <input nz-input formControlName="phone" placeholder="Phone number" />
+              </nz-form-control>
+            </nz-form-item>
+            <div class="message">
+              <nz-form-item>
+                <nz-form-control [nzErrorTip]="'Please enter your message!'">
+                  <textarea nz-input formControlName="message" rows="6" placeholder="Your Message *"></textarea>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+            <div class="form-item button-submit">
+              <button nz-button nzType="primary" class="submit-btn" type="submit">
+                Send Message
+              </button>
+            </div>
           </div>
-
-          <div class="form-row">
-            <input type="text" placeholder="Subject" />
-            <input type="text" placeholder="Phone number" />
-          </div>
-
-          <textarea placeholder="Your Message *" required></textarea>
-
-          <div class="form-checkbox">
-            <input type="checkbox" id="terms" required />
-            <label for="terms">Accept Terms of Services and Privacy Policy</label>
-          </div>
-
-          <button type="submit" class="btn">Send Message</button>
         </form>
       </div>
 
