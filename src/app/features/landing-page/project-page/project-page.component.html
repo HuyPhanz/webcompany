@@ -1,38 +1,24 @@
 <section class="project">
-  <div class="container">
-    <div class="content-title">
-      <h3>Case <br />Study <span class="dot">.</span></h3>
-      <p>
-        Với kinh nghiệm phong phú, sở hữu danh sách đặc biệt về công nghệ kỹ thuật cao,
-        <br />
-        DTDI Company Solutions chúng tôi sẽ mang tới cho quý khách hàng hệ thống tối ưu nhất.
-      </p>
+  <div class="project-banner">
+    <div class="banner-title">
+      <h1>DỰ ÁN</h1>
     </div>
-    <div class="carousel-wrapper">
-      <button class="arrow left" (click)="prev()">&#10094;</button>
-      <nz-carousel #carousel [nzDots]="true" [nzEffect]="'scrollx'">
-        @for (group of groupedData; track group) {
-          <div nz-carousel-content>
-            <div class="card-container">
-              @for (item of group; track item) {
-                <div class="card">
-                  <img [src]="item.image" alt="Project Image" />
-                  <div class="content">
-                    <h3>{{ item.title }}</h3>
-                    <p class="description">{{ item.description }}</p>
-                    <div class="tags">
-                      @for (tag of item.tags; track tag) {
-                        <span class="tag">{{ tag }}</span>
-                      }
-                    </div>
-                  </div>
-                </div>
-              }
-            </div>
-          </div>
-        }
-      </nz-carousel>
-      <button class="arrow right" (click)="next()">&#10095;</button>
+  </div>
+  <div class="project-section">
+    <h2 class="section-title">Dự án nổi bật</h2>
+    <div class="project-grid">
+      <!-- Repeat this block for each project -->
+      <div class="project-card" *ngFor="let project of projectsData">
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.title" />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-desc">{{ project.description }}</p>
+          <a [routerLink]="['/project-detail', project.id]"  class="view-detail">Xem chi tiết →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
