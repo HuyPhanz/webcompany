@@ -12,6 +12,7 @@ export interface CustomerContactResDTO {
   phone: string;
   message: string;
   status: string;
+  createdDate: string;
 }
 export interface CustomerContact extends CustomerContactReqDTO {
   id: number;

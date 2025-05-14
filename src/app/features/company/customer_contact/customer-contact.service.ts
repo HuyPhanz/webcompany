@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CustomerContact, CustomerContactResDTO,CustomerContactReqDTO  } from './interface';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { CustomerContact, CustomerContactResDTO,CustomerContactReqDTO  } from '.
 export class CustomerContactService {
   http = inject(HttpClient);
   // API
-  apiUrl = 'http://26.54.201.159:8080/api/customer-contacts';
+  apiUrl = environment.API_URL + '/customer-contacts';
   // create API
   createCustomerContact(data: CustomerContactReqDTO): Observable<CustomerContactResDTO> {
     return this.http.post<CustomerContactResDTO>(this.apiUrl, data);

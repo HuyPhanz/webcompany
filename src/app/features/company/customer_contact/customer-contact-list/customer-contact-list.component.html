@@ -1,7 +1,7 @@
 <div>
-  <div class="flex justify-end mb-2">
-    <button nz-button (click)="goToAdd()">Add customer</button>
-  </div>
+<!--  <div class="flex justify-end mb-2">-->
+<!--    <button nz-button (click)="goToAdd()">Add customer</button>-->
+<!--  </div>-->
   <nz-table nzBordered [nzData]="customerContactOfData" nzTableLayout="fixed">
     <thead>
       <tr>
@@ -23,9 +23,9 @@
             <td>{{ data.message }}</td>
             <td>{{ data.status }}</td>
             <td>
-              <button nz-button nzType="primary" (click)="startEdit(data.id)"><nz-icon nzType="edit" />Edit</button>
+              <button nz-button nzType="primary" (click)="startEdit(data.id)"><nz-icon nzType="edit" /></button>
               <button nz-button nzType="primary" nzDanger (click)="deleteDataCustomerContact(data.id)">
-                <nz-icon nzType="delete" />Delete
+                <nz-icon nzType="delete" />
               </button>
             </td>
           } @else {
