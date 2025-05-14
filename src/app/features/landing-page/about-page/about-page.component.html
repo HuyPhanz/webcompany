@@ -6,25 +6,23 @@
 <section class="about-us">
   <div class="main">
 <!--company-info-->
+    @for ( item of aboutIntroOfData; track $index) {
     <div class="company-info">
+
       <div class="our-picture">
-        <img src="/assets/about-us.jpg" alt="">
+        <img [src]="item.image" [alt]="item.title">
       </div>
       <div class="content">
         <h1 class="content-title">
-          Công nghệ là sức mạnh, nhân sự là nền tảng
+        {{item.title}}
         </h1>
         <p class="content-description">
-          Tại <span class="website">DTDI Company Solution</span> chúng tôi không ngừng đổi mới
-          và sáng tạo để mang đến các giải pháp công nghệ hiệu quả,
-          hiện đại và thân thiện.
-          Đội ngũ của chúng tôi là những người trẻ, đam mê công nghệ
-          và luôn sẵn sàng chinh phục những thử thách mới để tạo ra
-          giá trị thật sự cho khách hàng và cộng đồng.
+          {{item.description}}
         </p>
-          <button><a href="">Contact Us</a></button>
+          <button><a [routerLink]="['/contact-page']">Contact Us</a></button>
       </div>
     </div>
+    }
 <!--reputation-->
     <div class="reputation">
     <div class="card">
@@ -59,27 +57,11 @@
       <div class="stats-grid">
         @for ( experience of companyExperienceOfData; track $index) {
         <div class="stat-item">
-          <div class="stat-number">19 years</div>
-          <div class="stat-desc">of successful operation</div>
+          <div class="stat-number">{{experience.title}}</div>
+          <div class="stat-desc">{{experience.description}}</div>
         </div>
         <div class="divider"  *ngIf="$index < companyExperienceOfData.length - 1"></div>
         }
-<!--        <div class="stat-item">-->
-<!--          <div class="stat-number">1,000+</div>-->
-<!--          <div class="stat-desc">successful digital projects</div>-->
-<!--        </div>-->
-<!--        <div class="divider"></div>-->
-
-<!--        <div class="stat-item">-->
-<!--          <div class="stat-number">11 offices</div>-->
-<!--          <div class="stat-desc">in 3 continents</div>-->
-<!--        </div>-->
-<!--        <div class="divider"></div>-->
-
-<!--        <div class="stat-item">-->
-<!--          <div class="stat-number">1,000+</div>-->
-<!--          <div class="stat-desc">team members</div>-->
-<!--        </div>-->
       </div>
     </div>
 <!--Get to know us-->
