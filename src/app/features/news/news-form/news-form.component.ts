@@ -17,21 +17,34 @@ export class NewsFormComponent {
   newService = inject(NewsService);
   private fb = inject(NonNullableFormBuilder);
 
-  serviceForm = this.fb.group({
+  validateForm = this.fb.group({
     title: ['', [Validators.required, Validators.maxLength(255), Validators.minLength(6)]],
     description: ['', [Validators.required, Validators.minLength(6)]],
+    content: ['', [Validators.required, Validators.maxLength(10000), Validators.minLength(6)]],
     image: ['', [Validators.required]],
+    orderIndex: [0, [Validators.required, Validators.pattern(/^[1-3]{1}$/)]],
   });
 
   submitForm(): void {
-    const formValue = this.serviceForm.getRawValue();
-    this.newService.createNew(formValue).subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
+    if(this.validateForm.valid){
+      const formValue = this.validateForm.getRawValue();
+      const data = {
+        title: formValue.title,
+        description: formValue.description,
+        content: formValue.content,
+        image: formValue.description,
+        orderIndex: formValue.orderIndex,
+      };
+      this.newService.createNew(data).subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    }
   }
+
+
 }
