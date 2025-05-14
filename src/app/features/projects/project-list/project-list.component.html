@@ -8,7 +8,7 @@
         <th>Title</th>
         <th>Description</th>
         <th>Image</th>
-        <th>Hashtag</th>
+        <th>Content</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -16,10 +16,10 @@
       @for (data of projectOfData; track data) {
         <tr>
           @if (!editCache[data.id].edit) {
-            <td>{{ data.title }}</td>
-            <td>{{ data.description }}</td>
-            <td>{{ data.image }}</td>
-            <td>{{ data.tags }}</td>
+            <td nzEllipsis>{{ data.title }}</td>
+            <td nzEllipsis>{{ data.description }}</td>
+            <td nzEllipsis>{{ data.image }}</td>
+            <td nzEllipsis>{{ data.content }}</td>
             <td>
               <button nz-button nzType="primary" (click)="startEdit(data.id)"><nz-icon nzType="edit" />Edit</button>
               <button nz-button nzType="primary" nzDanger (click)="deleteProduct(data.id)">
@@ -29,8 +29,8 @@
           } @else {
             <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.title" /></td>
             <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.id].data.description"></textarea></td>
-            <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.image" /></td>
-            <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.id].data.tags"></textarea></td>
+            <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.id].data.image"></textarea></td>
+            <td><textarea nz-input rows="10" [(ngModel)]="editCache[data.id].data.content"></textarea></td>
 
             <td>
               <button nz-button nzType="primary" (click)="updateProject(data.id)" class="save">Save</button

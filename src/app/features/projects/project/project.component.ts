@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { Component, inject,  } from '@angular/core';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -33,48 +33,16 @@ export class ProjectComponent {
   validateForm = this.fb.group({
     title: ['', Validators.required],
     description: ['', Validators.required],
-    image: ['', Validators.required]
+    image: ['', Validators.required],
+    content: ['', Validators.required],
   });
   //hashtag
-  tags = ['#Technology'];
-  inputVisible = false;
-  inputValue = '';
-  @ViewChild('inputElement', { static: false }) inputElement?: ElementRef;
 
-  handleClose(removedTag: any): void {
-    this.tags = this.tags.filter((tag) => tag !== removedTag);
-  }
-
-  sliceTagName(tag: string): string {
-    const isLongTag = tag.length > 20;
-    return isLongTag ? `${tag.slice(0, 20)}...` : tag;
-  }
-
-  showInput(): void {
-    this.inputVisible = true;
-    setTimeout(() => {
-      this.inputElement?.nativeElement.focus();
-    }, 10);
-  }
-
-  handleInputConfirm(): void {
-    if (this.inputValue && this.tags.indexOf(this.inputValue) === -1) {
-      this.tags = [...this.tags, this.inputValue];
-    }
-    this.inputValue = '';
-    this.inputVisible = false;
-  }
   //submmit
   onSubmit(): void {
     if (this.validateForm.valid) {
       const formValue = this.validateForm.getRawValue();
-      const data = {
-        title: formValue.title,
-        description: formValue.description,
-        image: formValue.image,
-        tags: this.tags
-      };
-      this.ProjectService.createProject(data).subscribe({
+      this.ProjectService.createProject(formValue).subscribe({
         next: (res) => {
           console.log(res);
         },
@@ -82,7 +50,7 @@ export class ProjectComponent {
           console.log(err);
         }
       });
-      console.log('Submitted Data:', data);
+      console.log(formValue);
     } else {
       Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {

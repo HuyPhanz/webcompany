@@ -7,7 +7,6 @@
         <input nz-input formControlName="title" id="title" />
       </nz-form-control>
     </nz-form-item>
-
     <!-- description -->
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="description">Description</nz-form-label>
@@ -15,48 +14,24 @@
         <input nz-input formControlName="description" id="description" />
       </nz-form-control>
     </nz-form-item>
-    <!-- description -->
+    <!-- Icon -->
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="image">Image</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="'The input is not valid icon!'">
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="'The input is not valid image!'">
         <input nz-input formControlName="image" id="image" />
       </nz-form-control>
     </nz-form-item>
-    <!-- hashtags -->
+    <!-- Content -->
     <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="description">Hashtag</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="'The input is not valid description!'">
-        @for (tag of tags; track tag) {
-          <nz-tag [nzMode]="$index === 0 ? 'default' : 'closeable'" (nzOnClose)="handleClose(tag)">
-            {{ sliceTagName(tag) }}
-          </nz-tag>
-        }
-
-        @if (!inputVisible) {
-          <nz-tag class="editable-tag" nzNoAnimation (click)="showInput()">
-            <nz-icon nzType="plus" />
-            New Tag
-          </nz-tag>
-        } @else {
-          <input
-            #inputElement
-            nz-input
-            nzSize="small"
-            type="text"
-            [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}"
-            style="width: 78px;"
-            (blur)="handleInputConfirm()"
-            (keydown.enter)="handleInputConfirm()"
-          />
-        }
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="content">Content</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="'The input is not valid content!'">
+        <textarea nz-input formControlName="content" id="content"></textarea>
       </nz-form-control>
     </nz-form-item>
-
-
     <!-- submit -->
     <nz-form-item>
       <nz-form-control [nzSpan]="20" [nzOffset]="6">
-        <button nz-button nzType="primary" [disabled]="!validateForm.valid">Submit</button>
+        <button nz-button nzType="primary">Submit</button>
       </nz-form-control>
     </nz-form-item>
   </form>

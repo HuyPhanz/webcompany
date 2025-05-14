@@ -45,10 +45,6 @@ export class ProjectListComponent implements OnInit {
     const index = this.projectOfData.findIndex((item) => item.id === id);
     const data = { ...this.editCache[id].data };
 
-    // Bổ sung: ép imageUrls thành array nếu cần
-    if (data.tags && typeof data.tags === 'string') {
-      data.tags = [data.tags];
-    }
 
     const updateProject = {
       id: this.projectOfData[index].id,
