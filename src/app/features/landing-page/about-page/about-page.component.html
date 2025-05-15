@@ -69,30 +69,30 @@
       <h3 class="section-subtitle">GET TO KNOW US</h3>
       <h2 class="section-title">Board of management</h2>
     <!--  board-grid  -->
-<!--      <div class="board-grid">-->
-<!--        <div class="board-member" >-->
-<!--          @for (member of members; track $index) {-->
-<!--          <div class="board-photo" [ngStyle]="{'background-image': 'url(' + member.image + ')'}"></div>-->
-<!--          <div class="board-info">-->
-<!--            <h3 class="member-name">{{ member.name }}</h3>-->
-<!--            <p class="member-role">{{ member.role }}</p>-->
-<!--            <div class="divider"></div>-->
-<!--            <p class="member-desc">{{ member.description }}</p>-->
-<!--          </div>-->
-<!--          }-->
-<!--        </div>-->
-<!--      </div>-->
+      <div class="board-grid">
+        <div class="board-member" >
+          @for (member of topMembers; track $index) {
+          <div class="board-photo" [ngStyle]="{'background-image': 'url(' + member.image + ')'}"></div>
+          <div class="board-info">
+            <h3 class="member-name">{{ member.name }}</h3>
+            <p class="member-role">{{ member.position }}</p>
+            <div class="divider"></div>
+            <p class="member-desc">{{ member.description }}</p>
+          </div>
+          }
+        </div>
+      </div>
     <!--   member-grid-bottom   -->
-<!--      <div class="member-grid-bottom">-->
-<!--        <div class="bottom-member" *ngFor="let member of bottomMembers">-->
-<!--          <div class="bottom-photo" [ngStyle]="{'background-image': 'url(' + member.image + ')'}">-->
-<!--            <div class="bottom-overlay">-->
-<!--              <h3 class="bottom-name">{{ member.name }}</h3>-->
-<!--              <p class="bottom-role">{{ member.role }}</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+      <div class="member-grid-bottom">
+        <div class="bottom-member" *ngFor="let member of bottomMembers">
+          <div class="bottom-photo" [ngStyle]="{'background-image': 'url(' + member.image + ')'}">
+            <div class="bottom-overlay">
+              <h3 class="bottom-name">{{ member.name }}</h3>
+              <p class="bottom-role">{{ member.position }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
