@@ -40,30 +40,16 @@
           BÀI VIẾT LIÊN QUAN
         </div>
         <div class="cards-right">
+          @for ( new of newsList; track $index) {
           <div class="card-item-right">
-            <img src="https://vhsgroup.vn/uploads/project/430x290-680f43bfef5a2.jpg" alt="">
+            <img [src]="new.image" alt="">
             <div class="card-info">
-             <h3>THE MATRIX ONE PREMIUM</h3>
-              <p>Ngã tư Lê Quang Đạo – Mễ Trì, quận Nam Từ Liêm, Hà Nội</p>
-              <a href="">Xem thêm</a>
+             <h3>{{new.title}}</h3>
+              <p>{{new.description}}</p>
+              <a [routerLink]="['/news-detail', new.id]">Chi tiết</a>
             </div>
           </div>
-          <div class="card-item-right">
-            <img src="https://vhsgroup.vn/uploads/project/430x290-680f43bfef5a2.jpg" alt="">
-            <div class="card-info">
-             <h3>THE MATRIX ONE PREMIUM</h3>
-              <p>Ngã tư Lê Quang Đạo – Mễ Trì, quận Nam Từ Liêm, Hà Nội</p>
-              <a href="">Xem thêm</a>
-            </div>
-          </div>
-          <div class="card-item-right">
-            <img src="https://vhsgroup.vn/uploads/project/430x290-680f43bfef5a2.jpg" alt="">
-            <div class="card-info">
-              <h3>THE MATRIX ONE PREMIUM</h3>
-              <p>Ngã tư Lê Quang Đạo – Mễ Trì, quận Nam Từ Liêm, Hà Nội</p>
-              <a href="">Xem thêm</a>
-            </div>
-          </div>
+          }
         </div>
       </div>
     </div>

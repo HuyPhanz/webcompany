@@ -17,7 +17,8 @@ export class NewsDetailComponent implements OnInit {
 
   newsId = 0;
   newsDetail: NewsResDTO | null = null;
-
+  newsList:NewsResDTO[]=[];
+  //get By ID
   loadNewsDetail(): void {
     this.newsService.getNewsById(this.newsId).subscribe({
       next: (data: NewsResDTO) => {
@@ -28,16 +29,22 @@ export class NewsDetailComponent implements OnInit {
       }
     });
   }
-
-  ngOnInit(): void {
-    const idParam = this.route.snapshot.paramMap.get('id');
-    if (idParam) {
-      this.newsId = Number(idParam);
-      this.loadNewsDetail();
-    }
+  //get data
+  getData(){
+      this.newsService.getAllNews().subscribe({
+        next: (data: NewsResDTO[]) => {
+          this.newsList = data.slice(0, 3);
+        }
+      })
   }
-
-
-
-
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const idParam = params.get('id');
+      if (idParam) {
+        this.newsId = Number(idParam);
+        this.loadNewsDetail();
+      }
+    });
+    this.getData();
+  }
 }
