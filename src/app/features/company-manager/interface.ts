@@ -1,16 +1,20 @@
-export interface SupportReqDTO {
-  title: string;
+export interface ManagerReqDTO {
+  name: string;
+  position: string;
   description: string;
-  icon:string;
+  image:string;
+  orderIndex: number;
 
 }
-export interface SupportResDTO {
+export interface ManagerResDTO {
   id: number;
-  title: string;
+  name: string;
+  position: string;
   description: string;
-  icon:string;
+  image:string;
+  orderIndex: number;
 }
-export interface Support extends SupportReqDTO {
+export interface Manager extends ManagerReqDTO {
   id: number;
 }
 
