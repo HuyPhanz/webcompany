@@ -25,8 +25,12 @@
                   <div class="meta">
                     <p>{{new.createdDate}}</p>
                   </div>
+                  <div class="detail">
+                    <a [routerLink]="['/news-detail',new.id]">Chi tiết</a>
+                  </div>
+
                 </div>
-                <a [routerLink]="['/news-detail',new.id]">Detail</a>
+
               </div>
             </div>
           }
@@ -62,15 +66,17 @@
         <div class="cards-tech">
           @for (new of dataNews; track new.id) {
             @if (new.type === 2) {
-            <div class="card-item">
-              <h1>{{ new.title }}</h1>
-              <div class="description">
-                <img [src]="new.image" alt="">
-                <p>
-                  {{new.description}}
-                </p>
-              </div>
-            </div>
+              <a [routerLink]="['/news-detail', new.id]">
+                <div class="card-item">
+                  <h1>{{ new.title }}</h1>
+                  <div class="description">
+                    <img [src]="new.image" alt="">
+                    <p>
+                      {{new.description}}
+                    </p>
+                  </div>
+                </div>
+              </a>
             }
           }
         </div>
