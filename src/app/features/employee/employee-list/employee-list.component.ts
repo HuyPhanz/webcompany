@@ -10,6 +10,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { EmployeeService } from '../employee.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-employee-table',
   standalone: true,
@@ -30,7 +31,8 @@ export class EmployeeListComponent implements OnInit {
   //service
   router = inject(Router);
   route = inject(ActivatedRoute);
-
+  // message
+  message = inject(NzMessageService)
   //edit
   editCache: Record<string, { edit: boolean; data: EmployeeReqDTO }> = {};
   //list
@@ -53,6 +55,7 @@ export class EmployeeListComponent implements OnInit {
   deleteProduct(id: number): void {
     this.employeeService.deletePloyee(id).subscribe(() => {
       this.getAllEmployee();
+      this.message.success('Xóa thành công!');
     });
   }
   //start edit
@@ -87,6 +90,7 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.updatePloyee(updatedEmployee).subscribe(() => {
       this.getAllEmployee();
       this.editCache[id].edit = false;
+      this.message.success('Cập nhật thành công!');
     });
   }
 
