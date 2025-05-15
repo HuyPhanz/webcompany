@@ -25,6 +25,12 @@ import {
   CompanyExperiencesListComponent
 } from './features/company-experiences/company-experiences-list/company-experiences-list.component';
 import { AboutUsIntroListComponent } from './features/about-us-intro/about-us-intro-list/about-us-intro-list.component';
+import {
+  CompanyManagerListComponent
+} from './features/company-manager/company-manager-list/company-manager-list.component';
+import {
+  CustomerContactListComponent
+} from './features/company/customer_contact/customer-contact-list/customer-contact-list.component';
 // import { AuthGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
@@ -143,6 +149,16 @@ export const routes: Routes = [
       {
         path: 'about-intro',
         component: AboutUsIntroListComponent,
+      },
+      //company-manager
+      {
+        path: 'company-manager',
+        component: CompanyManagerListComponent,
+      },
+      //customer-contact
+      {
+        path: 'customer-contact',
+        component: CustomerContactListComponent,
       }
     ]
   },

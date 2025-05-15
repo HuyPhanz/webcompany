@@ -14,15 +14,18 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Company" nzIcon="unordered-list">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a [routerLink]="['company', 'info']">Info</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a [routerLink]="['company', 'customer']">Customer</a>
-          </li>
-        </ul>
+<!--      <li nz-submenu nzOpen nzTitle="Company" nzIcon="unordered-list">-->
+<!--        <ul>-->
+<!--          <li nz-menu-item nzMatchRouter>-->
+<!--            <a [routerLink]="['company', 'info']">Info</a>-->
+<!--          </li>-->
+<!--          <li nz-menu-item nzMatchRouter>-->
+<!--            <a [routerLink]="['company', 'customer']">Customer</a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>-->
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['banner']">Banner</a>
       </li>
       <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['employee']">Employee</a>
@@ -33,9 +36,7 @@
       <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['project']">Project</a>
       </li>
-      <li nz-menu-item nzMatchRouter>
-        <a [routerLink]="['banner']">Banner</a>
-      </li>
+
       <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['company-service']">Company Service</a>
       </li>
@@ -53,6 +54,15 @@
       </li>
       <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['company-experience']">Company Experience</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['about-intro']">About Intro</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['company-manager']">Company Manager</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['customer-contact']">Customer Contact</a>
       </li>
     </ul>
 
