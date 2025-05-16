@@ -8,6 +8,7 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzNoAnimationModule } from 'ng-zorro-antd/core/no-animation';
 import { CompanyServiceService } from '../company-service.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-company-service-form',
   imports: [
@@ -25,6 +26,8 @@ import { CompanyServiceService } from '../company-service.service';
   styleUrl: './company-service-form.component.scss'
 })
 export class CompanyServiceFormComponent {
+  // message
+  message = inject(NzMessageService);
   // service
   companyService = inject(CompanyServiceService);
   //validate
@@ -76,12 +79,13 @@ export class CompanyServiceFormComponent {
       this.companyService.createCompanyService(data).subscribe({
         next: (res) => {
           console.log(res);
+          this.message.success('Cập nhật thành công!');
         },
         error: (err) => {
           console.log(err);
         }
       });
-      console.log('Submitted Data:', data);
+      // console.log('Submitted Data:', data);
     } else {
       Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {
