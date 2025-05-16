@@ -20,7 +20,7 @@ export class EmployeeService {
   }
   //updatePloyee()
   updatePloyee(data: EmployeeResDTO) {
-    return this.http.put<EmployeeResDTO>(`${this.apiUrl + '/id'}/${data.id}`, data);
+    return this.http.put<EmployeeResDTO>(`${this.apiUrl}/${data.id}`, data);
   }
   //deletePloyee()
   deletePloyee(id: number) {

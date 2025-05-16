@@ -3,7 +3,6 @@ export interface EmployeeReqDTO {
   email: string;
   emCode: string;
   password: string;
-  role: string | null;
 }
 export interface EmployeeResDTO {
   id: number;
@@ -11,7 +10,6 @@ export interface EmployeeResDTO {
   email: string;
   emCode: string;
   password: string;
-  role: string | null;
 }
 export interface Employee extends EmployeeReqDTO {
   id: number;
