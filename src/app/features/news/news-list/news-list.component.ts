@@ -8,6 +8,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NewsReqDTO, NewsResDTO } from '../interface';
 import { NewsService } from '../news.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-news-list',
@@ -17,6 +18,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './news-list.component.scss'
 })
 export class NewsListComponent implements OnInit {
+  // message
+  message = inject(NzMessageService);
   //service
   newService = inject(NewsService);
   router = inject(Router);
@@ -39,6 +42,7 @@ export class NewsListComponent implements OnInit {
   deleteNew(id: number) {
     this.newService.deleteNew(id).subscribe(() => {
       this.getAllNews();
+      this.message.success('Xóa thành công!');
     });
   }
   //update
@@ -52,7 +56,7 @@ export class NewsListComponent implements OnInit {
     this.newService.updateNew(updateNew).subscribe(() => {
       this.getAllNews();
     });
-    alert('updated successfully.');
+    this.message.success('Cập nhật thành công!');
   }
   //
   updateEditCache(): void {
