@@ -8,6 +8,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PartnersReqDTO, PartnersResDTO } from '../interface';
 import { PartnersService } from '../partners.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-partners-list',
   imports: [FormsModule, NzInputModule, NzPopconfirmModule, NzTableModule, NzButtonModule, NzIconModule],
@@ -15,6 +16,9 @@ import { PartnersService } from '../partners.service';
   styleUrl: './partners-list.component.scss'
 })
 export class PartnersListComponent implements OnInit {
+  // message
+  message = inject(NzMessageService);
+
   //service
   partnerService = inject(PartnersService);
   router = inject(Router);
@@ -38,6 +42,7 @@ export class PartnersListComponent implements OnInit {
   deleteSupportService(id: number) {
     this.partnerService.deleteData(id).subscribe(() => {
       this.getAllData();
+      this.message.success('Xóa thành công!');
     });
   }
   //update
@@ -51,7 +56,7 @@ export class PartnersListComponent implements OnInit {
     this.partnerService.updateData(updatePartners).subscribe(() => {
       this.getAllData();
     });
-    alert('updated successfully.');
+    this.message.success('Cập nhật thành công!');
   }
   //
   updateEditCache(): void {
