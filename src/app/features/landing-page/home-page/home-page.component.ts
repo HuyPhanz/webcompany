@@ -20,6 +20,7 @@ import { CompanySupportService } from '../../company-support/company-support.ser
 import { HomeIntroService } from '../../home-intro/home-intro.service';
 import { PartnersService } from '../../partners/partners.service';
 import { PartnersResDTO } from '../../partners/interface';
+import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-home-page',
   imports: [
@@ -42,7 +43,8 @@ import { PartnersResDTO } from '../../partners/interface';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent implements OnInit {
-
+  // message
+  message = inject(NzMessageService);
   // Service API Banner
   bannerService = inject(BannerService);
   // Get API Customer_Contact
@@ -119,6 +121,7 @@ export class HomePageComponent implements OnInit {
         next: (res) => {
           console.log(res);
           this.validateForm.reset();
+          this.message.success('Đã gửi!');
         }
       })
     } else {

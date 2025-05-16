@@ -26,11 +26,12 @@
     }
 
     .next-btn {
-      right: 20px;
+      right: 20000px;
+      z-index: 10;
     }
 
     .slide {
-      height: 550px;
+      height: 600px;
       background-size: cover;
       background-position: center;
       position: relative;
