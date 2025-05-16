@@ -8,6 +8,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { CustomerContactReqDTO, CustomerContactResDTO } from '../interface';
 import { CustomerContactService } from '../customer-contact.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-customer-contact-list',
@@ -17,6 +18,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './customer-contact-list.component.scss'
 })
 export class CustomerContactListComponent implements OnInit {
+  // message
+  message = inject(NzMessageService);
   //service
   customerContactService = inject(CustomerContactService);
   router = inject(Router);
@@ -39,6 +42,7 @@ export class CustomerContactListComponent implements OnInit {
   deleteDataCustomerContact(id: number) {
     this.customerContactService.deleteCustomerContact(id).subscribe(() => {
       this.getAllDataCustomerContact();
+      this.message.success('Xóa thành công!');
     });
   }
   //update
@@ -52,7 +56,7 @@ export class CustomerContactListComponent implements OnInit {
     this.customerContactService.updateCustomerContact(updateCustomerContact).subscribe(() => {
       this.getAllDataCustomerContact();
     });
-    alert('updated successfully.');
+    this.message.success('Cập nhật thành công!');
   }
   //
   updateEditCache(): void {
