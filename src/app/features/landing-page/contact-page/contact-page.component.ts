@@ -11,6 +11,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { CustomerContactService } from '../../company/customer_contact/customer-contact.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-contact-page',
@@ -27,6 +28,8 @@ import { CustomerContactService } from '../../company/customer_contact/customer-
   styleUrl: './contact-page.component.scss'
 })
 export class ContactPageComponent {
+  // message
+  message = inject(NzMessageService);
   //service
   contactCustomerService = inject(CustomerContactService);
   private fb= inject(NonNullableFormBuilder)
@@ -43,7 +46,9 @@ export class ContactPageComponent {
       const valueForm = this.validateForm.getRawValue();
       this.contactCustomerService.createCustomerContact(valueForm).subscribe({
         next: (res) => {
-          console.log(res);  this.validateForm.reset();
+          console.log(res);
+          this.validateForm.reset();
+          this.message.success('Đã gửi!');
         }
       })
     }else {
