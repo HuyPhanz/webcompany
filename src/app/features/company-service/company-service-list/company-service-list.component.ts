@@ -8,6 +8,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyServiceService } from '../company-service.service';
 import { ServiceReqDTO, ServiceResDTO } from '../interface';
+import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-company-service-list',
   imports: [FormsModule, NzInputModule, NzPopconfirmModule, NzTableModule, NzButtonModule, NzIconModule],
@@ -15,6 +16,8 @@ import { ServiceReqDTO, ServiceResDTO } from '../interface';
   styleUrl: './company-service-list.component.scss'
 })
 export class CompanyServiceListComponent  implements OnInit {
+  // message
+  message = inject(NzMessageService);
   //service
   companyService = inject(CompanyServiceService);
   router = inject(Router);
@@ -37,6 +40,7 @@ export class CompanyServiceListComponent  implements OnInit {
   deleteCompanyService(id: number) {
     this.companyService.deleteCompanyService(id).subscribe(() => {
       this.getAllCompanyService();
+      this.message.success('Xóa thành công!');
     });
   }
   //update
@@ -57,7 +61,7 @@ export class CompanyServiceListComponent  implements OnInit {
     this.companyService.updateCompanyService(updateCompanyService).subscribe(() => {
       this.getAllCompanyService();
     });
-    alert('updated successfully.');
+    this.message.success('Cập nhật thành công!');
   }
   //
   updateEditCache(): void {

@@ -8,20 +8,20 @@
       <th>Title</th>
       <th>Description</th>
       <th>Icon</th>
-      <th>Action</th>
+      <th nzWidth="15%">Action</th>
     </tr>
     </thead>
     <tbody>
       @for (data of companySupportOfData; track data) {
         <tr>
           @if (!editCache[data.id].edit) {
-            <td>{{ data.title }}</td>
-            <td>{{ data.description }}</td>
-            <td>{{ data.icon }}</td>
+            <td nzEllipsis>{{ data.title }}</td>
+            <td nzEllipsis>{{ data.description }}</td>
+            <td nzEllipsis>{{ data.icon }}</td>
             <td>
-              <button nz-button nzType="primary" (click)="startEdit(data.id)"><nz-icon nzType="edit" />Edit</button>
+              <button nz-button nzType="primary" (click)="startEdit(data.id)"><nz-icon nzType="edit" /></button>
               <button nz-button nzType="primary" nzDanger (click)="deleteSupportService(data.id)">
-                <nz-icon nzType="delete" />Delete
+                <nz-icon nzType="delete" />
               </button>
             </td>
           } @else {

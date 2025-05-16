@@ -16,10 +16,10 @@
       @for (data of companyServiceOfData; track data) {
         <tr>
           @if (!editCache[data.id].edit) {
-            <td>{{ data.title }}</td>
-            <td>{{ data.description }}</td>
-            <td>{{ data.image }}</td>
-            <td>{{ data.tags }}</td>
+            <td nzEllipsis>{{ data.title }}</td>
+            <td nzEllipsis>{{ data.description }}</td>
+            <td nzEllipsis>{{ data.image }}</td>
+            <td nzEllipsis>{{ data.tags }}</td>
             <td>
               <button nz-button nzType="primary" (click)="startEdit(data.id)"><nz-icon nzType="edit" />Edit</button>
               <button nz-button nzType="primary" nzDanger (click)="deleteCompanyService(data.id)">
