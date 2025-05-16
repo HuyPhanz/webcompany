@@ -40,6 +40,7 @@ export class CompanyManagerListComponent implements OnInit {
   deleteExperienceService(id: number) {
     this.companyManagerService.deleteData(id).subscribe(() => {
       this.getAllCompanyExperience();
+      this.message.success('Xóa thành công!');
     });
   }
   //update
