@@ -70,9 +70,9 @@ export class BannerFormComponent {
       this.bannerService.createBanner(payload).subscribe({
         next: (res) => {
           console.log(res);
-          this.message.success('Tạo thành công!');
+          this.message.success('Thêm thành công!');
         },error: () => {
-          this.message.error('Tạo thất bại!');
+          this.message.error('Thêm thất bại!');
         }
       });
       // Reset form

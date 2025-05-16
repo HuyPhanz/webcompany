@@ -9,6 +9,7 @@ import { BannerReqDTO, BannerResDTO } from '../interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-banner-list',
   imports: [
@@ -26,6 +27,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
   styleUrl: './banner-list.component.scss'
 })
 export class BannerListComponent implements OnInit {
+  // message
+  message = inject(NzMessageService);
   //service
   bannerService = inject(BannerService);
   router = inject(Router);
@@ -48,6 +51,7 @@ export class BannerListComponent implements OnInit {
   deleteNew(id: number) {
     this.bannerService.deleteBanner(id).subscribe(() => {
       this.getAllNews();
+      this.message.success('Xóa thành công!');
     });
   }
   //update
@@ -61,7 +65,7 @@ export class BannerListComponent implements OnInit {
     this.bannerService.updateBanner(updateBanner).subscribe(() => {
       this.getAllNews();
     });
-    alert('updated successfully.');
+    this.message.success('Cập nhật thành công!');
   }
   //
   updateEditCache(): void {
