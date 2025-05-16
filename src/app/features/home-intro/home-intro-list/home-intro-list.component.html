@@ -15,9 +15,9 @@
       @for (data of homeIntroOfData; track data) {
         <tr>
           @if (!editCache[data.id].edit) {
-            <td>{{ data.title }}</td>
-            <td>{{ data.description }}</td>
-            <td>{{ data.image }}</td>
+            <td nzEllipsis>{{ data.title }}</td>
+            <td nzEllipsis>{{ data.description }}</td>
+            <td nzEllipsis>{{ data.image }}</td>
             <td>
               <button nz-button nzType="primary" (click)="startEdit(data.id)"><nz-icon nzType="edit" />Edit</button>
               <button nz-button nzType="primary" nzDanger (click)="deleteSupportService(data.id)">

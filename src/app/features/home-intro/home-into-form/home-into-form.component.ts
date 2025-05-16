@@ -8,6 +8,7 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzNoAnimationModule } from 'ng-zorro-antd/core/no-animation';
 import { HomeIntroService } from '../home-intro.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-home-into-form',
   imports: [
@@ -25,6 +26,8 @@ import { HomeIntroService } from '../home-intro.service';
   styleUrl: './home-into-form.component.scss'
 })
 export class HomeIntoFormComponent {
+  // message
+  message = inject(NzMessageService);
   // service
   homeIntroService = inject(HomeIntroService);
   //validate
@@ -47,9 +50,11 @@ export class HomeIntoFormComponent {
       this.homeIntroService.createData(data).subscribe({
         next: (res) => {
           console.log(res);
+          this.message.success('Thêm thành công!');
         },
         error: (err) => {
           console.log(err);
+          this.message.error('Lỗi dữ liệu tải lên!');
         }
       });
       console.log('Submitted Data:', data);

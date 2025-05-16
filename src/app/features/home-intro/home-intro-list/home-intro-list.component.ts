@@ -8,6 +8,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HomeIntroService } from '../home-intro.service';
 import { DataReqDTO, DataResDTO } from '../interface';
+import { NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-home-intro-list',
   imports: [FormsModule, NzInputModule, NzPopconfirmModule, NzTableModule, NzButtonModule, NzIconModule],
@@ -15,6 +16,8 @@ import { DataReqDTO, DataResDTO } from '../interface';
   styleUrl: './home-intro-list.component.scss'
 })
 export class HomeIntroListComponent implements OnInit {
+  // message
+  message = inject(NzMessageService);
   //service
   homeIntroService = inject(HomeIntroService);
   router = inject(Router);
@@ -37,6 +40,7 @@ export class HomeIntroListComponent implements OnInit {
   deleteSupportService(id: number) {
     this.homeIntroService.deleteData(id).subscribe(() => {
       this.getAllCompanySupport();
+      this.message.success('Xóa thành công!');
     });
   }
   //update
@@ -50,7 +54,7 @@ export class HomeIntroListComponent implements OnInit {
     this.homeIntroService.updateData(updateBanner).subscribe(() => {
       this.getAllCompanySupport();
     });
-    alert('updated successfully.');
+    this.message.success('Cập nhật thành công!');
   }
   //
   updateEditCache(): void {
