@@ -21,17 +21,11 @@ import { CompanySupportRoutes } from './features/company-support/company-service
 import { HomeAboutUsRoutes } from './features/home-intro/employee.routes';
 import { PartnersRoutes } from './features/partners/company-service.routes';
 import { FeatureServiceRoutes } from './features/feature-service/company-service.routes';
-import {
-  CompanyExperiencesListComponent
-} from './features/company-experiences/company-experiences-list/company-experiences-list.component';
+import { CompanyExperiencesListComponent } from './features/company-experiences/company-experiences-list/company-experiences-list.component';
 import { AboutUsIntroListComponent } from './features/about-us-intro/about-us-intro-list/about-us-intro-list.component';
-import {
-  CompanyManagerListComponent
-} from './features/company-manager/company-manager-list/company-manager-list.component';
-import {
-  CustomerContactListComponent
-} from './features/company/customer_contact/customer-contact-list/customer-contact-list.component';
-// import { AuthGuard } from './core/guards/auth.guard';
+import { CompanyManagerListComponent } from './features/company-manager/company-manager-list/company-manager-list.component';
+import { CustomerContactListComponent } from './features/company/customer_contact/customer-contact-list/customer-contact-list.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -67,7 +61,7 @@ export const routes: Routes = [
       // news-page
       {
         path: 'news-page',
-        component: NewsPageComponent,
+        component: NewsPageComponent
       },
       {
         path: 'news-detail/:id',
@@ -78,7 +72,7 @@ export const routes: Routes = [
   {
     path: 'app',
     component: LayoutComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       // company-info
       {
@@ -143,22 +137,22 @@ export const routes: Routes = [
       //company-experience
       {
         path: 'company-experience',
-        component: CompanyExperiencesListComponent,
+        component: CompanyExperiencesListComponent
       },
       //about-intro
       {
         path: 'about-intro',
-        component: AboutUsIntroListComponent,
+        component: AboutUsIntroListComponent
       },
       //company-manager
       {
         path: 'company-manager',
-        component: CompanyManagerListComponent,
+        component: CompanyManagerListComponent
       },
       //customer-contact
       {
         path: 'customer-contact',
-        component: CustomerContactListComponent,
+        component: CustomerContactListComponent
       }
     ]
   },
