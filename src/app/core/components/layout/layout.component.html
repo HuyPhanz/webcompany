@@ -8,10 +8,19 @@
     [nzTrigger]="null"
   >
     <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
-        <h1>Ant Design of Angular</h1>
+      <a href="" target="_blank">
+<!--        <img [src]="" alt="avatar" />-->
+        <h1>{{userName}}</h1>
       </a>
+      <button
+        nzType="link"
+        style="color: white;"
+        nz-tooltip
+        (click)="logout()"
+        nzTooltipTitle="Đăng xuất"
+      >
+        <nz-icon nzType="logout" nzTheme="outline"></nz-icon>
+      </button>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
 <!--      <li nz-submenu nzOpen nzTitle="Company" nzIcon="unordered-list">-->
@@ -25,20 +34,10 @@
 <!--        </ul>-->
 <!--      </li>-->
       <li nz-menu-item nzMatchRouter>
-        <a [routerLink]="['banner']">Banner</a>
-      </li>
-      <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['employee']">Employee</a>
       </li>
       <li nz-menu-item nzMatchRouter>
-        <a [routerLink]="['news']">News</a>
-      </li>
-      <li nz-menu-item nzMatchRouter>
-        <a [routerLink]="['project']">Project</a>
-      </li>
-
-      <li nz-menu-item nzMatchRouter>
-        <a [routerLink]="['company-service']">Company Service</a>
+        <a [routerLink]="['banner']">Banner</a>
       </li>
       <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['company-support']">Company Support</a>
@@ -47,23 +46,35 @@
         <a [routerLink]="['home-about-us']">Home About Us</a>
       </li>
       <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['company-service']">Company Service</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['partners']">Partners</a>
       </li>
       <li nz-menu-item nzMatchRouter>
-        <a [routerLink]="['feature-service']">Feature Service</a>
-      </li>
-      <li nz-menu-item nzMatchRouter>
-        <a [routerLink]="['company-experience']">Company Experience</a>
+        <a [routerLink]="['customer-contact']">Customer Contact</a>
       </li>
       <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['about-intro']">About Intro</a>
       </li>
       <li nz-menu-item nzMatchRouter>
+      <a [routerLink]="['company-experience']">Company Experience</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['company-manager']">Company Manager</a>
       </li>
       <li nz-menu-item nzMatchRouter>
-        <a [routerLink]="['customer-contact']">Customer Contact</a>
+        <a [routerLink]="['news']">News</a>
       </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['feature-service']">Feature Service</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['project']">Project</a>
+      </li>
+
+
+
     </ul>
 
   </nz-sider>

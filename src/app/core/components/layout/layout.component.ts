@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NzContentComponent, NzHeaderComponent, NzLayoutComponent, NzSiderComponent } from 'ng-zorro-antd/layout';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { NzIconDirective } from 'ng-zorro-antd/icon';
-import { NzMenuDirective, NzMenuItemComponent, NzSubMenuComponent } from 'ng-zorro-antd/menu';
+import { NzMenuDirective, NzMenuItemComponent } from 'ng-zorro-antd/menu';
 import { LIST_ADMIN } from '../../../constant';
 import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
-
+import { NzTooltipDirective } from 'ng-zorro-antd/tooltip';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -20,12 +21,30 @@ import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
     NzMenuDirective,
     NzMenuItemComponent,
     NzSiderComponent,
-    NzSubMenuComponent,
     RouterLink,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    NzTooltipDirective
   ]
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
   isCollapsed = false;
   protected readonly LIST_ADMIN = LIST_ADMIN;
+  //
+  userName = '';
+  //auth service
+  authService = inject(AuthService);
+
+
+  getName(){
+    this.userName = this.authService.getUserName();
+  }
+  ngOnInit(): void {
+    this.getName();
+  }
+
+  //logout
+  logout(): void {
+    this.authService.logout();
+  }
+
 }

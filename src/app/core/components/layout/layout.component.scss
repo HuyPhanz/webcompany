@@ -34,11 +34,20 @@
 .sidebar-logo {
   position: relative;
   height: 64px;
-  padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
   background: #001529;
   transition: all 0.3s;
+  display: flex;
+  justify-content: space-between;
+  button{
+    background: #001529;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-right: 20px;
+    font-size: 15px;
+  }
 }
 
 .sidebar-logo img {
